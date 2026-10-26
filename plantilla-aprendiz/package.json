@@ -1,0 +1,11 @@
+{
+  "name": "plantilla-aprendiz-adso-3314621",
+  "version": "1.0.0",
+  "description": "Plantilla de trabajo para el Aprendiz ADSO - Ficha 3314621 CADPH Garzón",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/validador.test.js",
+    "test:watch": "node --test --watch test/validador.test.js",
+    "validate": "node test/validador-cli.js"
+  }
+}

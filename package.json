@@ -1,0 +1,22 @@
+{
+  "name": "adso-3314621-javascript-react-prep",
+  "version": "1.0.0",
+  "description": "JavaScript Moderno (ES6+) hacia React + Vite - SENA Ficha 3314621 CADPH Garzón",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/validador.test.js",
+    "test:watch": "node --test --watch test/validador.test.js",
+    "validate": "node test/validador-cli.js"
+  },
+  "keywords": [
+    "sena",
+    "adso",
+    "javascript",
+    "react",
+    "es6",
+    "node"
+  ],
+  "author": "Instructor ADSO - Ficha 3314621",
+  "license": "MIT"
+}
