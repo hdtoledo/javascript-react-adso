@@ -1681,7 +1681,7 @@ Object.is(0x004F, 0x009A) === false; // ¡CAMBIO DETECTADO!
       </div>
     </section>
 
-    <!-- SLIDE 8: LECCIÓN 01 · PASO 7/7 - RETO EN AULA -->
+        <!-- SLIDE 8: LECCIÓN 01 · PASO 7/7 - RETO EN AULA -->
     <section id="slide-8" class="slide-content hidden flex-col my-auto py-4 w-full">
       <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
@@ -1690,14 +1690,14 @@ Object.is(0x004F, 0x009A) === false; // ¡CAMBIO DETECTADO!
               <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
                 Módulo 1 · Lección 01 (Paso 7 de 7)
               </span>
-              <span class="text-xs text-slate-500 font-medium">Evaluación Formativa Inmediata</span>
+              <span class="text-xs text-slate-500 font-medium">Diagnóstico Técnico en Memoria</span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               Reto en Aula 01: Identificar Mutación vs Estado Declarativo
             </h2>
           </div>
           <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200 self-start sm:self-auto shrink-0 shadow-2xs">
-            Práctica en Puesto (5 min)
+            Comprobación Object.is() en Vivo
           </span>
         </div>
 
@@ -1717,51 +1717,48 @@ Object.is(0x004F, 0x009A) === false; // ¡CAMBIO DETECTADO!
 
         <!-- Dos Implementaciones Lado a Lado con Botones de Selección -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
-          <div class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between">
+          <div id="reto-card-a" class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between transition-all duration-300">
             <div>
-              <span class="text-slate-400 block mb-2 font-bold">// Implementación A:</span>
-              <pre class="text-slate-200 leading-relaxed"><code>function agregarA(lista, item) &#123;
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-rose-400 font-bold">// Opción A: Mutación Directa</span>
+                <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded">.push()</span>
+              </div>
+              <pre class="text-slate-200 leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800"><code>function agregarA(lista, item) {
   lista.push(item);
   return lista;
-&#125;</code></pre>
+}</code></pre>
             </div>
-            <button onclick="responderRetoL1('A')" class="mt-4 w-full py-2 bg-slate-800 hover:bg-rose-900/40 text-rose-300 hover:text-white border border-rose-800/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
-              <span>Probar Opción A (push)</span>
+            <button onclick="responderRetoL1('A')" class="mt-4 w-full py-2.5 bg-slate-800 hover:bg-rose-900/50 text-rose-300 hover:text-white border border-rose-700/60 rounded-xl font-bold text-xs transition cursor-pointer flex items-center justify-center gap-2 shadow-xs active:scale-98">
+              <span>Probar Opción A (.push)</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
 
-          <div class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between">
+          <div id="reto-card-b" class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between transition-all duration-300">
             <div>
-              <span class="text-slate-400 block mb-2 font-bold">// Implementación B:</span>
-              <pre class="text-emerald-400 leading-relaxed"><code>function agregarB(lista, item) &#123;
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-emerald-400 font-bold">// Opción B: Copia Inmutable</span>
+                <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded">[...spread]</span>
+              </div>
+              <pre class="text-emerald-300 leading-relaxed bg-slate-950 p-3 rounded-lg border border-slate-800"><code>function agregarB(lista, item) {
   return [...lista, item];
-&#125;</code></pre>
+}</code></pre>
             </div>
-            <button onclick="responderRetoL1('B')" class="mt-4 w-full py-2 bg-emerald-950/80 hover:bg-[#39A900] text-emerald-300 hover:text-white border border-emerald-700/80 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
-              <span>Probar Opción B (spread)</span>
+            <button onclick="responderRetoL1('B')" class="mt-4 w-full py-2.5 bg-emerald-950/80 hover:bg-[#39A900] text-emerald-300 hover:text-white border border-emerald-700/80 rounded-xl font-bold text-xs transition cursor-pointer flex items-center justify-center gap-2 shadow-xs active:scale-98">
+              <span>Probar Opción B ([...spread])</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
             </button>
           </div>
         </div>
 
-        <!-- Feedback Dinámico de la Respuesta -->
-        <div id="feedback-reto-l1" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border transition-all"></div>
+        <!-- Indicación Inicial de Exploración (visible hasta que se hace clic) -->
+        <div id="reto-prompt-inicial" class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-center gap-2 mb-4">
+          <i data-lucide="info" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+          <span>Presiona el botón de la <strong>Opción A</strong> o la <strong>Opción B</strong> para ver el diagnóstico técnico paso a paso de lo que ocurre en la memoria RAM y en React al ejecutar cada una.</span>
+        </div>
 
-        <!-- Guía Oculta para el Instructor -->
-        <details class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-600">
-          <summary class="font-bold text-slate-800 cursor-pointer hover:text-emerald-700 transition flex items-center gap-1.5">
-            <i data-lucide="help-circle" class="w-4 h-4 text-[#39A900]"></i>
-            <span>Ver Guía Pedagógica y Solución Técnica para el Instructor</span>
-          </summary>
-          <div class="mt-3 pt-3 border-t border-slate-200 space-y-2 text-slate-700 leading-relaxed">
-            <p><strong>Explicación para el aula:</strong></p>
-            <p>
-              • <strong>La Opción A falla:</strong> <code class="font-mono bg-slate-200 px-1 rounded">lista.push()</code> muta el arreglo existente en el Heap. La dirección en memoria sigue siendo la misma. React compara <code class="font-mono bg-slate-200 px-1 rounded">Object.is(prev, next)</code>, que devuelve <code class="font-mono text-rose-600">true</code>, por lo que React decide que no hubo cambios y <strong>cancela el re-renderizado</strong>.
-            </p>
-            <p>
-              • <strong>La Opción B triunfa:</strong> El operador spread <code class="font-mono bg-slate-200 px-1 rounded">[...lista, item]</code> crea un <strong>nuevo arreglo en una dirección de memoria distinta</strong>. Para React, <code class="font-mono bg-slate-200 px-1 rounded">Object.is(prev, next)</code> es <code class="font-mono text-emerald-600">false</code>, lo que dispara inmediatamente el ciclo de actualización de la UI.
-            </p>
-          </div>
-        </details>
+        <!-- Feedback Dinámico con Diagnóstico Técnico Profundo -->
+        <div id="feedback-reto-l1" class="hidden p-5 rounded-2xl text-xs sm:text-sm leading-relaxed mb-4 border transition-all duration-300 shadow-sm"></div>
 
         <!-- Footer Navegación de Slide -->
         <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
@@ -3206,41 +3203,125 @@ git push -u origin main</code></pre>
       if (window.lucide) lucide.createIcons();
     }
 
-    function responderRetoL1(opcion) {
+        function responderRetoL1(opcion) {
       const fb = document.getElementById('feedback-reto-l1');
+      const promptInit = document.getElementById('reto-prompt-inicial');
+      const cardA = document.getElementById('reto-card-a');
+      const cardB = document.getElementById('reto-card-b');
+      
       if (!fb) return;
+      if (promptInit) promptInit.classList.add('hidden');
       fb.classList.remove('hidden');
       
       if (opcion === 'A') {
-        fb.className = 'p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border bg-rose-50 border-rose-300 text-rose-950 transition-all';
+        // Estilos de tarjetas
+        if (cardA) {
+          cardA.className = 'bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border-2 border-rose-500 ring-4 ring-rose-500/20 flex flex-col justify-between transition-all duration-300';
+        }
+        if (cardB) {
+          cardB.className = 'bg-slate-900/60 text-slate-400 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between transition-all duration-300 opacity-75';
+        }
+
+        fb.className = 'p-5 sm:p-6 rounded-2xl border text-xs sm:text-sm leading-relaxed mb-4 bg-rose-50/90 border-rose-300 text-rose-950 transition-all shadow-sm';
         fb.innerHTML = `
-          <div class="flex items-start gap-2.5">
-            <span class="text-rose-600 font-extrabold text-base">❌</span>
-            <div>
-              <strong class="text-rose-800 block text-sm mb-1">¡Incorrecto! La Implementación A provocará que la pantalla NO se actualice:</strong>
-              <p>
-                Al ejecutar <code>lista.push(item)</code> estás <strong>mutando el mismo arreglo en el Heap</strong>. La dirección de memoria sigue siendo la misma. React compara <code>Object.is(prev, next)</code>, el cual evalúa como <code>true</code>. React asume que nada ha cambiado y <strong>aborta el re-renderizado</strong>.
-              </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-2.5 pb-3 border-b border-rose-200">
+              <span class="w-7 h-7 rounded-full bg-rose-600 text-white flex items-center justify-center font-bold text-sm shrink-0">✕</span>
+              <div>
+                <strong class="text-rose-900 text-sm sm:text-base font-extrabold block">Diagnóstico de la Opción A: ¿Por qué la pantalla se queda congelada?</strong>
+                <span class="text-rose-700 text-xs font-medium">Fallo crítico por mutación en el mismo puntero de memoria RAM</span>
+              </div>
+            </div>
+
+            <!-- Paso a Paso Técnico para el Aprendiz -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-sans">
+              <div class="p-3 bg-white/90 rounded-xl border border-rose-200">
+                <span class="font-bold text-rose-900 text-xs block mb-1">1. ¿Qué hace lista.push()?</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  Modifica los elementos dentro de la <strong>misma celda de memoria en el Heap (0x004F)</strong>. No crea un nuevo arreglo.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-rose-100/70 p-1 rounded text-rose-900">Puntero: 0x004F (Sin cambio)</div>
+              </div>
+
+              <div class="p-3 bg-white/90 rounded-xl border border-rose-200">
+                <span class="font-bold text-rose-900 text-xs block mb-1">2. Prueba interna de React:</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  React ejecuta <code class="font-mono bg-slate-100 px-1 rounded">Object.is(prev, next)</code>. Al comparar <code class="font-mono">0x004F === 0x004F</code>, el resultado es <strong>true</strong>.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-rose-100/70 p-1 rounded text-rose-900">Object.is() = true (React: "Nada cambió")</div>
+              </div>
+
+              <div class="p-3 bg-white/90 rounded-xl border border-rose-200">
+                <span class="font-bold text-rose-900 text-xs block mb-1">3. Consecuencia en la UI:</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  <strong>React aborta el renderizado.</strong> El console.log tiene el dato, pero la pantalla jamás se actualiza para el usuario.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-rose-100/70 p-1 rounded text-rose-900">Resultado: Pantalla congelada</div>
+              </div>
+            </div>
+
+            <!-- Analogía Didáctica -->
+            <div class="p-3 bg-rose-100/60 rounded-xl border border-rose-200/90 text-xs text-rose-950 font-sans">
+              <strong>💡 La analogía de la libreta para el aprendiz:</strong> Si tienes una libreta escolar (<code class="font-mono font-bold">0x004F</code>) en tu pupitre y escribes una frase nueva en ella pero no se la entregas al instructor, el instructor no sabe que escribiste algo. Para que React reaccione, debes entregarle un cuaderno nuevo (<code class="font-mono font-bold">0x009A</code>).
             </div>
           </div>
         `;
       } else {
-        fb.className = 'p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border bg-emerald-50 border-emerald-300 text-emerald-950 transition-all';
+        // Estilos de tarjetas
+        if (cardB) {
+          cardB.className = 'bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border-2 border-emerald-500 ring-4 ring-emerald-500/20 flex flex-col justify-between transition-all duration-300';
+        }
+        if (cardA) {
+          cardA.className = 'bg-slate-900/60 text-slate-400 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between transition-all duration-300 opacity-75';
+        }
+
+        fb.className = 'p-5 sm:p-6 rounded-2xl border text-xs sm:text-sm leading-relaxed mb-4 bg-emerald-50/90 border-emerald-300 text-emerald-950 transition-all shadow-sm';
         fb.innerHTML = `
-          <div class="flex items-start gap-2.5">
-            <span class="text-emerald-600 font-extrabold text-base">✔</span>
-            <div>
-              <strong class="text-[#39A900] block text-sm mb-1">¡Correcto! La Implementación B actualizará la pantalla de inmediato:</strong>
-              <p>
-                El operador spread <code>[...lista, item]</code> genera una <strong>nueva referencia en el Heap de memoria</strong>. React evalúa <code>Object.is(prev, next) === false</code>, detecta el cambio instantáneamente y dispara el algoritmo de Diffing del Virtual DOM para pintar el nuevo elemento.
-              </p>
+          <div class="space-y-4">
+            <div class="flex items-center gap-2.5 pb-3 border-b border-emerald-200">
+              <span class="w-7 h-7 rounded-full bg-[#39A900] text-white flex items-center justify-center font-bold text-sm shrink-0">✔</span>
+              <div>
+                <strong class="text-emerald-950 text-sm sm:text-base font-extrabold block">Diagnóstico de la Opción B: ¿Por qué la pantalla se actualiza al instante?</strong>
+                <span class="text-emerald-700 text-xs font-medium">Inmutabilidad exitosa con nueva referencia en el Heap de memoria</span>
+              </div>
+            </div>
+
+            <!-- Paso a Paso Técnico para el Aprendiz -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 font-sans">
+              <div class="p-3 bg-white/90 rounded-xl border border-emerald-200">
+                <span class="font-bold text-emerald-950 text-xs block mb-1">1. ¿Qué hace [...lista, item]?</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  Desempaqueta los elementos y reserva un <strong>bloque de memoria totalmente NUEVO en el Heap (0x009A)</strong>.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-emerald-100/70 p-1 rounded text-emerald-900">Nuevo Puntero: 0x009A (Nueva Referencia)</div>
+              </div>
+
+              <div class="p-3 bg-white/90 rounded-xl border border-emerald-200">
+                <span class="font-bold text-emerald-950 text-xs block mb-1">2. Prueba interna de React:</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  React ejecuta <code class="font-mono bg-slate-100 px-1 rounded">Object.is(0x004F, 0x009A)</code>. Como son punteros distintos, evalúa como <strong>false</strong>.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-emerald-100/70 p-1 rounded text-emerald-900">Object.is() = false (React: "¡Hay cambio!")</div>
+              </div>
+
+              <div class="p-3 bg-white/90 rounded-xl border border-emerald-200">
+                <span class="font-bold text-emerald-950 text-xs block mb-1">3. Consecuencia en la UI:</span>
+                <p class="text-slate-700 text-[11px] leading-relaxed">
+                  Dispara de inmediato el <strong>Diffing del Virtual DOM (Fiber)</strong> y pinta el nuevo elemento en el DOM real en menos de 0.4ms.
+                </p>
+                <div class="mt-2 font-mono text-[10px] bg-emerald-100/70 p-1 rounded text-emerald-900">Resultado: Pantalla actualizada con fluidez</div>
+              </div>
+            </div>
+
+            <!-- Regla de Oro -->
+            <div class="p-3 bg-emerald-100/60 rounded-xl border border-emerald-200/90 text-xs text-emerald-950 font-sans">
+              <strong>⭐ La Regla de Oro en React:</strong> Nunca uses métodos mutadores como <code class="font-mono text-rose-700 bg-white px-1 rounded">.push()</code>, <code class="font-mono text-rose-700 bg-white px-1 rounded">.pop()</code> o <code class="font-mono text-rose-700 bg-white px-1 rounded">.splice()</code> sobre un estado de React. Siempre genera nuevas referencias inmutables usando <code class="font-mono text-emerald-800 bg-white px-1 rounded">[...spread]</code>, <code class="font-mono text-emerald-800 bg-white px-1 rounded">.map()</code> o <code class="font-mono text-emerald-800 bg-white px-1 rounded">.filter()</code>.
             </div>
           </div>
         `;
       }
       if (window.lucide) lucide.createIcons();
     }
-
 
     function copiarCodigo(elemId) {
       const code = document.getElementById(elemId)?.innerText || '';
