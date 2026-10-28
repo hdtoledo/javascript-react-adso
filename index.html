@@ -2074,95 +2074,215 @@ referencia...</div>
       </div>
     </section>
 
-    <section id="slide-10" class="slide-content hidden flex-col my-auto py-4">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
-        <div class="flex items-center justify-between mb-4 border-b pb-4">
+        <!-- SLIDE 10: LECCIÓN 03 - DESESTRUCTURACIÓN Y PROPS EN REACT -->
+    <section id="slide-10" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        
+        <!-- Header de la Lección 03 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 border-b border-slate-200/80 pb-4">
           <div>
-            <span class="text-xs font-bold text-[#39A900] uppercase tracking-wider">Lección 03 / Sintaxis Clave</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Desestructuración: La Anatomía de las Props en React</h2>
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 03 de 14
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Sintaxis ES6+ Clave para Componentes</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Desestructuración: La Anatomía de las Props en React
+            </h2>
           </div>
-          <span class="bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1 rounded-full border border-purple-200">Reto 1 en Aula</span>
+          <span class="bg-purple-50 text-purple-700 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Reto 1 en Aula
+          </span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
+        <!-- Concepto Teórico Central -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch mb-6">
+          <div class="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
             <p>
-              La desestructuración te permite "desempaquetar" valores de arreglos o propiedades de objetos en variables distintas de forma concisa y elegante.
+              La <strong>desestructuración</strong> permite "desempaquetar" propiedades de objetos directamente en variables con una sintaxis limpia, eliminando la necesidad de escribir <code class="font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded">props.titulo</code>, <code class="font-mono bg-slate-100 text-slate-800 px-1 py-0.5 rounded">props.precio</code> repetidamente.
             </p>
-            <div class="bg-slate-50 border p-4 rounded-xl space-y-2">
-              <h4 class="font-bold text-slate-800">Tres superpoderes de la desestructuración:</h4>
-              <ul class="space-y-1.5 text-xs text-slate-700">
-                <li><strong>1. Renombrar propiedades:</strong> <code class="text-emerald-700 font-mono">const { name: nombreCompleto } = user;</code></li>
-                <li><strong>2. Valores por defecto (fallback):</strong> <code class="text-emerald-700 font-mono">const { rol = "Aprendiz" } = user;</code></li>
-                <li><strong>3. Desestructuración en argumentos:</strong> Evita escribir <code class="font-mono">props.titulo</code>, <code class="font-mono">props.precio</code> en cada línea.</li>
+
+            <div class="bg-slate-50 border border-slate-200 p-4 rounded-xl space-y-2.5">
+              <h4 class="font-bold text-slate-900 text-xs sm:text-sm flex items-center gap-1.5">
+                <i data-lucide="sparkles" class="w-4 h-4 text-[#39A900]"></i> Tres superpoderes indispensables para React:
+              </h4>
+              <ul class="space-y-2 text-xs text-slate-700">
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 mt-1.5 shrink-0"></span>
+                  <div><strong>1. Renombrar propiedades:</strong> <code class="text-emerald-700 font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200">const { correo: email } = aprendiz;</code> (cambia el nombre de la variable al extraerla).</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-blue-500 mt-1.5 shrink-0"></span>
+                  <div><strong>2. Valores por defecto (fallback):</strong> <code class="text-blue-700 font-mono bg-white px-1.5 py-0.5 rounded border border-slate-200">const { ficha = 3314621 } = aprendiz;</code> (si la propiedad no viene o es <code class="font-mono">undefined</code>).</div>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-500 mt-1.5 shrink-0"></span>
+                  <div><strong>3. Desestructuración en argumentos:</strong> En React, los componentes reciben las props directamente en los parámetros de la función.</div>
+                </li>
               </ul>
             </div>
-            <p class="text-xs text-slate-500">
-              Observa el paralelo en el código de la derecha: cómo luce una función en JavaScript vanilla y cómo se transforma directamente en un componente funcional de React.
-            </p>
           </div>
 
-          <div class="bg-slate-900 text-slate-200 rounded-xl p-4 font-mono text-xs shadow-md">
-            <div class="text-slate-400 pb-2 mb-2 border-b border-slate-800 flex justify-between items-center">
-              <span>TarjetaProducto.jsx (Componente React)</span>
-              <span class="text-emerald-400 text-[10px]">React + ES6</span>
-            </div>
-            <pre class="text-cyan-300 leading-relaxed overflow-x-auto"><code>// En React, desestructuramos props directo en la función:
+          <!-- Código Comparativo -->
+          <div class="bg-slate-900 text-slate-200 rounded-xl p-4 sm:p-5 font-mono text-xs shadow-md border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="text-slate-400 pb-2 mb-2 border-b border-slate-800 flex justify-between items-center text-[11px]">
+                <span class="text-cyan-400 font-bold">TarjetaProducto.jsx (Componente React)</span>
+                <span class="text-emerald-400 text-[10px] bg-slate-800 px-2 py-0.5 rounded">Props ES6</span>
+              </div>
+              <pre class="text-cyan-300 leading-relaxed overflow-x-auto text-[11px]"><code>// Desestructuración directa en los parámetros:
 function TarjetaProducto({ 
   id, 
   titulo, 
-  precio = 0, 
-  categoria = "General" 
+  precio = 0,             // Fallback por defecto
+  categoria: rubro = "General" // Renombrado + Fallback
 }) {
   return (
-    &lt;div className="p-4 border rounded"&gt;
+    &lt;div className="tarjeta-adso"&gt;
       &lt;h3&gt;{titulo}&lt;/h3&gt;
       &lt;p&gt;Precio: ${precio}&lt;/p&gt;
-      &lt;span&gt;Categoría: {categoria}&lt;/span&gt;
+      &lt;span&gt;Rubro: {rubro}&lt;/span&gt;
     &lt;/div&gt;
   );
 }</code></pre>
-            <div class="mt-4 p-3 bg-slate-800/80 rounded border border-slate-700 text-[11px] text-emerald-400">
-              💡 Este es exactamente el ejercicio que validamos en el <strong>Reto 1</strong> con <code class="font-bold">npm test</code>.
+            </div>
+            <div class="mt-3 p-2.5 bg-slate-800/80 rounded border border-slate-700 text-[11px] text-emerald-400">
+              💡 Dominar esto te permite escribir componentes limpios sin ensuciar el cuerpo de la función.
             </div>
           </div>
         </div>
 
-        <!-- Ejercicio Práctico en Aula 03 -->
-        <div class="mt-6 pt-5 border-t border-slate-200 text-left">
-          <div class="bg-purple-50/70 border border-purple-200 rounded-xl p-5">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-bold text-purple-900 flex items-center gap-1.5 uppercase tracking-wider">
-                <i data-lucide="terminal" class="w-4 h-4 text-purple-600"></i>
-                🎯 Ejercicio en Aula 03: Extracción Limpia de Props (Reto 1)
+        <!-- SECCIÓN DE PRÁCTICA: RETO 1 CON DATOS CRUDOS Y VALIDACIÓN EN VIVO / VS CODE -->
+        <div class="border-t border-slate-200 pt-5">
+          <div class="bg-purple-50/70 border border-purple-200 rounded-2xl p-5 sm:p-6 text-left space-y-4">
+            
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-purple-200/80 pb-3">
+              <span class="text-xs sm:text-sm font-black text-purple-950 flex items-center gap-2 uppercase tracking-wider">
+                <i data-lucide="terminal" class="w-4 h-4 text-purple-700"></i>
+                🎯 Reto 1 de Aula: Normalización de Perfil con Desestructuración
               </span>
-              <span class="text-[11px] font-bold text-purple-700 bg-white px-2.5 py-1 rounded border border-purple-200 shadow-2xs">Reto 1 en Vivo (10 min)</span>
+              <span class="text-[11px] font-bold text-purple-800 bg-white px-2.5 py-1 rounded-full border border-purple-200 shadow-2xs">
+                Práctica en VS Code &amp; Validador en Vivo
+              </span>
             </div>
-            <p class="text-xs text-slate-700 mb-3 leading-relaxed">
-              <strong>Reto para el aprendiz:</strong> Una función recibe un objeto aprendiz con datos crudos de registro. Extrae <code class="font-mono">nombre</code>, renombra <code class="font-mono">correo</code> a <code class="font-mono">email</code>, aplica fallback a <code class="font-mono">ficha = 3314621</code> y agrupa el resto de habilidades con el rest operator.
-            </p>
-            <div class="flex flex-wrap items-center gap-3">
-              <button onclick="ejecutarEjercicioProps()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold px-3 py-1.5 rounded text-xs flex items-center gap-1.5 transition cursor-pointer">
-                <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Ejecutar Prueba Reto 1
-              </button>
-              <button onclick="toggleSolucion('sol-s4')" class="text-xs font-bold text-purple-700 hover:text-purple-900 flex items-center gap-1 transition cursor-pointer">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-                <span id="txt-sol-s4">Ver Código y Solución</span>
-              </button>
+
+            <!-- Datos Crudos y Requisitos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+              
+              <!-- Tarjeta de Datos Crudos de Entrada -->
+              <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-800 font-mono text-xs">
+                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px]">
+                  <span class="text-amber-400 font-bold">// 1. OBJETO DE ENTRADA (DATOS CRUDOS)</span>
+                  <span class="text-[10px] text-slate-400">Datos del Aprendiz</span>
+                </div>
+                <pre class="text-slate-300 leading-relaxed text-[11px] overflow-x-auto"><code>const aprendizCrudo = {
+  nombre: "Valentina Plazas",
+  correo: "valen@sena.edu.co",
+  // Nota: 'ficha' NO VIENE en el objeto
+  react: "Avanzado",
+  vite: "Intermedio",
+  nodejs: "En progreso"
+};</code></pre>
+                <div class="mt-3 p-2 bg-slate-950 rounded border border-slate-800 text-[10px] text-slate-400">
+                  📌 Tu función debe recibir este objeto como argumento y extraer sus propiedades limpiamente.
+                </div>
+              </div>
+
+              <!-- Requisitos del Reto -->
+              <div class="bg-white p-4 rounded-xl border border-purple-200 text-xs space-y-2 shadow-2xs">
+                <span class="font-bold text-purple-950 block text-xs sm:text-sm mb-1">📋 Requisitos Técnicos de la Función:</span>
+                <ul class="space-y-1.5 text-slate-700 text-[11px]">
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold">1.</span>
+                    <span>Extraer la propiedad <code class="font-mono bg-purple-50 text-purple-900 px-1 rounded font-bold">nombre</code> tal cual.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold">2.</span>
+                    <span>Renombrar <code class="font-mono bg-purple-50 text-purple-900 px-1 rounded font-bold">correo</code> a <code class="font-mono bg-purple-50 text-purple-900 px-1 rounded font-bold">email</code> mediante desestructuración.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold">3.</span>
+                    <span>Aplicar valor por defecto a <code class="font-mono bg-purple-50 text-purple-900 px-1 rounded font-bold">ficha = 3314621</code> para que no quede <code class="font-mono">undefined</code>.</span>
+                  </li>
+                  <li class="flex items-start gap-1.5">
+                    <span class="text-emerald-600 font-bold">4.</span>
+                    <span>Agrupar las demás habilidades dinámicas con el rest operator <code class="font-mono bg-purple-50 text-purple-900 px-1 rounded font-bold">...habilidades</code>.</span>
+                  </li>
+                </ul>
+
+                <div class="pt-2 border-t border-purple-100 text-[11px] text-purple-900">
+                  <strong>Salida esperada:</strong> <code class="font-mono bg-slate-100 px-1 py-0.5 rounded">{ nombre, email, ficha, habilidades }</code>
+                </div>
+              </div>
+
             </div>
-            <div id="sol-s4" class="hidden mt-3 p-3.5 bg-white rounded-lg border border-purple-300 text-xs text-slate-700 space-y-2">
-              <pre class="bg-slate-900 text-purple-300 p-3 rounded font-mono text-[11px] overflow-x-auto"><code>function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
-  return { nombre, email, ficha, totalSkills: Object.keys(habilidades).length };
-}</code></pre>
+
+            <!-- Instrucciones para VS Code & Terminal -->
+            <div class="p-3.5 bg-slate-900 text-slate-200 rounded-xl border border-slate-800 text-xs font-mono space-y-2">
+              <div class="flex items-center justify-between text-[11px] text-slate-400 border-b border-slate-800 pb-1.5">
+                <span class="text-emerald-400 font-bold">💻 CÓMO EJECUTAR ESTE EJERCICIO EN VISUAL STUDIO CODE:</span>
+                <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-0.5 rounded">Terminal Node.js</span>
+              </div>
+              <p class="text-slate-300 text-[11px] font-sans">
+                Abre el proyecto descargado del Starter Kit en VS Code y edita el archivo <code class="text-cyan-300 font-mono">retos/reto1-destructuring.js</code>. Luego corre en la terminal:
+              </p>
+              <div class="p-2.5 bg-black/60 rounded-lg border border-slate-800 text-[11px] text-emerald-400 flex items-center justify-between">
+                <code>node --test test/validador.test.js</code>
+                <span class="text-slate-500 text-[10px] hidden sm:inline">Ejecuta las pruebas automáticas del Reto 1</span>
+              </div>
             </div>
-            <div id="output-s4-props" class="hidden mt-2 font-mono text-[11px] p-2.5 bg-slate-900 text-purple-300 rounded"></div>
+
+            <!-- Ventana de Código en Vivo para Validar en Línea -->
+            <div class="bg-white p-4 rounded-xl border border-purple-300 space-y-3 shadow-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <i data-lucide="code-2" class="w-4 h-4 text-purple-700"></i>
+                  Validador de Código en Vivo (Prueba tu función aquí mismo):
+                </span>
+                <span class="text-[10px] text-slate-500">Editor en navegador</span>
+              </div>
+
+              <textarea id="codigo-validador-reto1" rows="5" class="w-full p-3 font-mono text-xs bg-slate-950 text-emerald-300 rounded-xl border border-slate-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent leading-relaxed" placeholder="Escribe aquí tu función:
+function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
+  return { nombre, email, ficha, habilidades };
+}">function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
+  return { nombre, email, ficha, habilidades };
+}</textarea>
+
+              <div class="flex flex-wrap items-center gap-3">
+                <button onclick="validarReto1EnVivo()" class="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs rounded-xl shadow-xs transition cursor-pointer flex items-center gap-2">
+                  <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                  <span>Validar Código en Vivo</span>
+                </button>
+                <button onclick="restaurarCodigoReto1()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-xs rounded-xl transition cursor-pointer">
+                  Limpiar Plantilla
+                </button>
+              </div>
+
+              <!-- Resultado de la Validación en Vivo -->
+              <div id="resultado-validador-reto1" class="hidden p-3.5 rounded-xl text-xs font-mono leading-relaxed transition-all"></div>
+            </div>
+
           </div>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(9)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: Lección 02 (Variables Modernas)</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Lección 03 de 14 · Slide 10 de 21</span>
+          <button onclick="irDiapositiva(11)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: Lección 04. Spread Operator</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
         </div>
 
       </div>
     </section>
 
-    <!-- SLIDE 5: SPREAD OPERATOR (...) E INMUTABILIDAD -->
     <section id="slide-11" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
@@ -3861,6 +3981,103 @@ export async function sincronizarMultiplesFuentes(promesas) {
         `;
       }
       if (window.lucide) lucide.createIcons();
+    }
+
+    
+    // ================= FUNCIONES INTERACTIVAS LECCIÓN 03 (RETO 1) =================
+    function validarReto1EnVivo() {
+      const textarea = document.getElementById('codigo-validador-reto1');
+      const resultado = document.getElementById('resultado-validador-reto1');
+      if (!textarea || !resultado) return;
+
+      const codigo = textarea.value.trim();
+      resultado.classList.remove('hidden');
+
+      const aprendizCrudo = {
+        nombre: "Valentina Plazas",
+        correo: "valen@sena.edu.co",
+        react: "Avanzado",
+        vite: "Intermedio",
+        nodejs: "En progreso"
+      };
+
+      try {
+        const wrappedCode = `${codigo}; return typeof normalizarPerfil === 'function' ? normalizarPerfil : null;`;
+        const fn = new Function(wrappedCode)();
+
+        if (typeof fn !== 'function') {
+          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-amber-50 border border-amber-300 text-amber-950";
+          resultado.innerHTML = `⚠️ <strong>Atención:</strong> No se encontró la función <code>normalizarPerfil</code>. Asegúrate de declarar: <br><code>function normalizarPerfil({ ... }) { ... }</code>`;
+          return;
+        }
+
+        const out = fn(aprendizCrudo);
+
+        if (!out || typeof out !== 'object') {
+          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
+          resultado.innerHTML = `❌ <strong>Error:</strong> La función debe retornar un objeto con las propiedades procesadas.`;
+          return;
+        }
+
+        const errores = [];
+        if (out.nombre !== "Valentina Plazas") {
+          errores.push("• 'nombre' no fue extraído correctamente.");
+        }
+        if (out.email !== "valen@sena.edu.co") {
+          errores.push("• 'email' no coincide: debes renombrar la propiedad 'correo' a 'email' ({ correo: email }).");
+        }
+        if (out.ficha !== 3314621) {
+          errores.push("• 'ficha' no tiene el valor por defecto 3314621 ({ ficha = 3314621 }).");
+        }
+
+        const habs = out.habilidades || out.habilidadesRestantes || {};
+        if (!habs.react || !habs.vite) {
+          errores.push("• No se agruparon las habilidades restantes con el rest operator (...habilidades).");
+        }
+
+        if (errores.length > 0) {
+          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-1.5";
+          resultado.innerHTML = `
+            <div class="font-bold text-rose-800">❌ Pruebas no superadas:</div>
+            ${errores.map(e => `<div>${e}</div>`).join('')}
+            <div class="mt-2 text-[10px] text-slate-500">Revisa la sintaxis de desestructuración y vuelve a probar.</div>
+          `;
+        } else {
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-emerald-50 border border-emerald-300 text-emerald-950 space-y-2";
+          resultado.innerHTML = `
+            <div class="flex items-center gap-2 text-emerald-900 font-bold text-sm">
+              <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900]"></i>
+              <span>✔ ¡Reto 1 Superado con Éxito!</span>
+            </div>
+            <div class="text-[11px] text-slate-700">
+              Todos los requisitos técnicos fueron validados en el navegador:<br>
+              • Nombre extraído: <strong>"${out.nombre}"</strong><br>
+              • Propiedad renombrada con éxito: <strong>email = "${out.email}"</strong><br>
+              • Fallback por defecto aplicado: <strong>ficha = ${out.ficha}</strong><br>
+              • Rest operator agrupó las habilidades: <strong>${JSON.stringify(habs)}</strong>
+            </div>
+            <div class="p-2 bg-white rounded border border-emerald-200 text-[10px] text-emerald-800 font-bold">
+              🎉 ¡Excelente! Ya puedes trasladar esta función a tu archivo 'retos/reto1-destructuring.js' en VS Code y correr 'node --test'.
+            </div>
+          `;
+        }
+      } catch (err) {
+        resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
+        resultado.innerHTML = `🚨 <strong>Error de sintaxis en JavaScript:</strong><br><code class="text-rose-700">${err.message}</code>`;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function restaurarCodigoReto1() {
+      const textarea = document.getElementById('codigo-validador-reto1');
+      const resultado = document.getElementById('resultado-validador-reto1');
+      if (textarea) {
+        textarea.value = `// Escribe aquí tu solución:
+function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
+  return { nombre, email, ficha, habilidades };
+}`;
+      }
+      if (resultado) resultado.classList.add('hidden');
     }
 
     // Inicializar iconos de Lucide
