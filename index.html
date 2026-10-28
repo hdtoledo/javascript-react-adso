@@ -5,8 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SENA ADSO 3314621 | JavaScript Moderno (ES6+) hacia React + Vite</title>
   
-  <!-- Tailwind CSS CDN con configuración extendida -->
-  <script src="https://cdn.tailwindcss.com">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sena: {
+              green: '#39A900',
+              darkGreen: '#2e8600',
+              navy: '#0B1528',
+              slate: '#1E293B',
+              border: '#E2E8F0',
+              cardBg: '#F8FAFC'
+            }
+          },
+          screens: {
+            'xs': '420px'
+          }
+        }
+      }
+    };
+  </script>
+  <script>
     // ================= FUNCIONES INTERACTIVAS DE EJERCICIOS EN AULA =================
     function toggleSolucion(id) {
       const el = document.getElementById(id);
@@ -309,99 +331,95 @@ Your branch is up to date with 'origin/main'.<br>
     }
   </style>
 </head>
-<body class="bg-[#F8FAFC] text-slate-800 min-h-screen flex flex-col antialiased select-none">
+<body class="bg-[#F8FAFC] text-slate-800 min-h-screen flex flex-col antialiased select-none w-full max-w-full overflow-x-hidden">
 
-  <!-- ================= TOP INSTITUTIONAL BAR ================= -->
-  <header class="bg-[#0B1528] text-white text-xs px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between border-b border-slate-800">
-    <div class="flex items-center space-x-3">
+  <!-- ================= TOP INSTITUTIONAL BAR (FULL RESPONSIVE) ================= -->
+  <header class="bg-[#0B1528] text-white text-xs px-3 sm:px-6 py-2 flex flex-col sm:flex-row items-center justify-between gap-1.5 border-b border-slate-800 w-full max-w-full overflow-hidden">
+    <div class="flex items-center space-x-2 sm:space-x-3 max-w-full overflow-hidden">
       <!-- SENA Green Badge -->
-      <span class="bg-[#39A900] text-white font-extrabold px-2.5 py-0.5 rounded text-[11px] tracking-wider uppercase shadow-sm">
+      <span class="bg-[#39A900] text-white font-extrabold px-2 py-0.5 rounded text-[10px] sm:text-[11px] tracking-wider uppercase shrink-0 shadow-sm">
         SENA
       </span>
-      <div class="flex items-center text-slate-300 font-medium space-x-2">
-        <span>Centro Agroempresarial y Desarrollo Pecuario del Huila</span>
-        <span class="text-slate-600">|</span>
-        <span class="text-[#39A900] font-semibold">Regional Huila</span>
+      <div class="flex items-center text-slate-300 font-medium text-[11px] truncate">
+        <span class="hidden md:inline">Centro Agroempresarial y Desarrollo Pecuario del Huila</span>
+        <span class="md:hidden truncate">CADPH Garzón · Regional Huila</span>
+        <span class="hidden md:inline mx-1.5 text-slate-600">|</span>
+        <span class="hidden md:inline text-[#39A900] font-semibold">Regional Huila</span>
       </div>
     </div>
-    <div class="flex items-center space-x-3 text-slate-400 font-medium text-[11px] mt-1 sm:mt-0">
+    <div class="flex items-center space-x-2 sm:space-x-2.5 text-slate-400 font-medium text-[10px] sm:text-[11px] shrink-0">
       <span>Sede Garzón</span>
       <span>•</span>
-      <span id="fecha-actual" class="text-slate-300">Hoy: Lun, 26 de oct</span>
-      <span>•</span>
-      <span class="text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800/40">ADSO 3314621</span>
-      <span>•</span>
-      <span class="flex items-center gap-1.5 text-slate-300">
-        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Proyección en Aula
+      <span class="text-emerald-400 font-bold bg-emerald-950/60 px-1.5 py-0.5 rounded border border-emerald-800/40">ADSO 3314621</span>
+      <span class="hidden sm:inline">•</span>
+      <span class="hidden sm:flex items-center gap-1 text-slate-300">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Proyección en Aula
       </span>
     </div>
   </header>
 
-    <!-- ================= SECONDARY NAVIGATION / CONTROLS ================= -->
-  <nav class="bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 shadow-xs sticky top-0 z-40 transition-all">
+      <!-- ================= SECONDARY NAVIGATION / CONTROLS (FULL RESPONSIVE) ================= -->
+  <nav class="bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2 sm:gap-4 shadow-xs sticky top-0 z-40 transition-all w-full max-w-full overflow-hidden">
     <!-- Left: Authentic SENA Logo + Formation Title -->
-    <div class="flex items-center space-x-3 sm:space-x-4">
-      <a href="javascript:void(0)" onclick="irDiapositiva(1)" title="Ir al Temario Principal" class="flex items-center gap-3 group">
+    <div class="flex items-center space-x-2 sm:space-x-3 shrink min-w-0">
+      <a href="javascript:void(0)" onclick="irDiapositiva(1)" title="Ir al Temario Principal" class="flex items-center gap-2 sm:gap-3 group min-w-0">
         <!-- SENA Brand Official Vector Logo -->
-        <div class="w-11 h-11 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center p-1 shrink-0 shadow-xs group-hover:scale-105 group-hover:border-[#39A900] transition-all duration-200">
+        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center p-1 shrink-0 shadow-xs group-hover:scale-105 group-hover:border-[#39A900] transition-all duration-200">
           <img src="assets/sena-logo.svg" alt="Logo Oficial SENA" class="w-full h-full object-contain">
         </div>
 
-        <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-extrabold text-slate-900 tracking-tight text-sm sm:text-base group-hover:text-emerald-700 transition">FORMACIÓN ADSO</span>
-            <span class="text-[10px] font-black bg-[#39A900] text-white px-2 py-0.5 rounded uppercase tracking-wider shadow-xs">SENA</span>
-            <span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border border-slate-200">CADPH Garzón</span>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-1 sm:gap-1.5 flex-wrap">
+            <span class="font-extrabold text-slate-900 tracking-tight text-xs sm:text-base group-hover:text-emerald-700 transition truncate">FORMACIÓN ADSO</span>
+            <span class="text-[9px] sm:text-[10px] font-black bg-[#39A900] text-white px-1.5 py-0.5 rounded uppercase tracking-wider shadow-xs">SENA</span>
+            <span class="hidden sm:inline-block text-[10px] font-bold bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border border-slate-200">CADPH</span>
           </div>
-          <span class="text-[11px] text-slate-500 font-medium tracking-tight">
-            JavaScript Moderno (ES6+) hacia <strong class="text-slate-800 font-semibold">React + Vite</strong> · Ficha 3314621
+          <span class="text-[10px] sm:text-[11px] text-slate-500 font-medium tracking-tight truncate hidden xs:inline-block">
+            JavaScript Moderno hacia <strong class="text-slate-800 font-semibold">React + Vite</strong>
           </span>
         </div>
       </a>
     </div>
 
     <!-- Center Contextual Nav: Visible only when inside a lesson (Slides 2 to 15) -->
-    <div id="nav-lesson-controls" class="hidden items-center gap-2 sm:gap-3">
-      <button onclick="irDiapositiva(1)" class="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs rounded-xl shadow-xs transition transform hover:-translate-y-0.5 cursor-pointer">
+    <div id="nav-lesson-controls" class="hidden items-center gap-1.5 sm:gap-2.5 shrink-0">
+      <button onclick="irDiapositiva(1)" class="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs rounded-xl shadow-xs transition cursor-pointer">
         <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#39A900]"></i>
-        <span>← Volver al Temario</span>
+        <span class="hidden sm:inline">← Volver al Temario</span>
+        <span class="sm:hidden">← Temario</span>
       </button>
 
-      <div class="flex items-center bg-slate-100/90 border border-slate-200 rounded-xl p-0.5 text-xs">
-        <button id="btn-prev-slide" title="Lección Anterior (Flecha Izq)" class="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white transition cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
-          <i data-lucide="chevron-left" class="w-4 h-4"></i>
+      <div class="flex items-center bg-slate-100 border border-slate-200 rounded-xl p-0.5 text-xs">
+        <button id="btn-prev-slide" title="Lección Anterior" class="p-1 text-slate-600 hover:text-slate-900 transition">
+          <i data-lucide="chevron-left" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </button>
-        <span id="slide-indicator" class="px-2.5 font-bold text-slate-700 tracking-tight text-xs">Lección 1 / 14</span>
-        <button id="btn-next-slide" title="Siguiente Lección (Flecha Der)" class="p-1.5 rounded-lg bg-[#39A900] text-white hover:bg-emerald-700 shadow-xs transition cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
-          <i data-lucide="chevron-right" class="w-4 h-4"></i>
+        <span id="slide-indicator" class="px-1.5 sm:px-2 font-bold text-slate-700 text-[11px] sm:text-xs whitespace-nowrap">1 / 14</span>
+        <button id="btn-next-slide" title="Siguiente Lección" class="p-1 bg-[#39A900] text-white rounded-md transition">
+          <i data-lucide="chevron-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </button>
       </div>
 
-      <span id="nav-slide-title" class="hidden xl:inline-block text-xs font-semibold text-slate-600 max-w-xs truncate border-l border-slate-200 pl-3">
+      <span id="nav-slide-title" class="hidden 2xl:inline-block text-xs font-semibold text-slate-600 max-w-xs truncate border-l border-slate-200 pl-3">
         Título de la lección
       </span>
     </div>
 
-    <!-- Right Actions: GitHub Repo, Starter Kit, Fullscreen & Help -->
-    <div class="flex items-center space-x-2 sm:space-x-2.5 text-xs">
+    <!-- Right Actions: GitHub Repo, Starter Kit & Help -->
+    <div class="flex items-center space-x-1 sm:space-x-2 text-xs shrink-0">
       <!-- Repositorio GitHub Link -->
-      <a href="https://github.com/hdtoledo/javascript-react-adso" target="_blank" rel="noopener noreferrer" title="Ver Repositorio Oficial en GitHub" class="flex items-center gap-1.5 px-3 py-1.5 text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 font-semibold rounded-xl border border-slate-200 transition cursor-pointer">
-        <i data-lucide="github" class="w-4 h-4"></i>
+      <a href="https://github.com/hdtoledo/javascript-react-adso" target="_blank" rel="noopener noreferrer" title="Ver Repositorio Oficial en GitHub" class="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 font-semibold rounded-xl border border-slate-200 transition">
+        <svg class="w-4 h-4 fill-current shrink-0" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
         <span class="hidden md:inline">GitHub</span>
       </a>
 
       <!-- Plantilla ZIP Download -->
-      <button onclick="descargarPlantillaZIP()" class="flex items-center gap-1.5 px-3.5 py-1.5 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 font-bold rounded-xl shadow-xs transition cursor-pointer">
+      <button onclick="descargarPlantillaZIP()" title="Descargar Starter Kit (.zip)" class="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 font-bold rounded-xl shadow-xs transition">
         <i data-lucide="download" class="w-3.5 h-3.5 text-[#39A900]"></i>
-        <span>Starter Kit (.zip)</span>
+        <span class="hidden sm:inline">Starter Kit</span>
+        <span class="hidden lg:inline">(.zip)</span>
       </button>
 
-      <!-- Fullscreen Toggle (discreet) -->
-      <button id="btn-fullscreen" title="Pantalla Completa (F)" class="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl border border-slate-200 transition hidden sm:inline-flex">
-        <i data-lucide="maximize" class="w-4 h-4" id="fullscreen-icon"></i>
-      </button>
-
-      <!-- Ayuda / Atajos Modal Button -->
+      <!-- Ayuda Modal Button -->
       <button id="btn-help" title="Atajos de Teclado & Ayuda" class="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl border border-slate-200 transition">
         <i data-lucide="help-circle" class="w-4 h-4"></i>
       </button>
@@ -409,19 +427,19 @@ Your branch is up to date with 'origin/main'.<br>
   </nav>
 
   <!-- ================= MAIN SLIDE CONTAINER ================= -->
-  <main class="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full" id="main-content">
+  <main class="flex-1 flex flex-col p-3 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full overflow-x-hidden" id="main-content">
     
         <!-- SLIDE 1: HERO HOME & TEMARIO COMPLETO (ARMONIOSO & DINÁMICO) -->
     <section id="slide-1" class="slide-content flex flex-col items-center justify-center text-center my-auto py-4">
       
-      <!-- SENA Campus Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-900 text-xs sm:text-sm font-semibold mb-6 shadow-xs">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#39A900] animate-pulse"></span>
-        <span>SENA Regional Huila · Centro Agroempresarial y Desarrollo Pecuario del Huila (CADPH Garzón)</span>
+      <!-- SENA Campus Badge (Fully Responsive) -->
+      <div class="inline-flex items-center justify-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-900 text-[11px] sm:text-xs md:text-sm font-semibold mb-4 sm:mb-6 shadow-xs max-w-full text-center">
+        <span class="w-2 h-2 rounded-full bg-[#39A900] animate-pulse shrink-0"></span>
+        <span class="truncate sm:whitespace-normal">SENA Regional Huila · CADPH Garzón · Ficha 3314621</span>
       </div>
 
-      <!-- Main Heading with Modern Gradient Accent -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 max-w-4xl leading-tight">
+      <!-- Main Heading with Modern Gradient Accent (Responsive Fluid Typography) -->
+      <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 max-w-4xl leading-tight px-2 break-words">
         JavaScript Moderno (ES6+) &amp; <br>
         <span class="bg-gradient-to-r from-[#39A900] via-emerald-600 to-teal-600 bg-clip-text text-transparent">
           Ruta hacia React + Vite
@@ -429,43 +447,43 @@ Your branch is up to date with 'origin/main'.<br>
       </h1>
 
       <!-- Subheading / Purpose -->
-      <p class="text-slate-600 text-sm sm:text-base lg:text-lg max-w-3xl mt-4 font-normal leading-relaxed">
+      <p class="text-slate-600 text-xs sm:text-sm md:text-base lg:text-lg max-w-3xl mt-3 sm:mt-4 font-normal leading-relaxed px-3">
         Tecnólogo en Análisis y Desarrollo de Software (ADSO) · Ficha 3314621. Domina el 10% de JavaScript que usarás en el 90% de tus componentes en React: Inmutabilidad en memoria, Hooks, JSX dinámico, Event Loop y consumo de APIs con Vite.
       </p>
 
-      <!-- Stats / Key Metrics Strip -->
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl mt-6 mb-2">
-        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
-          <span class="text-xl sm:text-2xl font-black text-[#39A900]">14</span>
-          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Lecciones Clave</span>
+      <!-- Stats / Key Metrics Strip (Responsive 2x2 on Mobile, 4 Cols on Desktop) -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 w-full max-w-3xl mt-5 mb-2 px-2">
+        <div class="bg-white/80 backdrop-blur-xs p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-lg sm:text-2xl font-black text-[#39A900]">14</span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-tight">Lecciones</span>
         </div>
-        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
-          <span class="text-xl sm:text-2xl font-black text-blue-600">5</span>
-          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Retos Prácticos</span>
+        <div class="bg-white/80 backdrop-blur-xs p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-lg sm:text-2xl font-black text-blue-600">5</span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-tight">Retos Aula</span>
         </div>
-        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
-          <span class="text-xl sm:text-2xl font-black text-purple-600">20</span>
-          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Tests Unitarios</span>
+        <div class="bg-white/80 backdrop-blur-xs p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-lg sm:text-2xl font-black text-purple-600">20</span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-tight">Tests Node</span>
         </div>
-        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
-          <span class="text-xl sm:text-2xl font-black text-amber-600">100%</span>
-          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">React + Vite Ready</span>
+        <div class="bg-white/80 backdrop-blur-xs p-2.5 sm:p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-lg sm:text-2xl font-black text-amber-600">100%</span>
+          <span class="text-[10px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-tight">React + Vite</span>
         </div>
       </div>
 
-      <!-- Main Action Controls: Selector de Vistas Principal -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-6 mb-8 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200 shadow-inner">
-        <button id="tab-btn-temario" onclick="cambiarVistaInicio('temario')" class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs bg-[#39A900] text-white cursor-pointer">
+      <!-- Main Action Controls: Selector de Vistas Principal (Responsive Stacking on Mobile) -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 mt-5 mb-6 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200 shadow-inner w-full max-w-xl px-2">
+        <button id="tab-btn-temario" onclick="cambiarVistaInicio('temario')" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs bg-[#39A900] text-white cursor-pointer">
           <i data-lucide="book-open" class="w-4 h-4"></i>
-          <span>Temario de Lecciones (14 Temas)</span>
+          <span>Temario (14 Temas)</span>
         </button>
-        <button id="tab-btn-bloques" onclick="cambiarVistaInicio('bloques')" class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition cursor-pointer">
+        <button id="tab-btn-bloques" onclick="cambiarVistaInicio('bloques')" class="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition cursor-pointer">
           <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i>
-          <span>Estructura de Sesión (Bloques 1, 2, 3)</span>
+          <span>Bloques de Tiempo</span>
         </button>
-        <button onclick="descargarPlantillaZIP()" class="flex items-center gap-1.5 px-4 py-2.5 text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 font-semibold text-xs sm:text-sm rounded-xl transition cursor-pointer shadow-xs ml-1">
+        <button onclick="descargarPlantillaZIP()" class="flex items-center justify-center gap-1.5 px-4 py-2.5 text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 font-semibold text-xs sm:text-sm rounded-xl transition cursor-pointer shadow-xs">
           <i data-lucide="download" class="w-4 h-4 text-[#39A900]"></i>
-          <span>Descargar Plantilla (.zip)</span>
+          <span>Starter Kit (.zip)</span>
         </button>
       </div>
 
