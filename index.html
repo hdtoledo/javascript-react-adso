@@ -337,84 +337,73 @@ Your branch is up to date with 'origin/main'.<br>
     </div>
   </header>
 
-  <!-- ================= SECONDARY NAVIGATION / CONTROLS ================= -->
-  <nav class="bg-white border-b border-slate-200 px-4 sm:px-6 py-2.5 flex flex-wrap items-center justify-between gap-3 shadow-xs sticky top-0 z-40">
-    <!-- Left: Title & Breadcrumbs -->
+    <!-- ================= SECONDARY NAVIGATION / CONTROLS ================= -->
+  <nav class="bg-white/95 backdrop-blur-md border-b border-slate-200/90 px-4 sm:px-6 py-2.5 flex items-center justify-between gap-4 shadow-xs sticky top-0 z-40 transition-all">
+    <!-- Left: Authentic SENA Logo + Formation Title -->
     <div class="flex items-center space-x-3 sm:space-x-4">
-      <!-- SENA Brand Official Logo Icon -->
-      <div class="w-12 h-12 rounded-2xl bg-emerald-50/80 border border-emerald-200 flex items-center justify-center p-1.5 shrink-0 shadow-xs overflow-hidden">
-        <img src="assets/sena-logo.svg" alt="Logo Oficial SENA" class="w-full h-full object-contain">
-      </div>
-
-      <div class="flex flex-col">
-        <div class="flex items-center gap-2">
-          <span class="font-bold text-slate-900 tracking-tight text-sm sm:text-base">FORMACIÓN ADSO</span>
-          <span class="text-[10px] font-extrabold bg-[#39A900] text-white px-2 py-0.5 rounded-full tracking-wider uppercase shadow-xs">SENA</span>
-          <span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border border-slate-200">CADPH</span>
+      <a href="javascript:void(0)" onclick="irDiapositiva(1)" title="Ir al Temario Principal" class="flex items-center gap-3 group">
+        <!-- SENA Brand Official Vector Logo -->
+        <div class="w-11 h-11 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center p-1 shrink-0 shadow-xs group-hover:scale-105 group-hover:border-[#39A900] transition-all duration-200">
+          <img src="assets/sena-logo.svg" alt="Logo Oficial SENA" class="w-full h-full object-contain">
         </div>
-        <span class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
-          CENTRO AGROEMPRESARIAL Y DESARROLLO PECUARIO DEL HUILA
-        </span>
-      </div>
 
-      <span class="hidden md:inline-block text-slate-300 font-light text-xl">/</span>
-
-      <!-- Breadcrumb indicator -->
-      <div class="hidden lg:flex items-center gap-2 text-xs">
-        <span class="bg-blue-50 text-blue-700 font-bold px-2.5 py-1 rounded-md border border-blue-200">
-          Semana 1
-        </span>
-        <span class="font-medium text-slate-600" id="nav-slide-title">
-          Sesión 03 · Día 3: JavaScript Moderno (ES6+) y Asincronía en Node.js
-        </span>
-      </div>
+        <div class="flex flex-col">
+          <div class="flex items-center gap-2">
+            <span class="font-extrabold text-slate-900 tracking-tight text-sm sm:text-base group-hover:text-emerald-700 transition">FORMACIÓN ADSO</span>
+            <span class="text-[10px] font-black bg-[#39A900] text-white px-2 py-0.5 rounded uppercase tracking-wider shadow-xs">SENA</span>
+            <span class="text-[10px] font-bold bg-slate-100 text-slate-600 px-1.5 py-0.5 rounded border border-slate-200">CADPH Garzón</span>
+          </div>
+          <span class="text-[11px] text-slate-500 font-medium tracking-tight">
+            JavaScript Moderno (ES6+) hacia <strong class="text-slate-800 font-semibold">React + Vite</strong> · Ficha 3314621
+          </span>
+        </div>
+      </a>
     </div>
 
-    <!-- Right Controls: Timer, Slides, Fullscreen, Template -->
-    <div class="flex items-center space-x-2 sm:space-x-3 text-xs">
-      <!-- Session Timer -->
-      <div class="flex items-center bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 space-x-2 font-mono">
-        <i data-lucide="clock" class="w-3.5 h-3.5 text-slate-500"></i>
-        <span id="timer-display" class="font-bold text-slate-700 tracking-wider">00:00</span>
-        <button id="btn-timer-toggle" class="text-emerald-700 hover:text-emerald-800 font-bold ml-1 flex items-center gap-0.5 px-1.5 py-0.5 bg-emerald-100/70 rounded hover:bg-emerald-200 transition">
-          <i data-lucide="play" class="w-3 h-3 fill-current" id="timer-icon"></i>
-          <span id="timer-action-text">Iniciar</span>
-        </button>
-        <button id="btn-timer-reset" title="Reiniciar Cronómetro" class="text-slate-400 hover:text-slate-600 transition p-0.5">
-          <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
-        </button>
-      </div>
-
-      <!-- Slide Drawer Toggle -->
-      <button id="btn-open-drawer" title="Índice de Diapositivas (M)" class="p-1.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg border border-slate-200 transition">
-        <i data-lucide="menu" class="w-4 h-4"></i>
+    <!-- Center Contextual Nav: Visible only when inside a lesson (Slides 2 to 15) -->
+    <div id="nav-lesson-controls" class="hidden items-center gap-2 sm:gap-3">
+      <button onclick="irDiapositiva(1)" class="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs rounded-xl shadow-xs transition transform hover:-translate-y-0.5 cursor-pointer">
+        <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#39A900]"></i>
+        <span>← Volver al Temario</span>
       </button>
 
-      <!-- Slide Navigator: 1 / 15 -->
-      <div class="flex items-center space-x-1 bg-slate-50 border border-slate-200 rounded-lg p-0.5">
-        <span class="px-2 font-bold text-slate-700 tracking-tight" id="slide-indicator">1 / 15</span>
-        <button id="btn-prev-slide" title="Anterior (Flecha Izq)" class="p-1 rounded text-slate-500 hover:text-slate-800 hover:bg-slate-200 disabled:opacity-30 disabled:pointer-events-none transition">
+      <div class="flex items-center bg-slate-100/90 border border-slate-200 rounded-xl p-0.5 text-xs">
+        <button id="btn-prev-slide" title="Lección Anterior (Flecha Izq)" class="p-1.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-white transition cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
           <i data-lucide="chevron-left" class="w-4 h-4"></i>
         </button>
-        <button id="btn-next-slide" title="Siguiente (Flecha Der o Espacio)" class="p-1 rounded bg-[#39A900] text-white hover:bg-emerald-700 shadow-xs transition">
+        <span id="slide-indicator" class="px-2.5 font-bold text-slate-700 tracking-tight text-xs">Lección 1 / 14</span>
+        <button id="btn-next-slide" title="Siguiente Lección (Flecha Der)" class="p-1.5 rounded-lg bg-[#39A900] text-white hover:bg-emerald-700 shadow-xs transition cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
           <i data-lucide="chevron-right" class="w-4 h-4"></i>
         </button>
       </div>
 
-      <!-- Fullscreen Toggle -->
-      <button id="btn-fullscreen" title="Pantalla Completa (F)" class="p-1.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg border border-slate-200 transition hidden sm:inline-flex">
+      <span id="nav-slide-title" class="hidden xl:inline-block text-xs font-semibold text-slate-600 max-w-xs truncate border-l border-slate-200 pl-3">
+        Título de la lección
+      </span>
+    </div>
+
+    <!-- Right Actions: GitHub Repo, Starter Kit, Fullscreen & Help -->
+    <div class="flex items-center space-x-2 sm:space-x-2.5 text-xs">
+      <!-- Repositorio GitHub Link -->
+      <a href="https://github.com/hdtoledo/javascript-react-adso" target="_blank" rel="noopener noreferrer" title="Ver Repositorio Oficial en GitHub" class="flex items-center gap-1.5 px-3 py-1.5 text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 font-semibold rounded-xl border border-slate-200 transition cursor-pointer">
+        <i data-lucide="github" class="w-4 h-4"></i>
+        <span class="hidden md:inline">GitHub</span>
+      </a>
+
+      <!-- Plantilla ZIP Download -->
+      <button onclick="descargarPlantillaZIP()" class="flex items-center gap-1.5 px-3.5 py-1.5 text-emerald-800 bg-emerald-50 hover:bg-emerald-100 border border-emerald-300 font-bold rounded-xl shadow-xs transition cursor-pointer">
+        <i data-lucide="download" class="w-3.5 h-3.5 text-[#39A900]"></i>
+        <span>Starter Kit (.zip)</span>
+      </button>
+
+      <!-- Fullscreen Toggle (discreet) -->
+      <button id="btn-fullscreen" title="Pantalla Completa (F)" class="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl border border-slate-200 transition hidden sm:inline-flex">
         <i data-lucide="maximize" class="w-4 h-4" id="fullscreen-icon"></i>
       </button>
 
-      <!-- Help Modal Button -->
-      <button id="btn-help" title="Atajos de Teclado & Ayuda" class="p-1.5 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg border border-slate-200 transition">
+      <!-- Ayuda / Atajos Modal Button -->
+      <button id="btn-help" title="Atajos de Teclado & Ayuda" class="p-1.5 text-slate-500 hover:text-slate-800 hover:bg-slate-100 rounded-xl border border-slate-200 transition">
         <i data-lucide="help-circle" class="w-4 h-4"></i>
-      </button>
-
-      <!-- Plantilla Download Button -->
-      <button id="btn-download-top" class="flex items-center gap-1.5 px-3 py-1.5 text-slate-700 bg-white hover:bg-slate-50 border border-slate-300 font-semibold rounded-lg shadow-xs transition">
-        <i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i>
-        <span>Plantilla</span>
       </button>
     </div>
   </nav>
@@ -422,28 +411,50 @@ Your branch is up to date with 'origin/main'.<br>
   <!-- ================= MAIN SLIDE CONTAINER ================= -->
   <main class="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full" id="main-content">
     
-    <!-- SLIDE 1: HERO HOME (PANTALLAZO EXACTO) -->
+        <!-- SLIDE 1: HERO HOME & TEMARIO COMPLETO (ARMONIOSO & DINÁMICO) -->
     <section id="slide-1" class="slide-content flex flex-col items-center justify-center text-center my-auto py-4">
       
       <!-- SENA Campus Badge -->
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs sm:text-sm font-semibold mb-6 shadow-xs">
-        <span class="w-2.5 h-2.5 rounded-full bg-[#39A900]"></span>
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/90 text-emerald-900 text-xs sm:text-sm font-semibold mb-6 shadow-xs">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#39A900] animate-pulse"></span>
         <span>SENA Regional Huila · Centro Agroempresarial y Desarrollo Pecuario del Huila (CADPH Garzón)</span>
       </div>
 
-      <!-- Main Heading -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 max-w-4xl leading-tight">
+      <!-- Main Heading with Modern Gradient Accent -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 max-w-4xl leading-tight">
         JavaScript Moderno (ES6+) &amp; <br>
-        <span class="text-[#39A900]">Asincronía en Node.js</span>
+        <span class="bg-gradient-to-r from-[#39A900] via-emerald-600 to-teal-600 bg-clip-text text-transparent">
+          Ruta hacia React + Vite
+        </span>
       </h1>
 
-      <!-- Subheading -->
-      <p class="text-slate-600 text-sm sm:text-base lg:text-lg max-w-3xl mt-4 font-normal">
-        Tecnólogo en Análisis y Desarrollo de Software (ADSO) · JavaScript Moderno para React + Vite: ES6+, Event Loop y Manejo de Promesas · Ficha 3314621
+      <!-- Subheading / Purpose -->
+      <p class="text-slate-600 text-sm sm:text-base lg:text-lg max-w-3xl mt-4 font-normal leading-relaxed">
+        Tecnólogo en Análisis y Desarrollo de Software (ADSO) · Ficha 3314621. Domina el 10% de JavaScript que usarás en el 90% de tus componentes en React: Inmutabilidad en memoria, Hooks, JSX dinámico, Event Loop y consumo de APIs con Vite.
       </p>
 
-      <!-- Selector de Vistas Principal: Temario vs Bloques de Tiempo -->
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-7 mb-4 p-1.5 bg-slate-100 rounded-2xl border border-slate-200 shadow-inner">
+      <!-- Stats / Key Metrics Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl mt-6 mb-2">
+        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-xl sm:text-2xl font-black text-[#39A900]">14</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Lecciones Clave</span>
+        </div>
+        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-xl sm:text-2xl font-black text-blue-600">5</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Retos Prácticos</span>
+        </div>
+        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-xl sm:text-2xl font-black text-purple-600">20</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">Tests Unitarios</span>
+        </div>
+        <div class="bg-white/80 backdrop-blur-xs p-3 rounded-xl border border-slate-200 shadow-xs flex flex-col items-center">
+          <span class="text-xl sm:text-2xl font-black text-amber-600">100%</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-tight">React + Vite Ready</span>
+        </div>
+      </div>
+
+      <!-- Main Action Controls: Selector de Vistas Principal -->
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mt-6 mb-8 p-1.5 bg-slate-100/90 rounded-2xl border border-slate-200 shadow-inner">
         <button id="tab-btn-temario" onclick="cambiarVistaInicio('temario')" class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs bg-[#39A900] text-white cursor-pointer">
           <i data-lucide="book-open" class="w-4 h-4"></i>
           <span>Temario de Lecciones (14 Temas)</span>
@@ -453,17 +464,17 @@ Your branch is up to date with 'origin/main'.<br>
           <span>Estructura de Sesión (Bloques 1, 2, 3)</span>
         </button>
         <button onclick="descargarPlantillaZIP()" class="flex items-center gap-1.5 px-4 py-2.5 text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 font-semibold text-xs sm:text-sm rounded-xl transition cursor-pointer shadow-xs ml-1">
-          <i data-lucide="download" class="w-4 h-4 text-slate-500"></i>
+          <i data-lucide="download" class="w-4 h-4 text-[#39A900]"></i>
           <span>Descargar Plantilla (.zip)</span>
         </button>
       </div>
 
-      <!-- VISTA 2: LOS 3 BLOQUES DE CLASE EN AULA (ACCESIBLE VÍA SELECTOR) -->
-      <div id="vista-bloques" class="hidden w-full max-w-5xl mt-6 text-left">
+      <!-- VISTA 2: LOS 3 BLOQUES DE CLASE EN AULA -->
+      <div id="vista-bloques" class="hidden w-full max-w-5xl mt-2 text-left">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Bloque 1 -->
-          <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-emerald-500"></div>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-[#39A900]"></div>
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="text-[11px] font-extrabold uppercase px-2.5 py-1 rounded bg-emerald-100 text-emerald-800 tracking-wider">
@@ -473,7 +484,7 @@ Your branch is up to date with 'origin/main'.<br>
               </div>
               <h3 class="text-xl font-bold text-slate-900 mb-2">Teoría &amp; Live Coding</h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                Inmutabilidad con <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono font-semibold">const</code>, desestructuración profunda, métodos de arreglo puros (<code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">map</code>, <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">filter</code>, <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">reduce</code>) y el Event Loop.
+                Inmutabilidad con <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono font-semibold">const</code>, desestructuración de props, métodos puros (<code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">map</code>, <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">filter</code>, <code class="text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded font-mono">reduce</code>) y el Event Loop.
               </p>
               <ul class="space-y-2 text-xs text-slate-700 mb-6">
                 <li class="flex items-start gap-2">
@@ -495,8 +506,8 @@ Your branch is up to date with 'origin/main'.<br>
           </div>
 
           <!-- Bloque 2 -->
-          <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-slate-800"></div>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-slate-800"></div>
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="text-[11px] font-extrabold uppercase px-2.5 py-1 rounded bg-slate-900 text-white tracking-wider">
@@ -506,7 +517,7 @@ Your branch is up to date with 'origin/main'.<br>
               </div>
               <h3 class="text-xl font-bold text-slate-900 mb-2">Taller Práctico en Aula</h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                Resolución de 5 retos progresivos en <span class="font-bold text-slate-800">Node.js</span> procesando pedidos de clientes, inventarios y simulación de base de datos asíncrona.
+                Resolución de los 5 retos progresivos en <span class="font-bold text-slate-800">Node.js</span> procesando perfiles, carritos de compras y bases de datos asíncronas.
               </p>
               <ul class="space-y-2 text-xs text-slate-700 mb-6 font-mono">
                 <li class="flex items-start gap-2">
@@ -528,8 +539,8 @@ Your branch is up to date with 'origin/main'.<br>
           </div>
 
           <!-- Bloque 3 -->
-          <div class="bg-white rounded-2xl p-6 border border-slate-200/90 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden group">
-            <div class="absolute top-0 left-0 right-0 h-1 bg-purple-600"></div>
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-purple-600"></div>
             <div>
               <div class="flex items-center justify-between mb-4">
                 <span class="text-[11px] font-extrabold uppercase px-2.5 py-1 rounded bg-purple-100 text-purple-800 tracking-wider">
@@ -539,12 +550,12 @@ Your branch is up to date with 'origin/main'.<br>
               </div>
               <h3 class="text-xl font-bold text-slate-900 mb-2">Sustentación &amp; Git</h3>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">
-                Modificación de código en caliente en el puesto del aprendiz por parte del instructor, explicación del flujo asíncrono y control de versiones con Git.
+                Pruebas con validador de Node.js, commits semánticos y preguntas de sustentación individual con rúbrica SENA &gt;= 70%.
               </p>
               <ul class="space-y-2 text-xs text-slate-700 mb-6">
                 <li class="flex items-start gap-2">
                   <span class="text-purple-600 font-bold">⇸</span>
-                  <span>Sustentación individual en caliente</span>
+                  <span>Ejecución del validador con 20 tests</span>
                 </li>
                 <li class="flex items-start gap-2">
                   <span class="text-purple-600 font-bold">⇸</span>
@@ -561,263 +572,428 @@ Your branch is up to date with 'origin/main'.<br>
           </div>
         </div>
 
-        <!-- Botón Comenzar Lección dentro de Bloques -->
         <div class="flex items-center justify-center gap-4 mt-8">
           <button onclick="irDiapositiva(2)" class="flex items-center gap-2 bg-[#39A900] hover:bg-emerald-700 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5 cursor-pointer">
-            <span>Comenzar Lección</span>
+            <span>Comenzar Lección 1</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </button>
         </div>
       </div>
 
-      <!-- ================= VISTA 1: TEMARIO INTERACTIVO (VISIBLE INMEDIATAMENTE) ================= -->
-      <div id="vista-temario" class="w-full max-w-5xl mt-6 text-left">
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
+      <!-- ================= VISTA 1: TEMARIO INTERACTIVO (4 MÓDULOS DE ALTO IMPACTO) ================= -->
+      <div id="vista-temario" class="w-full max-w-6xl mt-4 text-left">
+        
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-slate-200/80 gap-4">
           <div>
-            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-[#39A900] text-xs font-extrabold uppercase tracking-wider mb-1.5 border border-emerald-200">
-              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-              <span>Temario de Formación · 14 Lecciones Disponibles</span>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-50 text-[#39A900] text-xs font-extrabold uppercase tracking-wider mb-2 border border-emerald-200">
+              <i data-lucide="graduation-cap" class="w-4 h-4"></i>
+              <span>Plan de Formación ADSO · 14 Lecciones Técnicas Hacia React + Vite</span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Selecciona un tema para abrir su explicación
+              Selecciona una lección para abrir su explicación y retos
             </h2>
           </div>
-          <div class="flex items-center gap-2 text-xs text-slate-600 bg-white px-3.5 py-1.5 rounded-xl border border-slate-200 shadow-xs shrink-0 font-medium">
+          <div class="flex items-center gap-2 text-xs text-slate-600 bg-white px-3.5 py-2 rounded-xl border border-slate-200 shadow-xs shrink-0 font-medium">
             <span class="w-2.5 h-2.5 rounded-full bg-[#39A900] animate-pulse"></span>
-            <span>Acceso Directo con 1 Clic</span>
+            <span>Acceso directo con 1 Clic</span>
           </div>
         </div>
 
-        <!-- Grid de Temas Interactivos -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-
-          <!-- Tema 1 -->
-          <div onclick="irDiapositiva(2)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">01</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">Mentalidad</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">¿Por qué este JS es el 90% de React?</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Paradigma declarativo, Virtual DOM vs DOM real, inmutabilidad y por qué Vite es el nuevo estándar.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
+        <!-- ================= MÓDULO 1 ================= -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-900 text-xs font-black tracking-wider uppercase">MÓDULO 1</span>
+            <h3 class="text-lg font-bold text-slate-800">Mentalidad React &amp; Inmutabilidad de Memoria</h3>
+            <span class="text-xs text-slate-400 font-medium">· Base conceptual de la reactividad</span>
           </div>
 
-          <!-- Tema 2 -->
-          <div onclick="irDiapositiva(3)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">02</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">const vs let</span>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Tema 01 -->
+            <div onclick="irDiapositiva(2)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200 shadow-xs">01</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">Mentalidad</span>
+                  </div>
+                  <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">¿Por qué este JS es el 90% de React?</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Paradigma declarativo (<code class="bg-slate-100 px-1 py-0.5 rounded text-slate-800 font-mono">UI = f(state)</code>), Virtual DOM vs DOM real, y por qué Vite es el nuevo estándar frente a CRA.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/90 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>Virtual DOM &amp; Vite ESM</strong></span>
+                </div>
               </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Variables Modernas e Inmutabilidad</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Scope léxico de bloque, eliminación de var, inmutabilidad en memoria y cómo React compara estados.</p>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
             </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
+
+            <!-- Tema 02 -->
+            <div onclick="irDiapositiva(3)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200 shadow-xs">02</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">const vs let</span>
+                  </div>
+                  <i data-lucide="database" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Variables Modernas e Inmutabilidad</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Scope léxico de bloque, eliminación de var, inmutabilidad en memoria Heap y cómo React compara estados por referencia.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/90 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>Motor de re-renderizado en useState</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
             </div>
           </div>
-
-          <!-- Tema 3 -->
-          <div onclick="irDiapositiva(4)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">03</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">Reto 1 en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Desestructuración y Props</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Extracción profunda de objetos y arreglos, valores por defecto, renombramiento y props de componentes.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 4 -->
-          <div onclick="irDiapositiva(5)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">04</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">Reto 2 en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Spread Operator (...) e Inmutabilidad</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">El motor de useState: clonado superficial, inserción y borrado inmutable sin usar .push() ni .splice().</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 5 -->
-          <div onclick="irDiapositiva(6)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">05</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">Sintaxis Limpia</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Arrow Functions y Retorno Implícito</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Funciones de una sola línea, retornos implícitos con paréntesis y manejadores de eventos (onClick).</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 6 -->
-          <div onclick="irDiapositiva(7)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">06</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">Reto 3 en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Métodos Puros: .map() y .filter()</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Renderizado dinámico de componentes en JSX, prop "key" única y filtrado multicriterio en catálogos.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 7 -->
-          <div onclick="irDiapositiva(8)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">07</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">Reto 4 en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Dominio de .reduce() y Balances</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Cálculo de balances financieros, IVA 19%, descuentos acumulados y la base conceptual de useReducer.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 8 -->
-          <div onclick="irDiapositiva(9)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">08</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">ES Modules</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Módulos ES6 en la Era de Vite</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Named exports vs Default exports, arquitectura modular y cómo Vite compila a velocidad ultra rápida.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 9 -->
-          <div onclick="irDiapositiva(10)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">09</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">Node.js &amp; Web</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">El Event Loop y la Asincronía</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Call Stack, Microtask Queue (Promesas) y Macrotasks (Timers/I/O) en el modelo monohilo.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 10 -->
-          <div onclick="irDiapositiva(11)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">10</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">Reto 5 en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Async / Await y Control de Fallos</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Pipeline seguro con try/catch, fallbacks para no romper la UI y preparación para useEffect.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 11 -->
-          <div onclick="irDiapositiva(12)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">11</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700 border border-blue-200">Dashboards</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Concurrencia: Promise.all / allSettled</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Carga simultánea de múltiples endpoints de servidor en paralelo para paneles administrativos.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 12 -->
-          <div onclick="irDiapositiva(13)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">12</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-900 text-white">Taller en Aula</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Los 5 Retos Prácticos de Aula</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Arquitectura del taller progresivo, especificación de retos y estructura de carpetas.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 13 -->
-          <div onclick="irDiapositiva(14)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">13</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">Node Test</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Validador Automatizado en VS Code</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Ejecución con npm test, modo centinela en tiempo real y la consola visual interactiva SENA.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
-          <!-- Tema 14 -->
-          <div onclick="irDiapositiva(15)" class="bg-white rounded-xl p-5 border border-slate-200 shadow-xs hover:shadow-md hover:border-[#39A900] transition cursor-pointer flex flex-col justify-between group">
-            <div>
-              <div class="flex items-center justify-between mb-3">
-                <span class="w-7 h-7 rounded-lg bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">14</span>
-                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700 border border-purple-200">Evaluación</span>
-              </div>
-              <h4 class="font-bold text-slate-900 text-sm mb-1.5 group-hover:text-[#39A900] transition">Flujo de Git, Commits &amp; Sustentación</h4>
-              <p class="text-xs text-slate-500 leading-relaxed mb-4">Commits atómicos feat(), subida de evidencia a GitHub y modificación de código en caliente.</p>
-            </div>
-            <div class="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-[#39A900] font-semibold">
-              <span>Ver Explicación</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform"></i>
-            </div>
-          </div>
-
         </div>
+
+        <!-- ================= MÓDULO 2 ================= -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-purple-100 text-purple-900 text-xs font-black tracking-wider uppercase">MÓDULO 2</span>
+            <h3 class="text-lg font-bold text-slate-800">Sintaxis ES6+ de Alta Frecuencia en Componentes</h3>
+            <span class="text-xs text-slate-400 font-medium">· Props, estados, renderizado y JSX</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Tema 03 -->
+            <div onclick="irDiapositiva(4)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 font-mono font-bold text-xs flex items-center justify-center border border-purple-200">03</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">Reto 1 Aula</span>
+                  </div>
+                  <i data-lucide="box" class="w-4 h-4 text-purple-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Desestructuración Profunda y Props</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Extracción de props en componentes funcionales, parámetros por defecto, renombramiento y sintaxis limpia de Hooks.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-50/80 text-purple-800 text-[11px] font-semibold border border-purple-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-purple-600"></i>
+                  <span>Clave: <strong>Props &amp; Tupla de useState</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección &amp; Reto</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 04 -->
+            <div onclick="irDiapositiva(5)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">04</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">Reto 2 Aula</span>
+                  </div>
+                  <i data-lucide="copy" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Spread Operator (...) e Inmutabilidad</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Actualización inmutable de arreglos y objetos de estado sin .push() ni .splice(). Cómo evitar mutaciones destructivas.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>setEstado([...prev, nuevo])</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección &amp; Reto</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 05 -->
+            <div onclick="irDiapositiva(6)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 font-mono font-bold text-xs flex items-center justify-center border border-blue-200">05</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">Sintaxis Limpia</span>
+                  </div>
+                  <i data-lucide="terminal" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Arrow Functions &amp; Retorno Implícito</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Componentes de una línea, retornos implícitos con paréntesis () =&gt; (...) y manejadores de eventos onClick sin ejecuciones prematuras.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50/80 text-blue-800 text-[11px] font-semibold border border-blue-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-blue-600"></i>
+                  <span>Clave: <strong>Componentes &amp; Handlers onClick</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 06 -->
+            <div onclick="irDiapositiva(7)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">06</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">Reto 3 Aula</span>
+                  </div>
+                  <i data-lucide="layers" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Métodos Puros: .map() y .filter()</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">En JSX no existen bucles for: .map() es la única forma de renderizar colecciones dinámicas con la prop "key" única obligatoria.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>Renderizado JSX &amp; Prop Key</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección &amp; Reto</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 07 -->
+            <div onclick="irDiapositiva(8)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 font-mono font-bold text-xs flex items-center justify-center border border-purple-200">07</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">Reto 4 Aula</span>
+                  </div>
+                  <i data-lucide="calculator" class="w-4 h-4 text-purple-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Dominio de .reduce() y Balances</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Cálculo de balances financieros, IVA 19%, carritos de compras y la base conceptual directa del Hook useReducer.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-50/80 text-purple-800 text-[11px] font-semibold border border-purple-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-purple-600"></i>
+                  <span>Clave: <strong>Carritos &amp; Hook useReducer</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección &amp; Reto</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 08 -->
+            <div onclick="irDiapositiva(9)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 font-mono font-bold text-xs flex items-center justify-center border border-blue-200">08</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">ES Modules</span>
+                  </div>
+                  <i data-lucide="code-2" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Módulos ES6 en la Era de Vite</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Named exports vs Default exports, importaciones dinámicas y la arquitectura con la que Vite compila a velocidad ultra rápida.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50/80 text-blue-800 text-[11px] font-semibold border border-blue-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-blue-600"></i>
+                  <span>Clave: <strong>Vite HMR &amp; Arquitectura de Componentes</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MÓDULO 3 ================= -->
+        <div class="mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-amber-100 text-amber-900 text-xs font-black tracking-wider uppercase">MÓDULO 3</span>
+            <h3 class="text-lg font-bold text-slate-800">Asincronía, Event Loop y Consumo de APIs</h3>
+            <span class="text-xs text-slate-400 font-medium">· Peticiones backend, useEffect y concurrencia</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Tema 09 -->
+            <div onclick="irDiapositiva(10)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-amber-50 text-amber-800 font-mono font-bold text-xs flex items-center justify-center border border-amber-200">09</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-amber-50 text-amber-800 border border-amber-200">Motor JS</span>
+                  </div>
+                  <i data-lucide="cpu" class="w-4 h-4 text-amber-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">El Event Loop y la Asincronía</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Call Stack, Microtasks (Promesas) y Macrotasks (Timers/Fetch). Por qué las peticiones de red no congelan la interfaz del usuario.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-50/80 text-amber-900 text-[11px] font-semibold border border-amber-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-amber-600"></i>
+                  <span>Clave: <strong>UI fluida a 60 FPS sin congelamientos</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 10 -->
+            <div onclick="irDiapositiva(11)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">10</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">Reto 5 Aula</span>
+                  </div>
+                  <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Async / Await Defensivo</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Pipeline seguro con try/catch, validación .ok y fallbacks para no romper la pantalla (White Screen of Death) en React.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>Peticiones de Servidor en useEffect</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección &amp; Reto</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 11 -->
+            <div onclick="irDiapositiva(12)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 font-mono font-bold text-xs flex items-center justify-center border border-blue-200">11</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700 border border-blue-200">Dashboards</span>
+                  </div>
+                  <i data-lucide="columns-3" class="w-4 h-4 text-blue-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Promise.all &amp; allSettled</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Carga paralela sin cascada (waterfall). Conecta múltiples microservicios o tablas simultáneamente para paneles administrativos.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50/80 text-blue-800 text-[11px] font-semibold border border-blue-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-blue-600"></i>
+                  <span>Clave: <strong>Carga de Múltiples Fuentes en React</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Lección</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= MÓDULO 4 ================= -->
+        <div class="mb-6">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-white text-xs font-black tracking-wider uppercase">MÓDULO 4</span>
+            <h3 class="text-lg font-bold text-slate-800">Taller en Aula, Validador y Evidencias</h3>
+            <span class="text-xs text-slate-400 font-medium">· Especificación técnica, testing y entrega en GitHub</span>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Tema 12 -->
+            <div onclick="irDiapositiva(13)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-slate-100 text-slate-800 font-mono font-bold text-xs flex items-center justify-center border border-slate-200">12</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-slate-900 text-white">Taller Práctico</span>
+                  </div>
+                  <i data-lucide="folder-code" class="w-4 h-4 text-slate-700"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Los 5 Retos Prácticos de Aula</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Especificación técnica de los 5 ejercicios de aula, estructura de archivos de la solución y criterios de evaluación técnica.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800 text-[11px] font-semibold border border-slate-200">
+                  <i data-lucide="zap" class="w-3 h-3 text-slate-700"></i>
+                  <span>Clave: <strong>Estructura de Proyecto &amp; package.json</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Guía de Retos</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 13 -->
+            <div onclick="irDiapositiva(14)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-50 text-[#39A900] font-mono font-bold text-xs flex items-center justify-center border border-emerald-200">13</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">Node Test</span>
+                  </div>
+                  <i data-lucide="play-circle" class="w-4 h-4 text-emerald-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Validador Automatizado en VS Code</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Ejecución con npm test, modo centinela en tiempo real (--watch) y consola visual interactiva SENA con 20 tests unitarios.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50/80 text-emerald-800 text-[11px] font-semibold border border-emerald-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-[#39A900]"></i>
+                  <span>Clave: <strong>Testing Unitario Continuo con Node.js</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Validador</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+
+            <!-- Tema 14 -->
+            <div onclick="irDiapositiva(15)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 font-mono font-bold text-xs flex items-center justify-center border border-purple-200">14</span>
+                    <span class="text-[11px] font-bold px-2 py-0.5 rounded-md bg-purple-50 text-purple-700 border border-purple-200">Evaluación</span>
+                  </div>
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-purple-600"></i>
+                </div>
+                <h4 class="font-extrabold text-slate-900 text-base mb-1.5 group-hover:text-[#39A900] transition">Flujo de Git, Commits &amp; Sustentación</h4>
+                <p class="text-xs text-slate-600 leading-relaxed mb-3">Commits atómicos feat(), subida de evidencia al repositorio personal en GitHub y sustentación oral en aula con rúbrica SENA &gt;= 70%.</p>
+                
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-purple-50/80 text-purple-800 text-[11px] font-semibold border border-purple-100">
+                  <i data-lucide="zap" class="w-3 h-3 text-purple-600"></i>
+                  <span>Clave: <strong>GitHub Pages &amp; Evidencia Evaluada</strong></span>
+                </div>
+              </div>
+              <div class="pt-3 mt-4 border-t border-slate-100 flex items-center justify-between text-xs text-[#39A900] font-bold">
+                <span>Abrir Rúbrica &amp; Git</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1.5 transition-transform"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-
     </section>
 
     <!-- SLIDE 2: POR QUÉ ESTE JS ES EL 90% DE REACT -->
@@ -2129,25 +2305,45 @@ git push -u origin main</code></pre>
         siguiente.classList.add('flex', 'slide-fade-enter-active');
       }
 
-      // Actualizar indicadores
-      document.getElementById('slide-indicator').textContent = `${currentSlide} / ${totalSlides}`;
-      const slideMeta = slidesData.find(s => s.id === currentSlide);
-      if (slideMeta) {
-        document.getElementById('nav-slide-title').textContent = slideMeta.title;
+      // Actualizar indicadores y visibilidad de controles de lección en el navbar
+      const lessonControls = document.getElementById('nav-lesson-controls');
+      const slideIndicator = document.getElementById('slide-indicator');
+      const navSlideTitle = document.getElementById('nav-slide-title');
+      const btnPrev = document.getElementById('btn-prev-slide');
+      const btnNext = document.getElementById('btn-next-slide');
+
+      if (currentSlide === 1) {
+        if (lessonControls) {
+          lessonControls.classList.add('hidden');
+          lessonControls.classList.remove('flex');
+        }
+      } else {
+        if (lessonControls) {
+          lessonControls.classList.remove('hidden');
+          lessonControls.classList.add('flex');
+        }
+        if (slideIndicator) {
+          slideIndicator.textContent = `Lección ${currentSlide - 1} / ${totalSlides - 1}`;
+        }
+        const slideMeta = slidesData.find(s => s.id === currentSlide);
+        if (slideMeta && navSlideTitle) {
+          navSlideTitle.textContent = slideMeta.title;
+        }
       }
 
-      // Estados de botones ant/sig
-      document.getElementById('btn-prev-slide').disabled = (currentSlide === 1);
-      document.getElementById('btn-next-slide').disabled = (currentSlide === totalSlides);
+      // Estados de botones ant/sig si existen
+      if (btnPrev) btnPrev.disabled = (currentSlide <= 1);
+      if (btnNext) btnNext.disabled = (currentSlide >= totalSlides);
 
       // Actualizar resaltado en drawer
       actualizarItemsDrawer();
       window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.lucide) lucide.createIcons();
     }
 
     document.getElementById('btn-prev-slide').addEventListener('click', () => irDiapositiva(currentSlide - 1));
     document.getElementById('btn-next-slide').addEventListener('click', () => irDiapositiva(currentSlide + 1));
-    document.getElementById('btn-start-lesson').addEventListener('click', () => irDiapositiva(2));
+    const btnStartLesson = document.getElementById('btn-start-lesson'); if (btnStartLesson) btnStartLesson.addEventListener('click', () => irDiapositiva(2));
 
     // Generar lista en el Drawer
     const drawerList = document.getElementById('drawer-list');
@@ -2191,7 +2387,7 @@ git push -u origin main</code></pre>
         slideDrawer.classList.add('hidden');
       }
     }
-    document.getElementById('btn-open-drawer').addEventListener('click', () => toggleDrawer(true));
+    // btn-open-drawer removed from navbar
     document.getElementById('btn-close-drawer').addEventListener('click', () => toggleDrawer(false));
     slideDrawer.addEventListener('click', (e) => {
       if (e.target === slideDrawer) toggleDrawer(false);
@@ -2214,19 +2410,20 @@ git push -u origin main</code></pre>
     }
 
     function toggleTimer() {
+      if (!timerDisplay) return;
       if (timerRunning) {
         clearInterval(timerInterval);
         timerRunning = false;
-        timerActionText.textContent = "Reanudar";
-        timerIcon.setAttribute('data-lucide', 'play');
+        if (timerActionText) timerActionText.textContent = "Reanudar";
+        if (timerIcon) timerIcon.setAttribute('data-lucide', 'play');
       } else {
         timerInterval = setInterval(() => {
           timerSeconds++;
-          timerDisplay.textContent = formatearTiempo(timerSeconds);
+          if (timerDisplay) timerDisplay.textContent = formatearTiempo(timerSeconds);
         }, 1000);
         timerRunning = true;
-        timerActionText.textContent = "Pausar";
-        timerIcon.setAttribute('data-lucide', 'pause');
+        if (timerActionText) timerActionText.textContent = "Pausar";
+        if (timerIcon) timerIcon.setAttribute('data-lucide', 'pause');
       }
       lucide.createIcons();
     }
@@ -2241,8 +2438,8 @@ git push -u origin main</code></pre>
       lucide.createIcons();
     }
 
-    btnTimerToggle.addEventListener('click', toggleTimer);
-    btnTimerReset.addEventListener('click', resetTimer);
+    // btnTimerToggle listener (removed from navbar)
+    // btnTimerReset listener (removed from navbar)
 
     // Pantalla Completa
     const btnFullscreen = document.getElementById('btn-fullscreen');
