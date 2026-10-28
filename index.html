@@ -2243,29 +2243,31 @@ function TarjetaProducto({
                   </span>
                   <span class="text-[11px] text-slate-500">Completa los parámetros usando desestructuración según los 4 requisitos</span>
                 </div>
-                <div class="flex items-center gap-1.5">
-                  <button onclick="cargarPlantillaReto1('vacio')" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer">
-                    ↺ Plantilla Limpia
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <button onclick="cargarPlantillaReto1('escribir')" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-purple-50 hover:bg-purple-100 text-purple-800 border border-purple-200 transition cursor-pointer flex items-center gap-1" title="Escribir solución desde una plantilla guiada">
+                    <i data-lucide="pen-tool" class="w-3 h-3 text-purple-600"></i>
+                    <span>Escribir Código</span>
                   </button>
-                  <button onclick="cargarPlantillaReto1('error')" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 transition cursor-pointer flex items-center gap-1">
+                  <button onclick="cargarPlantillaReto1('error')" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 transition cursor-pointer flex items-center gap-1" title="Cargar código con errores para que el aprendiz identifique qué está mal">
                     <i data-lucide="bug" class="w-3 h-3 text-amber-600"></i>
-                    <span>Cargar Error Típico</span>
+                    <span>Reto Depuración (¿Qué está mal?)</span>
+                  </button>
+                  <button onclick="cargarPlantillaReto1('blanco')" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer" title="Limpiar editor para programar desde cero">
+                    <span>Limpiar</span>
                   </button>
                 </div>
               </div>
 
-              <!-- Textarea vacío con TODOs (sin la solución prefabricada) -->
-              <textarea id="codigo-validador-reto1" rows="6" class="w-full p-3 font-mono text-xs bg-slate-950 text-emerald-300 rounded-xl border border-slate-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent leading-relaxed" spellcheck="false" placeholder="// Escribe aquí tu función:
-function normalizarPerfil({ /* TODO: desestructurar */ }) {
-  return {};
-}">// Reto 1: Completa los parámetros de la función usando desestructuración
-function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621, ...habilidades */ }) {
+              <!-- Textarea interactivo para escribir o depurar -->
+              <textarea id="codigo-validador-reto1" rows="7" class="w-full p-3 font-mono text-xs bg-slate-950 text-emerald-300 rounded-xl border border-slate-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent leading-relaxed" spellcheck="false" placeholder="// Escribe aquí tu función desde cero:
+function normalizarPerfil({ ... }) {
+  return { ... };
+}">// 🎯 Reto 1: Completa los parámetros de la función usando desestructuración
+// Requisitos: nombre, correo como email, ficha con fallback 3314621, y ...habilidades
+function normalizarPerfil({ /* ✍️ Escribe aquí los parámetros a desestructurar */ }) {
   // Retorna el objeto normalizado:
   return {
-    nombre,
-    email,
-    ficha,
-    habilidades
+    
   };
 }</textarea>
 
@@ -4011,27 +4013,31 @@ export async function sincronizarMultiplesFuentes(promesas) {
       if (resultado) resultado.classList.add('hidden');
 
       if (modo === 'error') {
-        textarea.value = `// ❌ Código con errores típicos de aprendiz (¡Identifica y corrige qué está mal!):
-function normalizarPerfil({ nombre, correo, ficha }) {
-  // Errores: 
-  // 1. No renombró 'correo' a 'email' en la desestructuración
-  // 2. Olvidó el fallback 'ficha = 3314621' (llegará undefined)
-  // 3. Olvidó agrupar las habilidades dinámicas con '...habilidades'
-  return {
-    nombre,
-    email: correo,
-    ficha
-  };
-}`;
-      } else {
-        textarea.value = `// Reto 1: Completa los parámetros de la función usando desestructuración
-function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621, ...habilidades */ }) {
-  // Retorna el objeto normalizado:
+        // Código con errores típicos para que el aprendiz identifique qué está mal
+        textarea.value = `// 🐞 RETO DE DEPURACIÓN: ¿Qué está fallando en este código?
+// Un aprendiz escribió esta función pero al presionar "Validar Código en Vivo" falla.
+// ¡Identifica por qué falla y corrígelo!:
+function normalizarPerfil({ correo: email, ficha = 3314621, ...habilidades }) {
+  // ⚠️ Pista: Mira los parámetros de arriba y el objeto retornado abajo.
+  // ¿Qué variable se está usando en el return que NO fue desestructurada en los parámetros?
   return {
     nombre,
     email,
     ficha,
     habilidades
+  };
+}`;
+      } else if (modo === 'blanco') {
+        textarea.value = `// Escribe tu función normalizarPerfil({ ... }) completamente desde cero:
+`;
+      } else {
+        // Modo escribir con plantilla guiada limpia (sin resolver)
+        textarea.value = `// 🎯 Reto 1: Completa los parámetros de la función usando desestructuración
+// Requisitos: nombre, correo como email, ficha con fallback 3314621, y ...habilidades
+function normalizarPerfil({ /* ✍️ Escribe aquí los parámetros a desestructurar */ }) {
+  // Retorna el objeto normalizado:
+  return {
+    
   };
 }`;
       }
@@ -4045,6 +4051,12 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
       const codigo = textarea.value.trim();
       resultado.classList.remove('hidden');
 
+      if (!codigo) {
+        resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-amber-50 border border-amber-300 text-amber-950";
+        resultado.innerHTML = `⚠️ <strong>Editor vacío:</strong> Escribe tu código o presiona <em>"Escribir Código"</em> o <em>"Reto Depuración"</em> para comenzar.`;
+        return;
+      }
+
       const aprendizCrudo = {
         nombre: "Valentina Plazas",
         correo: "valen@sena.edu.co",
@@ -4055,7 +4067,26 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
 
       try {
         const wrappedCode = `${codigo}; return typeof normalizarPerfil === 'function' ? normalizarPerfil : null;`;
-        const fn = new Function(wrappedCode)();
+        let fn;
+        try {
+          fn = new Function(wrappedCode)();
+        } catch (compileErr) {
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2";
+          resultado.innerHTML = `
+            <div class="flex items-center gap-2 text-rose-800 font-bold">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-rose-600"></i>
+              <span>Error de Sintaxis en JavaScript (${compileErr.name})</span>
+            </div>
+            <div class="p-2 bg-rose-100/70 rounded text-[11px] text-rose-900">
+              <code>${compileErr.message}</code>
+            </div>
+            <p class="text-[11px] text-slate-700">
+              💡 <strong>Revisión:</strong> Verifica que todas las llaves <code>{ }</code>, paréntesis <code>( )</code> y comas estén correctamente cerradas.
+            </p>
+          `;
+          if (window.lucide) lucide.createIcons();
+          return;
+        }
 
         if (typeof fn !== 'function') {
           resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-amber-50 border border-amber-300 text-amber-950";
@@ -4064,23 +4095,35 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
           return;
         }
 
-        // Ejecutar función
+        // Ejecutar función controlando ReferenceError pedagógicamente
         let out;
         try {
           out = fn(aprendizCrudo);
         } catch (execErr) {
-          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2";
+          const varMatch = execErr.message.match(/([a-zA-Z0-9_$]+) is not defined/);
+          const varName = varMatch ? varMatch[1] : 'la variable';
+
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2.5";
           resultado.innerHTML = `
-            <div class="flex items-center gap-2 text-rose-800 font-bold">
-              <i data-lucide="alert-octagon" class="w-4 h-4 text-rose-600"></i>
-              <span>Error de Ejecución: ${execErr.name}</span>
+            <div class="flex items-center justify-between pb-1.5 border-b border-rose-200">
+              <span class="font-bold text-rose-900 text-sm flex items-center gap-1.5">
+                <i data-lucide="bug" class="w-4 h-4 text-rose-600"></i>
+                ¡Identificaste un Error de Referencia (ReferenceError)!
+              </span>
+              <span class="text-[10px] bg-rose-200 px-2 py-0.5 rounded text-rose-900 font-bold">Depuración requerida</span>
             </div>
-            <div class="p-2 bg-rose-100/70 rounded text-[11px] text-rose-900">
-              <code>${execErr.message}</code>
+            <div class="p-2 bg-rose-100/80 rounded text-[11px] text-rose-900">
+              <code>Error: ${execErr.message}</code>
             </div>
-            <p class="text-[11px] text-slate-700">
-              💡 <strong>Consejo:</strong> Si intentas retornar una variable en <code>return { ... }</code> pero no la desestructuraste en los parámetros de la función, JavaScript lanzará <em>"${execErr.message}"</em>.
-            </p>
+            <div class="p-2.5 bg-white rounded-lg border border-rose-200 text-[11px] text-slate-700 space-y-1.5">
+              <p class="font-bold text-slate-900">🔍 ¿Qué está mal en el código?</p>
+              <p>En el cuerpo de la función estás intentando retornar o usar <code class="text-rose-700 font-bold font-mono">${varName}</code>, pero JavaScript no la encuentra en memoria.</p>
+              <p class="text-emerald-800 font-semibold">👉 ¿Cómo corregirlo?:</p>
+              <p>Asegúrate de incluir <code class="bg-slate-100 px-1 py-0.5 rounded font-mono text-emerald-700 font-bold">${varName}</code> dentro de los parámetros desestructurados de la función:</p>
+              <div class="p-1.5 bg-slate-900 text-emerald-300 rounded font-mono text-[10px]">
+                function normalizarPerfil({ ${varName}, ... })
+              </div>
+            </div>
           `;
           if (window.lucide) lucide.createIcons();
           return;
@@ -4088,7 +4131,7 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
 
         if (!out || typeof out !== 'object') {
           resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
-          resultado.innerHTML = `❌ <strong>Error:</strong> La función debe retornar un objeto con las propiedades procesadas.`;
+          resultado.innerHTML = `❌ <strong>Error:</strong> La función debe retornar un objeto con las propiedades procesadas, por ejemplo: <code>return { nombre, email, ficha, habilidades };</code>`;
           if (window.lucide) lucide.createIcons();
           return;
         }
@@ -4106,30 +4149,30 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
           resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2.5";
           resultado.innerHTML = `
             <div class="flex items-center justify-between pb-1.5 border-b border-rose-200">
-              <span class="font-bold text-rose-900 text-sm">Auditoría del Reto: Faltan requisitos por cumplir</span>
-              <span class="text-[10px] bg-rose-200 px-2 py-0.5 rounded text-rose-900 font-bold">Incompleto</span>
+              <span class="font-bold text-rose-900 text-sm">Auditoría del Reto: Checklist de Requisitos</span>
+              <span class="text-[10px] bg-rose-200 px-2 py-0.5 rounded text-rose-900 font-bold">Faltan requisitos</span>
             </div>
-            <div class="space-y-1 text-[11px]">
-              <div class="flex items-center gap-2">
+            <div class="space-y-1.5 text-[11px]">
+              <div class="flex items-center gap-2 p-1 rounded ${r1 ? 'bg-emerald-50 text-emerald-900' : 'bg-rose-100/60 text-rose-900'}">
                 <span>${r1 ? '✅' : '❌'}</span>
-                <span class="${r1 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">1. Extraer 'nombre': ${r1 ? 'Correcto ("Valentina Plazas")' : 'Fallo (valor: ' + out.nombre + ')'}</span>
+                <span><strong>1. Extraer 'nombre':</strong> ${r1 ? 'Aprobado ("Valentina Plazas")' : 'Pendiente (valor recibido: ' + (out.nombre !== undefined ? JSON.stringify(out.nombre) : 'undefined') + ')'}</span>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 p-1 rounded ${r2 ? 'bg-emerald-50 text-emerald-900' : 'bg-rose-100/60 text-rose-900'}">
                 <span>${r2 ? '✅' : '❌'}</span>
-                <span class="${r2 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">2. Renombrar 'correo' a 'email': ${r2 ? 'Correcto ("valen@sena.edu.co")' : 'Fallo (debes usar { correo: email })'}</span>
+                <span><strong>2. Renombrar 'correo' a 'email':</strong> ${r2 ? 'Aprobado ("valen@sena.edu.co")' : 'Pendiente (debes usar { correo: email })'}</span>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 p-1 rounded ${r3 ? 'bg-emerald-50 text-emerald-900' : 'bg-rose-100/60 text-rose-900'}">
                 <span>${r3 ? '✅' : '❌'}</span>
-                <span class="${r3 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">3. Fallback 'ficha = 3314621': ${r3 ? 'Correcto (3314621)' : 'Fallo (llegó ' + out.ficha + ' porque el objeto original no traía ficha)'}</span>
+                <span><strong>3. Fallback 'ficha = 3314621':</strong> ${r3 ? 'Aprobado (3314621)' : 'Pendiente (llegó ' + (out.ficha !== undefined ? JSON.stringify(out.ficha) : 'undefined') + ', asigna ficha = 3314621)'}</span>
               </div>
-              <div class="flex items-center gap-2">
+              <div class="flex items-center gap-2 p-1 rounded ${r4 ? 'bg-emerald-50 text-emerald-900' : 'bg-rose-100/60 text-rose-900'}">
                 <span>${r4 ? '✅' : '❌'}</span>
-                <span class="${r4 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">4. Agrupar con rest operator (...habilidades): ${r4 ? 'Correcto' : 'Fallo (no se encontraron las habilidades agrupadas)'}</span>
+                <span><strong>4. Rest operator (...habilidades):</strong> ${r4 ? 'Aprobado' : 'Pendiente (usa ...habilidades al final de los parámetros)'}</span>
               </div>
             </div>
-            <div class="mt-2 text-[10px] text-slate-600 bg-white p-2 rounded border border-rose-200">
-              💡 <strong>Pista para el aprendiz:</strong> Los parámetros de la función deben lucir así:<br>
-              <code>function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades })</code>
+            <div class="mt-2 text-[10px] text-slate-600 bg-white p-2.5 rounded-lg border border-rose-200">
+              💡 <strong>Pista para el aprendiz:</strong> Los parámetros de la función deben estructurarse así:<br>
+              <code class="text-purple-700 font-bold">function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades })</code>
             </div>
           `;
         } else {
@@ -4156,14 +4199,12 @@ function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621,
       } catch (err) {
         resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-1.5";
         resultado.innerHTML = `
-          <div class="font-bold text-rose-800">🚨 Error de Sintaxis en JavaScript:</div>
+          <div class="font-bold text-rose-800">🚨 Error Inesperado:</div>
           <div class="p-2 bg-white rounded border border-rose-200 text-rose-700"><code>${err.message}</code></div>
-          <p class="text-[10px] text-slate-600">Revisa las llaves {}, comas y paréntesis en la declaración de tu función.</p>
         `;
+        if (window.lucide) lucide.createIcons();
       }
-      if (window.lucide) lucide.createIcons();
     }
-
     // Inicializar iconos de Lucide
     lucide.createIcons();
   </script>
