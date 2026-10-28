@@ -2234,34 +2234,53 @@ function TarjetaProducto({
             </div>
 
             <!-- Ventana de Código en Vivo para Validar en Línea -->
-            <div class="bg-white p-4 rounded-xl border border-purple-300 space-y-3 shadow-xs">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-                  <i data-lucide="code-2" class="w-4 h-4 text-purple-700"></i>
-                  Validador de Código en Vivo (Prueba tu función aquí mismo):
-                </span>
-                <span class="text-[10px] text-slate-500">Editor en navegador</span>
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-purple-300 space-y-3.5 shadow-xs">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-purple-100 pb-2.5">
+                <div>
+                  <span class="text-xs sm:text-sm font-bold text-slate-900 flex items-center gap-1.5">
+                    <i data-lucide="code-2" class="w-4 h-4 text-purple-700"></i>
+                    Editor de Código en Vivo: Escribe o Corrige la Función
+                  </span>
+                  <span class="text-[11px] text-slate-500">Completa los parámetros usando desestructuración según los 4 requisitos</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="cargarPlantillaReto1('vacio')" class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition cursor-pointer">
+                    ↺ Plantilla Limpia
+                  </button>
+                  <button onclick="cargarPlantillaReto1('error')" class="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 transition cursor-pointer flex items-center gap-1">
+                    <i data-lucide="bug" class="w-3 h-3 text-amber-600"></i>
+                    <span>Cargar Error Típico</span>
+                  </button>
+                </div>
               </div>
 
-              <textarea id="codigo-validador-reto1" rows="5" class="w-full p-3 font-mono text-xs bg-slate-950 text-emerald-300 rounded-xl border border-slate-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent leading-relaxed" placeholder="Escribe aquí tu función:
-function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
-  return { nombre, email, ficha, habilidades };
-}">function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
-  return { nombre, email, ficha, habilidades };
+              <!-- Textarea vacío con TODOs (sin la solución prefabricada) -->
+              <textarea id="codigo-validador-reto1" rows="6" class="w-full p-3 font-mono text-xs bg-slate-950 text-emerald-300 rounded-xl border border-slate-700 focus:outline-hidden focus:ring-2 focus:ring-purple-600 focus:border-transparent leading-relaxed" spellcheck="false" placeholder="// Escribe aquí tu función:
+function normalizarPerfil({ /* TODO: desestructurar */ }) {
+  return {};
+}">// Reto 1: Completa los parámetros de la función usando desestructuración
+function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621, ...habilidades */ }) {
+  // Retorna el objeto normalizado:
+  return {
+    nombre,
+    email,
+    ficha,
+    habilidades
+  };
 }</textarea>
 
-              <div class="flex flex-wrap items-center gap-3">
-                <button onclick="validarReto1EnVivo()" class="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs rounded-xl shadow-xs transition cursor-pointer flex items-center gap-2">
-                  <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <button onclick="validarReto1EnVivo()" class="px-5 py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs transition active:scale-98 cursor-pointer flex items-center gap-2">
+                  <i data-lucide="play" class="w-4 h-4 fill-current"></i>
                   <span>Validar Código en Vivo</span>
                 </button>
-                <button onclick="restaurarCodigoReto1()" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-xs rounded-xl transition cursor-pointer">
-                  Limpiar Plantilla
-                </button>
+                <span class="text-[11px] text-slate-500 font-mono hidden sm:inline">
+                  Prueba contra: { nombre, correo, react, vite, nodejs }
+                </span>
               </div>
 
               <!-- Resultado de la Validación en Vivo -->
-              <div id="resultado-validador-reto1" class="hidden p-3.5 rounded-xl text-xs font-mono leading-relaxed transition-all"></div>
+              <div id="resultado-validador-reto1" class="hidden p-4 rounded-xl text-xs font-mono leading-relaxed transition-all"></div>
             </div>
 
           </div>
@@ -3985,6 +4004,39 @@ export async function sincronizarMultiplesFuentes(promesas) {
 
     
     // ================= FUNCIONES INTERACTIVAS LECCIÓN 03 (RETO 1) =================
+    function cargarPlantillaReto1(modo) {
+      const textarea = document.getElementById('codigo-validador-reto1');
+      const resultado = document.getElementById('resultado-validador-reto1');
+      if (!textarea) return;
+      if (resultado) resultado.classList.add('hidden');
+
+      if (modo === 'error') {
+        textarea.value = `// ❌ Código con errores típicos de aprendiz (¡Identifica y corrige qué está mal!):
+function normalizarPerfil({ nombre, correo, ficha }) {
+  // Errores: 
+  // 1. No renombró 'correo' a 'email' en la desestructuración
+  // 2. Olvidó el fallback 'ficha = 3314621' (llegará undefined)
+  // 3. Olvidó agrupar las habilidades dinámicas con '...habilidades'
+  return {
+    nombre,
+    email: correo,
+    ficha
+  };
+}`;
+      } else {
+        textarea.value = `// Reto 1: Completa los parámetros de la función usando desestructuración
+function normalizarPerfil({ /* TODO: nombre, correo como email, ficha = 3314621, ...habilidades */ }) {
+  // Retorna el objeto normalizado:
+  return {
+    nombre,
+    email,
+    ficha,
+    habilidades
+  };
+}`;
+      }
+    }
+
     function validarReto1EnVivo() {
       const textarea = document.getElementById('codigo-validador-reto1');
       const resultado = document.getElementById('resultado-validador-reto1');
@@ -4006,78 +4058,110 @@ export async function sincronizarMultiplesFuentes(promesas) {
         const fn = new Function(wrappedCode)();
 
         if (typeof fn !== 'function') {
-          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-amber-50 border border-amber-300 text-amber-950";
-          resultado.innerHTML = `⚠️ <strong>Atención:</strong> No se encontró la función <code>normalizarPerfil</code>. Asegúrate de declarar: <br><code>function normalizarPerfil({ ... }) { ... }</code>`;
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-amber-50 border border-amber-300 text-amber-950";
+          resultado.innerHTML = `⚠️ <strong>Atención:</strong> No se encontró la función <code>normalizarPerfil</code>. Asegúrate de declararla como: <br><code>function normalizarPerfil({ ... }) { ... }</code>`;
+          if (window.lucide) lucide.createIcons();
           return;
         }
 
-        const out = fn(aprendizCrudo);
+        // Ejecutar función
+        let out;
+        try {
+          out = fn(aprendizCrudo);
+        } catch (execErr) {
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2";
+          resultado.innerHTML = `
+            <div class="flex items-center gap-2 text-rose-800 font-bold">
+              <i data-lucide="alert-octagon" class="w-4 h-4 text-rose-600"></i>
+              <span>Error de Ejecución: ${execErr.name}</span>
+            </div>
+            <div class="p-2 bg-rose-100/70 rounded text-[11px] text-rose-900">
+              <code>${execErr.message}</code>
+            </div>
+            <p class="text-[11px] text-slate-700">
+              💡 <strong>Consejo:</strong> Si intentas retornar una variable en <code>return { ... }</code> pero no la desestructuraste en los parámetros de la función, JavaScript lanzará <em>"${execErr.message}"</em>.
+            </p>
+          `;
+          if (window.lucide) lucide.createIcons();
+          return;
+        }
 
         if (!out || typeof out !== 'object') {
-          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
           resultado.innerHTML = `❌ <strong>Error:</strong> La función debe retornar un objeto con las propiedades procesadas.`;
+          if (window.lucide) lucide.createIcons();
           return;
         }
 
-        const errores = [];
-        if (out.nombre !== "Valentina Plazas") {
-          errores.push("• 'nombre' no fue extraído correctamente.");
-        }
-        if (out.email !== "valen@sena.edu.co") {
-          errores.push("• 'email' no coincide: debes renombrar la propiedad 'correo' a 'email' ({ correo: email }).");
-        }
-        if (out.ficha !== 3314621) {
-          errores.push("• 'ficha' no tiene el valor por defecto 3314621 ({ ficha = 3314621 }).");
-        }
-
+        // Checklist de los 4 requisitos
+        const r1 = (out.nombre === "Valentina Plazas");
+        const r2 = (out.email === "valen@sena.edu.co");
+        const r3 = (out.ficha === 3314621);
         const habs = out.habilidades || out.habilidadesRestantes || {};
-        if (!habs.react || !habs.vite) {
-          errores.push("• No se agruparon las habilidades restantes con el rest operator (...habilidades).");
-        }
+        const r4 = (habs && typeof habs === 'object' && habs.react === "Avanzado" && habs.vite === "Intermedio");
 
-        if (errores.length > 0) {
-          resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-1.5";
+        const todosPasan = (r1 && r2 && r3 && r4);
+
+        if (!todosPasan) {
+          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-2.5";
           resultado.innerHTML = `
-            <div class="font-bold text-rose-800">❌ Pruebas no superadas:</div>
-            ${errores.map(e => `<div>${e}</div>`).join('')}
-            <div class="mt-2 text-[10px] text-slate-500">Revisa la sintaxis de desestructuración y vuelve a probar.</div>
+            <div class="flex items-center justify-between pb-1.5 border-b border-rose-200">
+              <span class="font-bold text-rose-900 text-sm">Auditoría del Reto: Faltan requisitos por cumplir</span>
+              <span class="text-[10px] bg-rose-200 px-2 py-0.5 rounded text-rose-900 font-bold">Incompleto</span>
+            </div>
+            <div class="space-y-1 text-[11px]">
+              <div class="flex items-center gap-2">
+                <span>${r1 ? '✅' : '❌'}</span>
+                <span class="${r1 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">1. Extraer 'nombre': ${r1 ? 'Correcto ("Valentina Plazas")' : 'Fallo (valor: ' + out.nombre + ')'}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>${r2 ? '✅' : '❌'}</span>
+                <span class="${r2 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">2. Renombrar 'correo' a 'email': ${r2 ? 'Correcto ("valen@sena.edu.co")' : 'Fallo (debes usar { correo: email })'}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>${r3 ? '✅' : '❌'}</span>
+                <span class="${r3 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">3. Fallback 'ficha = 3314621': ${r3 ? 'Correcto (3314621)' : 'Fallo (llegó ' + out.ficha + ' porque el objeto original no traía ficha)'}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span>${r4 ? '✅' : '❌'}</span>
+                <span class="${r4 ? 'text-emerald-800' : 'text-rose-800 font-bold'}">4. Agrupar con rest operator (...habilidades): ${r4 ? 'Correcto' : 'Fallo (no se encontraron las habilidades agrupadas)'}</span>
+              </div>
+            </div>
+            <div class="mt-2 text-[10px] text-slate-600 bg-white p-2 rounded border border-rose-200">
+              💡 <strong>Pista para el aprendiz:</strong> Los parámetros de la función deben lucir así:<br>
+              <code>function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades })</code>
+            </div>
           `;
         } else {
-          resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-emerald-50 border border-emerald-300 text-emerald-950 space-y-2";
+          resultado.className = "p-4 sm:p-5 rounded-2xl text-xs font-mono leading-relaxed bg-emerald-50 border border-emerald-300 text-emerald-950 space-y-3 shadow-xs";
           resultado.innerHTML = `
-            <div class="flex items-center gap-2 text-emerald-900 font-bold text-sm">
-              <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900]"></i>
-              <span>✔ ¡Reto 1 Superado con Éxito!</span>
+            <div class="flex items-center justify-between pb-2 border-b border-emerald-200">
+              <span class="font-extrabold text-[#39A900] text-sm sm:text-base flex items-center gap-1.5">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900]"></i>
+                ¡RETO 1 SUPERADO CON ÉXITO!
+              </span>
+              <span class="text-[10px] bg-[#39A900] text-white px-2 py-0.5 rounded font-bold">4 de 4 Aprobados</span>
             </div>
-            <div class="text-[11px] text-slate-700">
-              Todos los requisitos técnicos fueron validados en el navegador:<br>
-              • Nombre extraído: <strong>"${out.nombre}"</strong><br>
-              • Propiedad renombrada con éxito: <strong>email = "${out.email}"</strong><br>
-              • Fallback por defecto aplicado: <strong>ficha = ${out.ficha}</strong><br>
-              • Rest operator agrupó las habilidades: <strong>${JSON.stringify(habs)}</strong>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px] text-slate-800">
+              <div class="p-2 bg-white rounded border border-emerald-200">✔ <strong>nombre:</strong> "${out.nombre}"</div>
+              <div class="p-2 bg-white rounded border border-emerald-200">✔ <strong>email:</strong> "${out.email}" (Renombrado)</div>
+              <div class="p-2 bg-white rounded border border-emerald-200">✔ <strong>ficha:</strong> ${out.ficha} (Fallback aplicado)</div>
+              <div class="p-2 bg-white rounded border border-emerald-200">✔ <strong>habilidades:</strong> 3 habilidades agrupadas</div>
             </div>
-            <div class="p-2 bg-white rounded border border-emerald-200 text-[10px] text-emerald-800 font-bold">
-              🎉 ¡Excelente! Ya puedes trasladar esta función a tu archivo 'retos/reto1-destructuring.js' en VS Code y correr 'node --test'.
+            <div class="p-2.5 bg-emerald-100/70 rounded-xl border border-emerald-300 text-[11px] text-emerald-900">
+              🎉 <strong>¡Código listo para VS Code!:</strong> Copia esta función en <code class="bg-white px-1 py-0.5 rounded font-bold">retos/reto1-destructuring.js</code> y corre en tu terminal: <code class="bg-slate-900 text-emerald-300 px-1.5 py-0.5 rounded">node --test test/validador.test.js</code>.
             </div>
           `;
         }
       } catch (err) {
-        resultado.className = "p-3.5 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950";
-        resultado.innerHTML = `🚨 <strong>Error de sintaxis en JavaScript:</strong><br><code class="text-rose-700">${err.message}</code>`;
+        resultado.className = "p-4 rounded-xl text-xs font-mono leading-relaxed bg-rose-50 border border-rose-300 text-rose-950 space-y-1.5";
+        resultado.innerHTML = `
+          <div class="font-bold text-rose-800">🚨 Error de Sintaxis en JavaScript:</div>
+          <div class="p-2 bg-white rounded border border-rose-200 text-rose-700"><code>${err.message}</code></div>
+          <p class="text-[10px] text-slate-600">Revisa las llaves {}, comas y paréntesis en la declaración de tu función.</p>
+        `;
       }
       if (window.lucide) lucide.createIcons();
-    }
-
-    function restaurarCodigoReto1() {
-      const textarea = document.getElementById('codigo-validador-reto1');
-      const resultado = document.getElementById('resultado-validador-reto1');
-      if (textarea) {
-        textarea.value = `// Escribe aquí tu solución:
-function normalizarPerfil({ nombre, correo: email, ficha = 3314621, ...habilidades }) {
-  return { nombre, email, ficha, habilidades };
-}`;
-      }
-      if (resultado) resultado.classList.add('hidden');
     }
 
     // Inicializar iconos de Lucide
