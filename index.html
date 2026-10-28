@@ -1775,105 +1775,305 @@ Object.is(0x004F, 0x009A) === false; // ¡CAMBIO DETECTADO!
       </div>
     </section>
 
-<section id="slide-9" class="slide-content hidden flex-col my-auto py-4">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
-        <div class="flex items-center justify-between mb-4 border-b pb-4">
+    <!-- SLIDE 9: LECCIÓN 02 - VARIABLES MODERNAS: INMUTABILIDAD VS REASIGNACIÓN -->
+    <section id="slide-9" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        
+        <!-- Header de la Lección 02 -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 border-b border-slate-200/80 pb-4">
           <div>
-            <span class="text-xs font-bold text-[#39A900] uppercase tracking-wider">Lección 02 / Ámbitos y Memoria</span>
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">Variables Modernas: Inmutabilidad vs Reasignación</h2>
-          </div>
-          <span class="bg-emerald-50 text-[#39A900] text-xs font-bold px-3 py-1 rounded-full border border-emerald-200">const vs let</span>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
-            <p>
-              En JavaScript moderno, <strong>olvidamos por completo la palabra clave <code class="text-red-500 font-bold">var</code></strong> debido a los problemas de <em>hoisting</em> y falta de scope de bloque.
-            </p>
-            <div class="space-y-3">
-              <div class="p-3 bg-slate-50 border rounded-lg">
-                <span class="font-bold text-slate-900 block">1. const (Regla por defecto - 95% de los casos)</span>
-                <span class="text-xs text-slate-600">No permite reasignación de variable. Si almacena un objeto o array, ¡sus propiedades internas siguen siendo mutables si no tenemos cuidado!</span>
-              </div>
-              <div class="p-3 bg-slate-50 border rounded-lg">
-                <span class="font-bold text-slate-900 block">2. let (Solo cuando el valor deba reasignarse)</span>
-                <span class="text-xs text-slate-600">Acumuladores numéricos en bucles, temporizadores o flags que cambian explícitamente.</span>
-              </div>
-            </div>
-            <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl text-xs text-emerald-950 font-medium">
-              💡 <strong>Regla de Oro en React:</strong> React detecta cambios mediante <em>comparación de referencia de memoria</em> (<code class="font-mono">prev !== next</code>). Si mutas un objeto con <code class="font-mono">obj.nombre = 'x'</code>, la referencia es la misma y React NO redibuja la pantalla.
-            </div>
-          </div>
-
-          <!-- Code Snippet & Interactive Run -->
-          <div class="bg-slate-900 text-slate-200 rounded-xl p-4 font-mono text-xs shadow-md">
-            <div class="flex items-center justify-between text-slate-400 pb-2 mb-2 border-b border-slate-800">
-              <span>ejemplo-inmutabilidad.js</span>
-              <button onclick="copiarCodigo('code-s3')" class="hover:text-white transition flex items-center gap-1">
-                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar
-              </button>
-            </div>
-            <pre id="code-s3" class="text-emerald-300 leading-relaxed overflow-x-auto"><code>// ❌ MUTACIÓN PELIGROSA (React no se entera)
-const aprendiz = { nombre: 'Juan', promedio: 3.5 };
-aprendiz.promedio = 4.2; // Misma dirección en RAM
-
-// ✔️ ACTUALIZACIÓN INMUTABLE (React detecta nuevo estado)
-const aprendizActualizado = {
-  ...aprendiz,
-  promedio: 4.2
-};
-
-console.log(aprendiz === aprendizActualizado); // false (Nueva referencia!)</code></pre>
-            
-            <div class="mt-4 pt-3 border-t border-slate-800 flex items-center justify-between">
-              <button onclick="ejecutarDemoInmutabilidad()" class="bg-[#39A900] hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded text-xs flex items-center gap-1.5 transition">
-                <i data-lucide="play" class="w-3 h-3 fill-current"></i> Probar en vivo
-              </button>
-              <span id="output-s3" class="text-amber-400 text-[11px] font-mono">Esperando ejecución...</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ejercicio Práctico en Aula 02 -->
-        <div class="mt-6 pt-5 border-t border-slate-200 text-left">
-          <div class="bg-emerald-50/70 border border-emerald-200 rounded-xl p-5">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-              <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5 uppercase tracking-wider">
-                <i data-lucide="terminal" class="w-4 h-4 text-[#39A900]"></i>
-                🎯 Ejercicio en Aula 02: Clonado Inmutable Anidado
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 02 de 14
               </span>
-              <span class="text-[11px] font-bold text-emerald-700 bg-white px-2.5 py-1 rounded border border-emerald-200 shadow-2xs">Práctica en Puesto (5 min)</span>
+              <span class="text-xs text-slate-500 font-medium">Ámbitos, Stack y Heap en Memoria</span>
             </div>
-            <p class="text-xs text-slate-700 mb-3 leading-relaxed">
-              <strong>Reto para el aprendiz:</strong> Actualiza el teléfono de contacto de un aprendiz a <code class="font-mono font-bold text-emerald-800">"3208889999"</code> sin mutar el objeto original y sin perder su ciudad <code class="font-mono">"Garzón"</code>.
-            </p>
-            <div class="flex flex-wrap items-center gap-3">
-              <button onclick="ejecutarDemoInmutabilidadProfunda()" class="bg-[#39A900] hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded text-xs flex items-center gap-1.5 transition cursor-pointer">
-                <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i> Probar Solución en Vivo
-              </button>
-              <button onclick="toggleSolucion('sol-s3')" class="text-xs font-bold text-[#39A900] hover:text-emerald-800 flex items-center gap-1 transition cursor-pointer">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-                <span id="txt-sol-s3">Ver Explicación Técnica</span>
-              </button>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Variables Modernas: Inmutabilidad vs Reasignación
+            </h2>
+          </div>
+          <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            const vs let (La muerte de var)
+          </span>
+        </div>
+
+        <!-- Pestañas de Navegación Interactiva de la Lección 02 -->
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="cambiarTabL2('scope')" id="tab-l2-btn-scope" class="tab-l2-btn px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="shield-alert" class="w-3.5 h-3.5"></i>
+            <span>1. La Muerte de var vs let</span>
+          </button>
+          <button onclick="cambiarTabL2('const')" id="tab-l2-btn-const" class="tab-l2-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="lock" class="w-3.5 h-3.5 text-blue-600"></i>
+            <span>2. const con Objetos (Stack vs Heap)</span>
+          </button>
+          <button onclick="cambiarTabL2('deep')" id="tab-l2-btn-deep" class="tab-l2-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="layers" class="w-3.5 h-3.5 text-purple-600"></i>
+            <span>3. Shallow vs Deep Copy</span>
+          </button>
+          <button onclick="cambiarTabL2('taller')" id="tab-l2-btn-taller" class="tab-l2-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer flex items-center gap-1.5">
+            <i data-lucide="play-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+            <span>4. Taller en Vivo con Pruebas</span>
+          </button>
+        </div>
+
+        <!-- PESTAÑA 1: LA MUERTE DE VAR VS LET -->
+        <div id="tab-l2-scope" class="tab-l2-pane space-y-5">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            <div class="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+              <div class="p-4 bg-rose-50/80 rounded-xl border border-rose-200 text-rose-950">
+                <span class="font-bold text-rose-800 text-xs sm:text-sm block mb-1 flex items-center gap-1.5">
+                  <i data-lucide="trash-2" class="w-4 h-4 text-rose-600"></i> ¿Por qué var está prohibido en React y JS moderno?
+                </span>
+                <p class="text-xs text-rose-900 leading-relaxed">
+                  <code class="font-mono bg-rose-100 px-1 rounded font-bold">var</code> <strong>NO respeta bloques {}</strong> (como sentencias <code class="font-mono">if</code> o bucles <code class="font-mono">for</code>). Se escapa al ámbito global de la ventana, sobreescribe variables con el mismo nombre y sufre de <strong>hoisting</strong> (existe como <code class="font-mono">undefined</code> antes de su línea de creación).
+                </p>
+              </div>
+
+              <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
+                <span class="font-bold text-emerald-900 text-xs sm:text-sm block mb-1 flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900]"></i> let y const: Ámbito Léxico de Bloque
+                </span>
+                <p class="text-xs text-emerald-900 leading-relaxed">
+                  Solo existen dentro de las llaves <code class="font-mono bg-white px-1 rounded font-bold">&#123; ... &#125;</code> donde fueron creadas. En bucles asíncronos (como peticiones a una API o temporizadores), cada vuelta del bucle crea su propio enlace léxico en memoria.
+                </p>
+              </div>
             </div>
-            <div id="sol-s3" class="hidden mt-3 p-3.5 bg-white rounded-lg border border-emerald-300 text-xs text-slate-700 space-y-2">
-              <pre class="bg-slate-900 text-emerald-300 p-3 rounded font-mono text-[11px] overflow-x-auto"><code>const actualizado = {
+
+            <!-- Laboratorio Interactivo de Scope -->
+            <div class="bg-slate-900 text-slate-200 p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+              <div>
+                <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
+                  <span class="text-emerald-400 font-bold">LABORATORIO EN VIVO: EL CLÁSICO BUCLE FOR</span>
+                  <span class="text-[10px] text-slate-400">Prueba en Línea</span>
+                </div>
+                <pre class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-300 leading-relaxed overflow-x-auto"><code>for (<span id="code-token-variable" class="text-rose-400 font-bold">var</span> i = 0; i &lt; 3; i++) &#123;
+  setTimeout(() =&gt; &#123;
+    console.log("Turno aprendiz:", i);
+  &#125;, 100);
+&#125;</code></pre>
+                
+                <div class="flex items-center gap-2 mt-4">
+                  <button onclick="probarScopeVarLet('var')" class="flex-1 py-2 bg-rose-950/70 hover:bg-rose-900 text-rose-200 border border-rose-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>1. Probar con var</span>
+                  </button>
+                  <button onclick="probarScopeVarLet('let')" class="flex-1 py-2 bg-emerald-950/70 hover:bg-[#39A900] text-emerald-200 hover:text-white border border-emerald-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>2. Probar con let</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Consola de Salida en Vivo -->
+              <div id="consola-scope-output" class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px]">
+                <span class="text-slate-500 block mb-1">📟 Salida de Consola:</span>
+                <div id="consola-scope-texto" class="text-amber-400 font-mono">Presiona "Probar con var" o "Probar con let" para ver la diferencia de memoria...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PESTAÑA 2: CONST CON OBJETOS (STACK VS HEAP) -->
+        <div id="tab-l2-const" class="tab-l2-pane hidden space-y-5">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            <div class="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+              <div class="p-4 bg-blue-50/80 rounded-xl border border-blue-200 text-blue-950">
+                <span class="font-bold text-blue-900 text-xs sm:text-sm block mb-1">
+                  ❓ La Gran Duda del Aprendiz:
+                </span>
+                <p class="text-xs text-blue-900 leading-relaxed">
+                  <em>"Instructor, si declaré <code class="font-mono bg-blue-100 px-1 rounded font-bold">const aprendiz = &#123; ... &#125;</code>, ¿por qué puedo cambiar <code class="font-mono bg-blue-100 px-1 rounded">aprendiz.nombre = 'Ana'</code> sin que JavaScript me dé error?"</em>
+                </p>
+              </div>
+
+              <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <span class="font-bold text-slate-900 text-xs sm:text-sm block">🧠 La Explicación Técnica (Stack vs Heap):</span>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                  <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                    <strong class="text-purple-700 block mb-1">1. Stack (Pila):</strong>
+                    Guarda la variable y su <strong>puntero o dirección de memoria</strong> (<code class="font-mono">0x004F</code>). <code class="font-mono text-emerald-700 font-bold">const</code> solo protege este puntero. No puedes cambiar la dirección.
+                  </div>
+                  <div class="p-2.5 bg-white rounded-lg border border-slate-200">
+                    <strong class="text-amber-700 block mb-1">2. Heap (Montículo):</strong>
+                    Guarda los datos reales del objeto. Como modificar una propiedad no cambia el puntero en el Stack, JavaScript lo permite.
+                  </div>
+                </div>
+              </div>
+
+              <div class="p-3 bg-amber-50/90 rounded-xl border border-amber-200 text-amber-950 text-xs">
+                ⚠️ <strong>El peligro en React:</strong> Aunque JS te permita mutar el objeto en el Heap, <strong>React compara los punteros del Stack</strong>. Como el puntero no cambió, ¡React NO redibuja la pantalla!
+              </div>
+            </div>
+
+            <!-- Laboratorio Interactivo de const -->
+            <div class="bg-slate-900 text-slate-200 p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+              <div>
+                <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
+                  <span class="text-blue-400 font-bold">EXPERIMENTO: ¿QUÉ PERMITE CONST?</span>
+                  <span class="text-[10px] text-slate-400">Ejecutor en Vivo</span>
+                </div>
+                <pre class="bg-slate-950 p-3 rounded-lg border border-slate-800 text-[11px] text-slate-300 leading-relaxed overflow-x-auto"><code>const aprendiz = &#123; id: 3314621, nombre: "David Huila" &#125;;
+<span class="text-slate-500">// Puntero en Stack: 0x004F</span>
+
+<span class="text-slate-500">// Experimento 1: Reasignar todo el objeto</span>
+aprendiz = &#123; id: 9999999 &#125;;
+
+<span class="text-slate-500">// Experimento 2: Mutar una propiedad interna</span>
+aprendiz.nombre = "Ana María";</code></pre>
+
+                <div class="flex items-center gap-2 mt-4">
+                  <button onclick="probarConstBehavior('reasignar')" class="flex-1 py-2 bg-rose-950/70 hover:bg-rose-900 text-rose-200 border border-rose-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>1. Intentar Reasignar (Error)</span>
+                  </button>
+                  <button onclick="probarConstBehavior('mutar')" class="flex-1 py-2 bg-amber-950/70 hover:bg-amber-800 text-amber-200 border border-amber-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>2. Mutar Propiedad (Peligro)</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="consola-const-output" class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px]">
+                <span class="text-slate-500 block mb-1">📟 Diagnóstico de Motor JS:</span>
+                <div id="consola-const-texto" class="text-slate-400 font-mono">Selecciona un experimento para ejecutar...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PESTAÑA 3: SHALLOW VS DEEP COPY -->
+        <div id="tab-l2-deep" class="tab-l2-pane hidden space-y-5">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 items-stretch">
+            <div class="space-y-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed">
+              <div class="p-4 bg-purple-50/80 rounded-xl border border-purple-200 text-purple-950">
+                <span class="font-bold text-purple-900 text-xs sm:text-sm block mb-1">
+                  🚨 La Trampa del Spread Superficial (Shallow Copy):
+                </span>
+                <p class="text-xs text-purple-900 leading-relaxed">
+                  El operador spread <code class="font-mono bg-purple-100 px-1 rounded font-bold">&#123; ...objeto &#125;</code> <strong>SOLO clona las propiedades de primer nivel</strong>. Si el objeto contiene objetos anidados (como <code class="font-mono">contacto: &#123; tel, ciudad &#125;</code>), la copia sigue compartiendo la misma dirección de memoria del objeto anidado.
+                </p>
+              </div>
+
+              <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
+                <span class="font-bold text-emerald-900 text-xs sm:text-sm block mb-1">
+                  ⭐ La Solución: Propagación Anidada (Deep Spread):
+                </span>
+                <p class="text-xs text-emerald-900 leading-relaxed">
+                  Para actualizar un dato anidado sin mutar el original, debemos propagar el nivel exterior Y también el nivel anidado:
+                </p>
+                <pre class="bg-slate-900 text-emerald-300 p-2.5 rounded-lg font-mono text-[11px] mt-2 border border-slate-800"><code>const actualizado = &#123;
   ...aprendiz,
-  contacto: {
+  contacto: &#123;
     ...aprendiz.contacto,
     tel: "3208889999"
-  }
-};</code></pre>
-              <p>El operador spread superficial solo clona el primer nivel. Los objetos anidados deben propagarse también para romper la referencia compartida.</p>
+  &#125;
+&#125;;</code></pre>
+              </div>
             </div>
-            <div id="output-s3-deep" class="hidden mt-2 font-mono text-[11px] p-2.5 bg-slate-900 text-emerald-400 rounded"></div>
+
+            <!-- Laboratorio Interactivo Shallow vs Deep -->
+            <div class="bg-slate-900 text-slate-200 p-4 sm:p-5 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+              <div>
+                <div class="flex items-center justify-between pb-2 mb-3 border-b border-slate-800">
+                  <span class="text-purple-400 font-bold">PRUEBA DE CLONADO: ¿SE MODIFICA EL ORIGINAL?</span>
+                  <span class="text-[10px] text-slate-400">Garzón CADPH</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-[10px] text-slate-300 mb-3">
+                  <div class="p-2 bg-slate-950 rounded border border-slate-800">
+                    <span class="text-slate-500 block">Objeto Original:</span>
+                    <div>tel: "3110000000"</div>
+                    <div>ciudad: "Garzón"</div>
+                  </div>
+                  <div class="p-2 bg-slate-950 rounded border border-slate-800">
+                    <span class="text-slate-500 block">Objetivo:</span>
+                    <div>Cambiar tel a "3209999999"</div>
+                    <div>Preservar ciudad "Garzón"</div>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <button onclick="probarClonadoAnidado('shallow')" class="flex-1 py-2 bg-rose-950/70 hover:bg-rose-900 text-rose-200 border border-rose-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>1. Probar Shallow Copy</span>
+                  </button>
+                  <button onclick="probarClonadoAnidado('deep')" class="flex-1 py-2 bg-emerald-950/70 hover:bg-[#39A900] text-emerald-200 hover:text-white border border-emerald-700/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+                    <span>2. Probar Deep Spread</span>
+                  </button>
+                </div>
+              </div>
+
+              <div id="consola-deep-output" class="mt-4 p-3 bg-slate-950 rounded-xl border border-slate-800 text-[11px]">
+                <span class="text-slate-500 block mb-1">📟 Verificación de Referencias en Memoria:</span>
+                <div id="consola-deep-texto" class="text-slate-400 font-mono">Presiona una opción para auditar las referencias...</div>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <!-- PESTAÑA 4: TALLER INTERACTIVO EN VIVO -->
+        <div id="tab-l2-taller" class="tab-l2-pane hidden space-y-5">
+          <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 sm:p-6">
+            <div class="flex items-center justify-between mb-4 pb-2 border-b border-slate-200">
+              <span class="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <i data-lucide="terminal" class="w-4 h-4 text-[#39A900]"></i>
+                Simulador de Actualización Inmutable de Perfil de Aprendiz
+              </span>
+              <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">En Vivo</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
+              <!-- Formulario de Entrada -->
+              <div class="space-y-3.5 bg-white p-4 rounded-xl border border-slate-200 shadow-2xs">
+                <span class="text-xs font-bold text-slate-700 block">Modificar Datos de Contacto (Simulando un Formulario en React):</span>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-600 mb-1">Nuevo Teléfono Celular:</label>
+                  <input type="text" id="taller-input-tel" value="3208889999" class="w-full px-3 py-1.5 text-xs font-mono rounded-lg border border-slate-300 focus:outline-hidden focus:border-[#39A900] focus:ring-1 focus:ring-[#39A900]">
+                </div>
+                <div>
+                  <label class="block text-[11px] font-semibold text-slate-600 mb-1">Nueva Ciudad de Residencia:</label>
+                  <input type="text" id="taller-input-ciudad" value="Garzón" class="w-full px-3 py-1.5 text-xs font-mono rounded-lg border border-slate-300 focus:outline-hidden focus:border-[#39A900] focus:ring-1 focus:ring-[#39A900]">
+                </div>
+                <button onclick="ejecutarTallerL2()" class="w-full py-2.5 bg-[#39A900] hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs transition cursor-pointer flex items-center justify-center gap-2">
+                  <i data-lucide="play" class="w-3.5 h-3.5 fill-current"></i>
+                  <span>Ejecutar Actualización Inmutable</span>
+                </button>
+              </div>
+
+              <!-- Comparador de Estado en Memoria -->
+              <div class="space-y-3">
+                <span class="text-xs font-bold text-slate-700 block">Auditoría en Tiempo Real de Memoria RAM:</span>
+                <div class="grid grid-cols-2 gap-2 text-xs font-mono">
+                  <div class="p-3 bg-slate-900 text-slate-200 rounded-xl border border-slate-800">
+                    <span class="text-slate-400 block text-[10px] pb-1 border-b border-slate-800 mb-1.5">Original (0x004F):</span>
+                    <div id="taller-original-display" class="text-[11px] text-slate-300 leading-relaxed whitespace-pre">tel: 3110000000
+ciudad: Garzón</div>
+                  </div>
+                  <div class="p-3 bg-slate-900 text-emerald-400 rounded-xl border border-slate-800">
+                    <span class="text-emerald-400 block text-[10px] pb-1 border-b border-slate-800 mb-1.5">Actualizado (0x009A):</span>
+                    <div id="taller-actualizado-display" class="text-[11px] leading-relaxed whitespace-pre">Presiona ejecutar
+para generar nueva
+referencia...</div>
+                  </div>
+                </div>
+
+                <div id="taller-resultado-badge" class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs text-emerald-950 font-medium hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(8)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: Lección 01 (Reto en Aula)</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Lección 02 de 14 · Slide 9 de 21</span>
+          <button onclick="irDiapositiva(10)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: Lección 03. Desestructuración</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
         </div>
 
       </div>
     </section>
 
-    <!-- SLIDE 4: DESESTRUCTURACIÓN (PROPS DE REACT) -->
     <section id="slide-10" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
@@ -3489,6 +3689,179 @@ export async function sincronizarMultiplesFuentes(promesas) {
     });
 
     
+
+    
+    // ================= FUNCIONES INTERACTIVAS LECCIÓN 02 =================
+    function cambiarTabL2(tabId) {
+      const tabs = ['scope', 'const', 'deep', 'taller'];
+      tabs.forEach(t => {
+        const pane = document.getElementById(`tab-l2-${t}`);
+        const btn = document.getElementById(`tab-l2-btn-${t}`);
+        if (pane) {
+          if (t === tabId) {
+            pane.classList.remove('hidden');
+          } else {
+            pane.classList.add('hidden');
+          }
+        }
+        if (btn) {
+          if (t === tabId) {
+            btn.className = 'tab-l2-btn px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer flex items-center gap-1.5';
+          } else {
+            btn.className = 'tab-l2-btn px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer flex items-center gap-1.5';
+          }
+        }
+      });
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function probarScopeVarLet(tipo) {
+      const token = document.getElementById('code-token-variable');
+      const salida = document.getElementById('consola-scope-texto');
+      if (!salida) return;
+
+      if (token) {
+        token.textContent = tipo;
+        token.className = tipo === 'var' ? 'text-rose-400 font-bold' : 'text-emerald-400 font-bold';
+      }
+
+      if (tipo === 'var') {
+        salida.className = 'text-rose-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-rose-400 font-bold">▶ Ejecutando con var...</div>
+          <div>Turno aprendiz: 3</div>
+          <div>Turno aprendiz: 3</div>
+          <div>Turno aprendiz: 3</div>
+          <div class="mt-2 text-rose-200 bg-rose-950/80 p-2 rounded border border-rose-800 text-[10px]">
+            ❌ <strong>¡Fallo de memoria!:</strong> Como 'var' no tiene ámbito de bloque, comparte una única variable en memoria. Cuando los 3 temporizadores se ejecutaron a los 100ms, el bucle ya había finalizado y la variable 'i' valía 3 para los tres.
+          </div>
+        `;
+      } else {
+        salida.className = 'text-emerald-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-emerald-400 font-bold">▶ Ejecutando con let...</div>
+          <div>Turno aprendiz: 0</div>
+          <div>Turno aprendiz: 1</div>
+          <div>Turno aprendiz: 2</div>
+          <div class="mt-2 text-emerald-200 bg-emerald-950/80 p-2 rounded border border-emerald-800 text-[10px]">
+            ✔ <strong>¡Éxito de ámbito de bloque!:</strong> Cada vuelta del bucle 'for' con 'let' creó un enlace léxico en memoria totalmente independiente. Cada temporizador conservó su propio número.
+          </div>
+        `;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function probarConstBehavior(accion) {
+      const salida = document.getElementById('consola-const-texto');
+      if (!salida) return;
+
+      if (accion === 'reasignar') {
+        salida.className = 'text-rose-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-rose-400 font-bold">▶ Intentando reasignar: aprendiz = { id: 9999999 };</div>
+          <div class="text-rose-300 bg-rose-950/90 p-2.5 rounded border border-rose-800 text-[11px]">
+            🚨 <strong>Uncaught TypeError: Assignment to constant variable.</strong>
+          </div>
+          <div class="text-slate-300 text-[10px] mt-1">
+            <strong>Explicación:</strong> La variable 'aprendiz' está en el <strong>Stack de memoria</strong> con un puntero fijo. 'const' bloquea la reasignación de la dirección del puntero.
+          </div>
+        `;
+      } else {
+        salida.className = 'text-amber-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-amber-400 font-bold">▶ Mutando propiedad: aprendiz.nombre = "Ana María";</div>
+          <div class="text-amber-200 bg-amber-950/80 p-2.5 rounded border border-amber-800 text-[11px]">
+            ⚠️ <strong>JavaScript lo permite:</strong> El puntero en el Stack sigue siendo '0x004F'. Solo se mutó el contenido interno en el Heap.
+          </div>
+          <div class="text-rose-300 text-[10px] mt-1 bg-rose-950/60 p-2 rounded border border-rose-900">
+            🚨 <strong>¡Peligro en React!:</strong> Como el puntero en el Stack sigue siendo '0x004F', <code class="bg-black/50 px-1">Object.is(0x004F, 0x004F) === true</code>. ¡React creerá que nada cambió y <strong>NO redibujará la pantalla</strong>!
+          </div>
+        `;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function probarClonadoAnidado(tipo) {
+      const salida = document.getElementById('consola-deep-texto');
+      if (!salida) return;
+
+      if (tipo === 'shallow') {
+        salida.className = 'text-rose-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-rose-400 font-bold">▶ Probando { ...aprendiz } y modificando copia.contacto.tel = "3209999999":</div>
+          <div class="bg-rose-950/80 p-2.5 rounded border border-rose-800 text-[11px] space-y-1">
+            <div>original.contacto.tel: <strong class="text-rose-300">"3209999999"</strong> (❌ ¡SE MUTÓ EL ORIGINAL!)</div>
+            <div>copia.contacto.tel:    <strong class="text-rose-300">"3209999999"</strong></div>
+          </div>
+          <div class="text-slate-300 text-[10px]">
+            <strong>Causa:</strong> El spread superficial solo clona el objeto exterior. La propiedad 'contacto' sigue siendo el mismo puntero en memoria compartido por ambos objetos.
+          </div>
+        `;
+      } else {
+        salida.className = 'text-emerald-300 font-mono space-y-1.5';
+        salida.innerHTML = `
+          <div class="text-emerald-400 font-bold">▶ Probando Deep Spread: { ...apr, contacto: { ...apr.contacto, tel } }:</div>
+          <div class="bg-emerald-950/80 p-2.5 rounded border border-emerald-800 text-[11px] space-y-1">
+            <div>original.contacto.tel: <strong class="text-emerald-400">"3110000000"</strong> (✔ ¡INTACTO EN GARZÓN!)</div>
+            <div>copia.contacto.tel:    <strong class="text-emerald-300">"3209999999"</strong> (✔ NUEVO VALOR)</div>
+            <div>original.contacto === copia.contacto: <strong class="text-emerald-400">false (¡Nueva referencia!)</strong></div>
+          </div>
+          <div class="text-emerald-200 text-[10px]">
+            ⭐ <strong>¡Perfecto para React!:</strong> Al clonar ambos niveles, garantizas que el estado original nunca se corrompa y React detecte el cambio en el Virtual DOM.
+          </div>
+        `;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
+
+    function ejecutarTallerL2() {
+      const telInput = document.getElementById('taller-input-tel');
+      const ciudadInput = document.getElementById('taller-input-ciudad');
+      const displayActualizado = document.getElementById('taller-actualizado-display');
+      const badge = document.getElementById('taller-resultado-badge');
+
+      const nuevoTel = telInput ? telInput.value : "3208889999";
+      const nuevaCiudad = ciudadInput ? ciudadInput.value : "Garzón";
+
+      // Objeto original
+      const aprendizOriginal = {
+        nombre: "Juan Huila",
+        contacto: {
+          tel: "3110000000",
+          ciudad: "Garzón"
+        }
+      };
+
+      // Clonado inmutable profundo
+      const aprendizActualizado = {
+        ...aprendizOriginal,
+        contacto: {
+          ...aprendizOriginal.contacto,
+          tel: nuevoTel,
+          ciudad: nuevaCiudad
+        }
+      };
+
+      if (displayActualizado) {
+        displayActualizado.textContent = `tel: "${aprendizActualizado.contacto.tel}"\nciudad: "${aprendizActualizado.contacto.ciudad}"`;
+      }
+
+      if (badge) {
+        badge.classList.remove('hidden');
+        badge.innerHTML = `
+          <div class="flex items-center gap-2 text-emerald-900 font-bold">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#39A900]"></i>
+            <span>¡Actualización Inmutable Exitosa!</span>
+          </div>
+          <div class="mt-1 text-slate-700 text-[11px]">
+            • Puntero original (0x004F) !== Puntero actualizado (0x009A): <strong class="text-emerald-700">true</strong>.<br>
+            • El objeto original mantiene el teléfono "3110000000" intacto en el Heap.<br>
+            • React detectará el cambio y re-renderizará la pantalla en 0.3ms.
+          </div>
+        `;
+      }
+      if (window.lucide) lucide.createIcons();
+    }
 
     // Inicializar iconos de Lucide
     lucide.createIcons();
