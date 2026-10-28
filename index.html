@@ -381,26 +381,31 @@ Your branch is up to date with 'origin/main'.<br>
       </a>
     </div>
 
-    <!-- Center Contextual Nav: Visible only when inside a lesson (Slides 2 to 15) -->
-    <div id="nav-lesson-controls" class="hidden items-center gap-1.5 sm:gap-2.5 shrink-0">
-      <button onclick="irDiapositiva(1)" class="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs rounded-xl shadow-xs transition cursor-pointer">
+    <!-- Center Contextual Nav: Visible only when inside a lesson (Slides 2 to 21) -->
+    <div id="nav-lesson-controls" class="hidden items-center gap-1.5 sm:gap-3 shrink-0">
+      <button onclick="irDiapositiva(1)" title="Volver al Temario de 14 Lecciones" class="flex items-center gap-1 px-2.5 sm:px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold text-xs rounded-xl shadow-xs transition cursor-pointer">
         <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#39A900]"></i>
         <span class="hidden sm:inline">← Volver al Temario</span>
         <span class="sm:hidden">← Temario</span>
       </button>
 
-      <div class="flex items-center bg-slate-100 border border-slate-200 rounded-xl p-0.5 text-xs">
-        <button id="btn-prev-slide" title="Lección Anterior" class="p-1 text-slate-600 hover:text-slate-900 transition">
+      <div class="flex items-center bg-slate-100/90 border border-slate-200/90 rounded-xl p-0.5 text-xs shadow-2xs">
+        <button id="btn-prev-slide" title="Slide Anterior (Tecla ←)" class="px-2 py-1 text-slate-700 hover:text-slate-900 hover:bg-white rounded-lg transition cursor-pointer flex items-center gap-1 font-semibold text-xs">
           <i data-lucide="chevron-left" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
+          <span class="hidden md:inline text-[11px]">Anterior</span>
         </button>
-        <span id="slide-indicator" class="px-1.5 sm:px-2 font-bold text-slate-700 text-[11px] sm:text-xs whitespace-nowrap">1 / 14</span>
-        <button id="btn-next-slide" title="Siguiente Lección" class="p-1 bg-[#39A900] text-white rounded-md transition">
+        <div class="flex flex-col items-center px-2 sm:px-3 text-center min-w-[90px] sm:min-w-[120px]">
+          <span id="slide-indicator" class="font-extrabold text-slate-900 text-[11px] sm:text-xs whitespace-nowrap">Slide 2 / 21</span>
+          <span id="slide-lesson-badge" class="text-[9px] font-bold text-emerald-700 uppercase tracking-tight whitespace-nowrap">Lección 01 · Paso 1/7</span>
+        </div>
+        <button id="btn-next-slide" title="Siguiente Slide (Tecla → o Espacio)" class="px-2 py-1 bg-[#39A900] hover:bg-emerald-700 text-white rounded-lg transition cursor-pointer flex items-center gap-1 font-bold text-xs shadow-xs">
+          <span class="hidden md:inline text-[11px]">Siguiente</span>
           <i data-lucide="chevron-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4"></i>
         </button>
       </div>
 
-      <span id="nav-slide-title" class="hidden 2xl:inline-block text-xs font-semibold text-slate-600 max-w-xs truncate border-l border-slate-200 pl-3">
-        Título de la lección
+      <span id="nav-slide-title" class="hidden xl:inline-block text-xs font-semibold text-slate-700 max-w-sm truncate border-l border-slate-200 pl-3">
+        1.1 Mentalidad React &amp; ¿Por qué JS es el 90%?
       </span>
     </div>
 
@@ -652,7 +657,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 02 -->
-            <div onclick="irDiapositiva(3)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(9)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -688,7 +693,7 @@ Your branch is up to date with 'origin/main'.<br>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Tema 03 -->
-            <div onclick="irDiapositiva(4)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(10)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -713,7 +718,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 04 -->
-            <div onclick="irDiapositiva(5)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(11)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -738,7 +743,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 05 -->
-            <div onclick="irDiapositiva(6)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(12)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -763,7 +768,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 06 -->
-            <div onclick="irDiapositiva(7)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(13)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -788,7 +793,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 07 -->
-            <div onclick="irDiapositiva(8)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(14)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -813,7 +818,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 08 -->
-            <div onclick="irDiapositiva(9)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(15)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -849,7 +854,7 @@ Your branch is up to date with 'origin/main'.<br>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Tema 09 -->
-            <div onclick="irDiapositiva(10)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(16)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -874,7 +879,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 10 -->
-            <div onclick="irDiapositiva(11)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(17)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -899,7 +904,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 11 -->
-            <div onclick="irDiapositiva(12)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(18)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -935,7 +940,7 @@ Your branch is up to date with 'origin/main'.<br>
 
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <!-- Tema 12 -->
-            <div onclick="irDiapositiva(13)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(19)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-700 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -960,7 +965,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 13 -->
-            <div onclick="irDiapositiva(14)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(20)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -985,7 +990,7 @@ Your branch is up to date with 'origin/main'.<br>
             </div>
 
             <!-- Tema 14 -->
-            <div onclick="irDiapositiva(15)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
+            <div onclick="irDiapositiva(21)" class="bg-white rounded-2xl p-5 border border-slate-200/90 shadow-xs hover:shadow-xl hover:border-[#39A900] hover:-translate-y-1 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden">
               <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 to-indigo-400 opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div>
                 <div class="flex items-center justify-between mb-3">
@@ -1014,401 +1019,766 @@ Your branch is up to date with 'origin/main'.<br>
       </div>
     </section>
 
-        <!-- SLIDE 2: LECCIÓN 01 - ¿POR QUÉ ESTE JAVASCRIPT ES EL 90% DE REACT? -->
+            <!-- SLIDE 2: LECCIÓN 01 · PASO 1/7 - MENTALIDAD REACT -->
     <section id="slide-2" class="slide-content hidden flex-col my-auto py-4 w-full">
       <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
-        
-        <!-- Header de la Lección -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
           <div>
-            <div class="flex items-center gap-2 mb-1.5">
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
               <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
-                Módulo 1 · Lección 01 de 14
+                Módulo 1 · Lección 01 (Paso 1 de 7)
               </span>
-              <span class="text-xs text-slate-400 font-medium">Fundamento de Reactividad</span>
+              <span class="text-xs text-slate-500 font-medium">Fundamento de Mentalidad</span>
             </div>
             <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
               ¿Por qué este JavaScript es el 90% del éxito en React?
             </h2>
           </div>
-          <span class="bg-blue-50 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full border border-blue-200 self-start sm:self-auto shrink-0 shadow-2xs">
-            Mentalidad Declarativa &amp; Virtual DOM
+          <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            10% React API · 90% JS ES6+
           </span>
         </div>
 
-        <!-- Navegador de Pestañas Interactivas de la Lección 01 -->
-        <div class="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 text-xs font-semibold">
-          <button onclick="cambiarTabL1('declarativo')" id="tab-l1-btn-declarativo" class="tab-l1-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg bg-white text-emerald-800 font-bold shadow-xs transition cursor-pointer">
-            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#39A900]"></i>
-            <span>1. Imperativo vs Declarativo</span>
-          </button>
-          <button onclick="cambiarTabL1('vdom')" id="tab-l1-btn-vdom" class="tab-l1-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition cursor-pointer">
-            <i data-lucide="layers" class="w-3.5 h-3.5 text-blue-600"></i>
-            <span>2. El Virtual DOM &amp; Reconciliación</span>
-          </button>
-          <button onclick="cambiarTabL1('vite')" id="tab-l1-btn-vite" class="tab-l1-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition cursor-pointer">
-            <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-500"></i>
-            <span>3. ¿Por qué Vite y no CRA?</span>
-          </button>
-          <button onclick="cambiarTabL1('simulador')" id="tab-l1-btn-simulador" class="tab-l1-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition cursor-pointer">
-            <i data-lucide="play-circle" class="w-3.5 h-3.5 text-purple-600"></i>
-            <span>4. Simulador Interactivo en Vivo</span>
-          </button>
-          <button onclick="cambiarTabL1('reto')" id="tab-l1-btn-reto" class="tab-l1-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-slate-600 hover:text-slate-900 transition cursor-pointer">
-            <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
-            <span>5. Reto en Aula con Feedback</span>
-          </button>
+        <!-- Barra de Pasos de la Lección 01 -->
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 1: IMPERATIVO VS DECLARATIVO -->
-        <div id="tab-l1-declarativo" class="tab-l1-content space-y-6">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
-            <div class="space-y-4 text-xs sm:text-sm text-slate-600">
-              <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
-                <span class="font-extrabold text-[#39A900] block text-sm mb-1">💡 La Ecuación Universal de React:</span>
-                <p class="font-mono text-base font-bold text-slate-900 bg-white p-2 rounded-lg border border-emerald-200 text-center shadow-inner my-2">
-                  UI = f( Estado )
-                </p>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                  La interfaz de usuario (<strong class="text-slate-900">UI</strong>) nunca se manipula a mano. La pantalla es simplemente el resultado visual de una función (<strong class="text-slate-900">f</strong>) alimentada por los datos (<strong class="text-slate-900">Estado</strong>). Si cambias el estado, la pantalla se redibuja sola.
-                </p>
-              </div>
-
-              <p class="leading-relaxed">
-                Muchos aprendices creen que React es un lenguaje nuevo con una sintaxis compleja. La realidad es que <strong>React es solo 10% métodos propios y 90% JavaScript ES6+ puro</strong>.
-              </p>
-
-              <div class="bg-amber-50 border-l-4 border-amber-500 p-3.5 rounded-r-xl text-xs text-amber-900 space-y-1">
-                <p class="font-bold flex items-center gap-1">
-                  <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i>
-                  El error #1 al dar el salto a React:
-                </p>
-                <p class="leading-relaxed">
-                  Intentar buscar etiquetas con <code class="bg-white px-1 py-0.5 rounded font-mono text-slate-900">document.querySelector()</code> o modificar texto con <code class="bg-white px-1 py-0.5 rounded font-mono text-slate-900">.innerHTML</code>. En React eso está <strong>estrictamente prohibido</strong> porque rompe el ciclo de vida de la librería.
-                </p>
-              </div>
-            </div>
-
-            <!-- Comparación Visual de Código: Imperativo vs Declarativo -->
-            <div class="flex flex-col gap-3">
-              <!-- Imperativo -->
-              <div class="bg-slate-900 rounded-xl p-4 text-white font-mono text-xs border border-slate-800 shadow-sm">
-                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-red-400 font-bold">
-                  <span>❌ JavaScript Imperativo (Tradicional)</span>
-                  <span class="text-[10px] text-slate-500 uppercase">Le dices CÓMO hacerlo</span>
-                </div>
-                <pre class="overflow-x-auto text-slate-300"><code>// 1. Buscar el botón y el contador en el DOM
-const btn = document.getElementById("btn-sumar");
-const texto = document.getElementById("contador");
-let valor = 0;
-
-// 2. Escuchar el clic y manipular el nodo a mano
-btn.addEventListener("click", () => {
-  valor++;
-  texto.innerText = valor; // &lt;-- Manipulación manual frágil
-  if (valor > 5) texto.style.color = "red";
-});</code></pre>
-              </div>
-
-              <!-- Declarativo -->
-              <div class="bg-slate-900 rounded-xl p-4 text-white font-mono text-xs border border-emerald-900/60 shadow-sm">
-                <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-emerald-400 font-bold">
-                  <span>✔️ React Declarativo (Moderno)</span>
-                  <span class="text-[10px] text-emerald-400/80 uppercase">Le dices QUÉ mostrar</span>
-                </div>
-                <pre class="overflow-x-auto text-slate-300"><code>// 1. Declaras el estado (los datos puros)
-const [valor, setValor] = useState(0);
-
-// 2. Retornas JSX: La UI se sincroniza sola con el estado
-return (
-  &lt;button onClick={() =&gt; setValor(valor + 1)}&gt;
-    Clicks: &lt;span className={valor > 5 ? "rojo" : ""}&gt;{valor}&lt;/span&gt;
-  &lt;/button&gt;
-);</code></pre>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONTENIDO PESTAÑA 2: VIRTUAL DOM & RECONCILIACIÓN -->
-        <div id="tab-l1-vdom" class="tab-l1-content hidden space-y-6">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-            <div class="space-y-4 text-xs sm:text-sm text-slate-600">
-              <h3 class="text-base font-extrabold text-slate-900">¿Por qué existe el Virtual DOM y cómo funciona?</h3>
-              <p class="leading-relaxed">
-                El <strong class="text-slate-900">DOM Real del navegador</strong> está escrito en C++ y manipularlo es una de las operaciones más lentas y costosas de la informática moderna (provoca <em>Reflow</em> y <em>Repaint</em>, recalculando el layout y estilos de toda la pantalla).
-              </p>
-              
-              <div class="p-4 bg-blue-50/70 border border-blue-200 rounded-xl text-blue-950 space-y-2">
-                <span class="font-bold text-blue-900 block">✨ El Secreto de React: El Virtual DOM (VDOM)</span>
-                <p class="text-xs text-slate-700 leading-relaxed">
-                  Es una copia ligera del DOM que vive enteramente como un <strong>objeto JavaScript plano en memoria RAM</strong>. Modificar un objeto en RAM toma 0.001 milisegundos, mientras que tocar el DOM real toma decenas de milisegundos.
-                </p>
-              </div>
-
-              <div class="space-y-2">
-                <span class="font-bold text-slate-800 text-xs uppercase tracking-wider">El Ciclo de Reconciliación (Fiber):</span>
-                <ol class="space-y-2 text-xs text-slate-700 list-decimal list-inside pl-1">
-                  <li><strong class="text-slate-900">Cambio de Estado:</strong> Se ejecuta <code class="font-mono bg-slate-100 px-1 py-0.5 rounded">setEstado()</code> con una nueva referencia.</li>
-                  <li><strong class="text-slate-900">Nuevo VDOM:</strong> React genera un nuevo árbol virtual en memoria.</li>
-                  <li><strong class="text-slate-900">Diffing Algorithm:</strong> Compara el VDOM anterior con el nuevo árbol para encontrar la diferencia exacta.</li>
-                  <li><strong class="text-slate-900">Mutación Quirúrgica:</strong> React actualiza <em>únicamente</em> el nodo HTML específico en el navegador, sin tocar el resto de la página.</li>
-                </ol>
-              </div>
-            </div>
-
-            <!-- Diagrama Visual Interactivo del VDOM -->
-            <div class="bg-slate-900 rounded-2xl p-5 text-white font-mono text-xs flex flex-col justify-between shadow-md border border-slate-800">
-              <div>
-                <div class="flex items-center justify-between pb-3 border-b border-slate-800 text-slate-300 text-xs font-bold">
-                  <span>ARQUITECTURA DE RECONCILIACIÓN EN MEMORIA</span>
-                  <span class="text-emerald-400 text-[10px] bg-emerald-950/80 px-2 py-0.5 rounded border border-emerald-800/60">ALGORITMO FIBER</span>
-                </div>
-
-                <div class="my-4 space-y-3">
-                  <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700/80">
-                    <span class="text-blue-400 font-bold block mb-1">1. Objeto Virtual DOM en Memoria:</span>
-                    <pre class="text-[11px] text-slate-300 overflow-x-auto"><code>{
-  type: 'button',
-  props: { className: 'btn-sena', children: 'Contador: 5' }
-}</code></pre>
-                  </div>
-
-                  <div class="flex items-center justify-center text-slate-500 py-1">
-                    <i data-lucide="arrow-down" class="w-4 h-4 text-emerald-400 animate-bounce"></i>
-                  </div>
-
-                  <div class="p-3 bg-emerald-950/40 rounded-xl border border-emerald-500/40">
-                    <span class="text-emerald-400 font-bold block mb-1">2. Parche Quirúrgico en el DOM Real:</span>
-                    <span class="text-xs text-slate-300 block">
-                      En vez de reconstruir el botón completo, React solo ejecuta:
-                    </span>
-                    <code class="text-emerald-300 block mt-1 bg-black/40 p-2 rounded text-[11px]">node.nodeValue = "Contador: 6"; // ¡Solo 1 mutación atómica!</code>
-                  </div>
-                </div>
-              </div>
-
-              <div class="pt-3 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
-                <span>Velocidad: 60 FPS garantizados</span>
-                <span class="text-[#39A900] font-bold">Cero parpadeos en pantalla</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONTENIDO PESTAÑA 3: VITE VS CRA -->
-        <div id="tab-l1-vite" class="tab-l1-content hidden space-y-6">
-          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
-            <h3 class="text-base font-extrabold text-slate-900">¿Por qué Vite reemplazó definitivamente a Create-React-App (CRA)?</h3>
-            <p class="leading-relaxed">
-              Durante años, la herramienta oficial recomendada fue <strong>Create React App (CRA)</strong>, basada en Webpack. Sin embargo, en proyectos reales tardaba entre <strong>30 segundos y 2 minutos</strong> en compilar y arrancar. Hoy en día CRA está oficialmente obsoleto y el estándar mundial es <strong>Vite</strong>.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-2">
-              <div class="p-4 bg-red-50/70 border border-red-200 rounded-xl text-slate-700">
-                <span class="font-bold text-red-700 block mb-1.5 flex items-center gap-1.5">
-                  <i data-lucide="x-circle" class="w-4 h-4 text-red-600"></i>
-                  Create React App (Webpack) - OBSOLETO
-                </span>
-                <ul class="space-y-1.5 text-xs text-slate-600">
-                  <li>• Empaqueta <strong>todo el proyecto</strong> antes de abrir el navegador.</li>
-                  <li>• Arranque en frío muy lento (30-60 segundos).</li>
-                  <li>• Recarga pesada al guardar cambios.</li>
-                  <li>• Proyecto archivado y sin mantenimiento.</li>
-                </ul>
-              </div>
-
-              <div class="p-4 bg-emerald-50/70 border border-emerald-300 rounded-xl text-slate-700">
-                <span class="font-bold text-emerald-800 block mb-1.5 flex items-center gap-1.5">
-                  <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900]"></i>
-                  Vite + React (Estándar de la Industria)
-                </span>
-                <ul class="space-y-1.5 text-xs text-slate-600">
-                  <li>• Usa <strong>ES Modules nativos</strong>: el navegador importa solo lo que necesita.</li>
-                  <li>• Compilador <strong>esbuild</strong> escrito en Go (100x más rápido que JS).</li>
-                  <li>• Arranque instantáneo en frío: <strong>&lt; 300 milisegundos</strong>.</li>
-                  <li>• <strong>Hot Module Replacement (HMR)</strong>: Cambios en vivo en 20ms sin perder el estado.</li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- Comandos de instalación para la siguiente clase -->
-            <div class="bg-slate-900 rounded-xl p-4 text-white font-mono text-xs">
-              <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-slate-400">
-                <span class="text-yellow-400 font-bold">Comando oficial que usaremos en la siguiente sesión con Vite:</span>
-                <button onclick="copiarCodigo('cmd-vite-create')" class="text-[11px] text-slate-400 hover:text-white flex items-center gap-1 cursor-pointer">
-                  <i data-lucide="copy" class="w-3.5 h-3.5"></i> Copiar
-                </button>
-              </div>
-              <pre id="cmd-vite-create" class="text-emerald-400 font-bold overflow-x-auto"><code>npm create vite@latest mi-primer-react -- --template react
-cd mi-primer-react
-npm install
-npm run dev</code></pre>
-            </div>
-          </div>
-        </div>
-
-        <!-- CONTENIDO PESTAÑA 4: SIMULADOR INTERACTIVO EN VIVO -->
-        <div id="tab-l1-simulador" class="tab-l1-content hidden space-y-6">
-          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5 text-left space-y-4">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-3">
-              <div>
-                <h3 class="text-sm sm:text-base font-extrabold text-slate-900 flex items-center gap-2">
-                  <i data-lucide="activity" class="w-4 h-4 text-[#39A900]"></i>
-                  Laboratorio Interactivo: Simulador de Re-renderizado y Virtual DOM
-                </h3>
-                <p class="text-xs text-slate-500">Prueba cómo responde la memoria al modificar el estado en vivo.</p>
-              </div>
-              <span class="text-[11px] font-bold px-2.5 py-1 bg-white border border-slate-200 rounded-lg text-slate-700 shadow-2xs">
-                Interactividad en Aula
+        <!-- Contenido Didáctico -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+          <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+            <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
+              <span class="font-extrabold text-[#39A900] block text-sm mb-1.5 flex items-center gap-1.5">
+                <i data-lucide="info" class="w-4 h-4"></i> El Mito de la "Sintaxis Mágica":
               </span>
+              <p class="text-xs sm:text-sm text-slate-800">
+                Muchos aprendices creen que React es un lenguaje de programación nuevo con sintaxis misteriosa. 
+                <strong>La realidad es que React no inventó un lenguaje: es una librería donde el 90% es JavaScript moderno (ES6+) estándar.</strong>
+              </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-stretch">
-              <!-- Panel de Control del Aprendiz -->
-              <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-3 flex flex-col justify-between">
-                <div>
-                  <span class="text-xs font-bold text-slate-700 uppercase tracking-wider block mb-2">Controles de Estado:</span>
-                  <div class="flex items-center gap-2">
-                    <button onclick="simularClicReact(1)" class="flex-1 bg-[#39A900] hover:bg-emerald-700 text-white font-bold py-2 px-3 rounded-lg text-xs shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer">
-                      <i data-lucide="plus" class="w-3.5 h-3.5"></i>
-                      <span>Sumar Clic (+1)</span>
-                    </button>
-                    <button onclick="simularClicReact(0)" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 px-3 rounded-lg text-xs transition cursor-pointer">
-                      <span>Resetear</span>
-                    </button>
-                  </div>
-                </div>
+            <div class="p-4 bg-amber-50/80 rounded-xl border border-amber-200/90 text-amber-950">
+              <span class="font-extrabold text-amber-800 block text-xs sm:text-sm mb-1 flex items-center gap-1.5">
+                <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-600"></i> El Error Fatal al saltar a React:
+              </span>
+              <p class="text-xs text-amber-900">
+                Intentar manipular el DOM con <code class="bg-amber-100 text-amber-900 font-mono px-1 rounded">document.getElementById()</code> o mutar arreglos con <code class="bg-amber-100 text-amber-900 font-mono px-1 rounded">.push()</code>. React mantiene su propia copia virtual de la interfaz; si alteras el DOM a sus espaldas, tus cambios se perderán en el próximo renderizado.
+              </p>
+            </div>
 
-                <div class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs space-y-1">
-                  <div class="flex justify-between text-slate-600">
-                    <span>Estado en Memoria:</span>
-                    <strong id="sim-contador-val" class="text-emerald-700 font-mono font-bold text-sm">0</strong>
-                  </div>
-                  <div class="flex justify-between text-slate-600">
-                    <span>Nodos Mutados en DOM Real:</span>
-                    <strong class="text-emerald-700 font-mono font-bold">1 solo nodo (texto)</strong>
-                  </div>
-                  <div class="flex justify-between text-slate-600">
-                    <span>Tiempo de Reconciliación:</span>
-                    <strong class="text-slate-800 font-mono">0.4 ms (Instantáneo)</strong>
-                  </div>
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-900 block text-xs sm:text-sm mb-1">🎯 La Pirámide del Tecnólogo ADSO 3314621:</span>
+              <ul class="space-y-1.5 text-xs text-slate-700 mt-2">
+                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> <strong>Nivel 4:</strong> Componentes Funcionales, Hooks y Vite HMR</li>
+                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-blue-500"></span> <strong>Nivel 3:</strong> Flujo Unidireccional y Reactividad con useState</li>
+                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-indigo-500"></span> <strong>Nivel 2:</strong> Inmutabilidad en Heap y Paradigma Declarativo</li>
+                <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-slate-700"></span> <strong>Nivel 1 (Base):</strong> JavaScript Moderno ES6+ Sólido</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: Matriz de Transformación -->
+          <div class="bg-slate-900 text-slate-200 p-5 rounded-2xl flex flex-col justify-between font-mono text-xs shadow-md border border-slate-800">
+            <div>
+              <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800 text-[11px] text-slate-400">
+                <span class="font-bold text-emerald-400">MATRIZ: JS TRADICIONAL VS REACT + VITE</span>
+                <span class="text-[10px] bg-slate-800 px-2 py-0.5 rounded text-slate-300">ADSO 3314621</span>
+              </div>
+              <div class="space-y-3">
+                <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                  <span class="text-rose-400 line-through block text-[11px]">❌ Ciclos for + innerHTML</span>
+                  <span class="text-emerald-400 font-bold block mt-1">✔ datos.map(item => &lt;Card ... /&gt;)</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                  <span class="text-rose-400 line-through block text-[11px]">❌ lista.push(nuevoElemento)</span>
+                  <span class="text-emerald-400 font-bold block mt-1">✔ setLista(prev => [...prev, nuevo])</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                  <span class="text-rose-400 line-through block text-[11px]">❌ if/else gigante en el template</span>
+                  <span class="text-emerald-400 font-bold block mt-1">✔ operador ternario ? : y cortocircuito &amp;&amp;</span>
+                </div>
+                <div class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700/60">
+                  <span class="text-rose-400 line-through block text-[11px]">❌ var con hoisting descontrolado</span>
+                  <span class="text-emerald-400 font-bold block mt-1">✔ const inmutable por defecto</span>
                 </div>
               </div>
-
-              <!-- Vista Previa de la UI y del Virtual DOM -->
-              <div class="bg-slate-900 text-white p-4 rounded-xl font-mono text-xs flex flex-col justify-between shadow-inner">
-                <div>
-                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-slate-400 text-[11px]">
-                    <span class="text-emerald-400 font-bold">VISTA PREVIA DEL COMPONENTE REACT</span>
-                    <span id="sim-render-badge" class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px]">Sincronizado</span>
-                  </div>
-                  <div class="p-4 bg-slate-800/90 rounded-lg border border-slate-700 my-2 text-center transition-all duration-300" id="sim-card-box">
-                    <span class="text-slate-400 text-xs block mb-1">Tarjeta de Aprendiz ADSO</span>
-                    <h4 class="text-base font-bold text-white">Paula Andrea Gómez</h4>
-                    <div class="mt-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-700 text-emerald-300 text-xs font-bold border border-slate-600">
-                      <span>Puntaje Acumulado:</span>
-                      <span id="sim-card-counter" class="text-emerald-400 font-mono font-extrabold text-sm">0</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="text-[11px] text-slate-400 pt-2 border-t border-slate-800">
-                  ✔ Al presionar el botón, solo el número resalta sin recargar ni parpadear la tarjeta.
-                </div>
-              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800 text-[11px] text-slate-400">
+              💡 Dominar estos 4 patrones de JavaScript te garantiza el 100% de fluidez en React.
             </div>
           </div>
         </div>
 
-        <!-- CONTENIDO PESTAÑA 5: RETO EN AULA CON FEEDBACK INSTANTÁNEO -->
-        <div id="tab-l1-reto" class="tab-l1-content hidden space-y-6">
-          <div class="bg-emerald-50/70 border border-emerald-200 rounded-2xl p-5 sm:p-6 text-left">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
-              <span class="text-xs font-black text-emerald-900 flex items-center gap-1.5 uppercase tracking-wider">
-                <i data-lucide="terminal" class="w-4 h-4 text-[#39A900]"></i>
-                Reto 01 en Aula: Identificar Mutación Destructiva vs Estado Inmutable
-              </span>
-              <span class="text-[11px] font-bold text-emerald-800 bg-white px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
-                Práctica en Puesto (5 minutos)
-              </span>
-            </div>
-
-            <p class="text-xs sm:text-sm text-slate-700 mb-4 leading-relaxed">
-              <strong>Reto para el aprendiz:</strong> Un aprendiz de ADSO tiene una lista de pedidos en su estado de React. Para agregar un nuevo producto al carrito, escribe dos funciones diferentes. <strong>¿Cuál de las dos provocará que la pantalla NO se actualice en React y por qué?</strong>
-            </p>
-
-            <!-- Las Dos Opciones Interactivas -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
-              <!-- Opción A -->
-              <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-700 flex flex-col justify-between space-y-3">
-                <div>
-                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
-                    <span class="text-red-400 font-bold">// Opción A: Con .push()</span>
-                    <span class="text-slate-500 text-[10px]">Función Clásica</span>
-                  </div>
-                  <pre class="overflow-x-auto text-slate-300"><code>function agregarA(lista, nuevoItem) {
-  lista.push(nuevoItem);
-  return lista;
-}</code></pre>
-                </div>
-                <button onclick="responderRetoL1('A')" class="w-full py-2 px-3 bg-red-950/80 hover:bg-red-900 text-red-200 rounded-lg font-bold border border-red-700/60 transition cursor-pointer flex items-center justify-center gap-1.5">
-                  <i data-lucide="mouse-pointer" class="w-3.5 h-3.5"></i>
-                  <span>Seleccionar Opción A</span>
-                </button>
-              </div>
-
-              <!-- Opción B -->
-              <div class="bg-slate-900 text-slate-200 p-4 rounded-xl border border-slate-700 flex flex-col justify-between space-y-3">
-                <div>
-                  <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
-                    <span class="text-emerald-400 font-bold">// Opción B: Con Spread Operator</span>
-                    <span class="text-slate-500 text-[10px]">Función Inmutable</span>
-                  </div>
-                  <pre class="overflow-x-auto text-slate-300"><code>function agregarB(lista, nuevoItem) {
-  return [...lista, nuevoItem];
-}</code></pre>
-                </div>
-                <button onclick="responderRetoL1('B')" class="w-full py-2 px-3 bg-emerald-950/80 hover:bg-emerald-900 text-emerald-200 rounded-lg font-bold border border-emerald-700/60 transition cursor-pointer flex items-center justify-center gap-1.5">
-                  <i data-lucide="mouse-pointer" class="w-3.5 h-3.5"></i>
-                  <span>Seleccionar Opción B</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Caja de Feedback Instantáneo con Animación -->
-            <div id="l1-feedback-box" class="hidden mt-4 p-4 rounded-xl border text-xs leading-relaxed transition-all duration-300">
-              <!-- Contenido dinámico inyectado por JS -->
-            </div>
-
-            <!-- Botón de Solución Guiada Detallada para el Instructor -->
-            <div class="mt-4 pt-3 border-t border-emerald-200/80 flex items-center justify-between">
-              <button onclick="toggleSolucion('sol-s2')" class="text-xs font-bold text-[#39A900] hover:text-emerald-800 flex items-center gap-1.5 transition cursor-pointer">
-                <i data-lucide="help-circle" class="w-4 h-4"></i>
-                <span id="txt-sol-s2">Ver Guía Técnica Completa para el Instructor</span>
-              </button>
-            </div>
-            
-            <div id="sol-s2" class="hidden mt-3 p-4 bg-white rounded-xl border border-emerald-300 text-xs text-slate-700 space-y-2.5 shadow-xs">
-              <p class="font-extrabold text-emerald-900 text-sm flex items-center gap-1.5">
-                <i data-lucide="check" class="w-4 h-4 text-[#39A900]"></i>
-                Fundamento de Evaluación SENA:
-              </p>
-              <p>
-                <strong>Por qué la Opción A destruye React:</strong> En JavaScript, los arreglos y objetos se almacenan por <em>referencia</em> en la memoria Heap. El método <code class="font-mono text-red-600 bg-red-50 px-1 py-0.5 rounded">.push()</code> muta el arreglo existente en el mismo puntero de memoria. Cuando el aprendiz hace <code class="font-mono">setCarrito(agregarA(carrito, item))</code>, React ejecuta una comparación interna superficial <code class="font-mono">Object.is(anterior, nuevo)</code>. Como ambos punteros son idénticos, React asume que <strong>nada cambió</strong> y cancela el re-renderizado. El aprendiz se queda esperando que la pantalla cambie, pero la pantalla nunca responde.
-              </p>
-              <p>
-                <strong>Por qué la Opción B triunfa:</strong> El operador spread <code class="font-mono text-emerald-700 bg-emerald-50 px-1 py-0.5 rounded">[...lista, nuevoItem]</code> reserva un <strong>nuevo espacio en memoria RAM</strong> con una nueva dirección hexadecimal. React compara las dos direcciones, detecta que son diferentes (<code class="font-mono">anterior !== nuevo</code>) y dispara inmediatamente el ciclo de actualización de la UI.
-              </p>
-            </div>
-
-          </div>
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(1)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="layout-grid" class="w-4 h-4 text-slate-500"></i>
+            <span>Volver al Temario</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 1 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(3)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.2 Imperativo vs Declarativo</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
         </div>
-
       </div>
     </section>
 
-    <!-- SLIDE 3: LET, CONST E INMUTABILIDAD -->
-    <section id="slide-3" class="slide-content hidden flex-col my-auto py-4">
+    <!-- SLIDE 3: LECCIÓN 01 · PASO 2/7 - IMPERATIVO VS DECLARATIVO -->
+    <section id="slide-3" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 2 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Paradigmas de Programación Web</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Paradigma Imperativo vs Declarativo (UI = f(Estado))
+            </h2>
+          </div>
+          <span class="bg-blue-50 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full border border-blue-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            UI = f(Estado)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <!-- Concepto Teórico Central -->
+        <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950 mb-6">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span class="font-extrabold text-[#39A900] text-sm">💡 La Ecuación Universal de React:</span>
+            <span class="font-mono text-base font-bold text-slate-900 bg-white px-3 py-1 rounded-lg border border-emerald-200 shadow-inner">
+              UI = f( Estado )
+            </span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-800 mt-2 leading-relaxed">
+            La interfaz de usuario (<strong class="text-slate-900">UI</strong>) nunca se manipula a mano. La pantalla es el resultado de una función matemática (<strong class="text-slate-900">f</strong>) evaluada con los datos actuales (<strong class="text-slate-900">Estado</strong>). Si cambias el estado, la pantalla se redibuja sola de forma predecible.
+          </p>
+        </div>
+
+        <!-- Caso Real en Aula Lado a Lado -->
+        <div class="mb-4">
+          <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block mb-2">
+            Caso Real en Aula: Sistema de Registro de Asistencia en el CADPH Garzón
+          </span>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            
+            <!-- Vanilla JS Imperativo -->
+            <div class="rounded-xl border border-rose-200 bg-rose-50/40 p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-rose-800 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-500"></span> 1. Vanilla JS (Imperativo - El "CÓMO")
+                </span>
+                <span class="text-[10px] text-rose-700 bg-rose-100 px-2 py-0.5 rounded font-mono">10 líneas · Propenso a Desincronización</span>
+              </div>
+              <pre class="bg-slate-900 text-slate-200 p-3 rounded-lg text-xs font-mono overflow-x-auto leading-relaxed border border-slate-800"><code>// Buscar elementos a mano
+const btn = document.getElementById('btn');
+btn.addEventListener('click', () => &#123;
+  const ul = document.getElementById('lista');
+  const li = document.createElement('li');
+  li.textContent = 'Carlos Huila';
+  ul.appendChild(li);
+
+  // Peligro: Sincronizar contador a mano
+  const total = document.getElementById('total');
+  total.innerText = parseInt(total.innerText) + 1;
+&#125;);</code></pre>
+              <p class="text-[11px] text-rose-900 mt-2 leading-relaxed">
+                <strong>¿Cuál es el problema real?</strong> Si un aprendiz borra un registro y olvidas restar el contador en otra línea de código, el contador dirá "Total: 10" pero habrá 9 aprendices en la lista.
+              </p>
+            </div>
+
+            <!-- React Declarativo -->
+            <div class="rounded-xl border border-emerald-300 bg-emerald-50/40 p-4">
+              <div class="flex items-center justify-between mb-2">
+                <span class="text-xs font-bold text-emerald-900 flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span> 2. React + Vite (Declarativo - El "QUÉ")
+                </span>
+                <span class="text-[10px] text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded font-mono">4 líneas · 100% Sincronizado</span>
+              </div>
+              <pre class="bg-slate-900 text-slate-200 p-3 rounded-lg text-xs font-mono overflow-x-auto leading-relaxed border border-slate-800"><code>// Estado reactivo en memoria
+const [asistentes, setAsistentes] = useState(['Ana', 'David']);
+
+return (
+  &lt;div&gt;
+    &lt;p&gt;Total presentes: &#123;asistentes.length&#125;&lt;/p&gt;
+    &lt;ul&gt;&#123;asistentes.map(a =&gt; &lt;li key=&#123;a&#125;&gt;&#123;a&#125;&lt;/li&gt;)&#125;&lt;/ul&gt;
+    &lt;button onClick=&#123;() =&gt; setAsistentes([...asistentes, 'Carlos'])&#125;&gt;
+      Registrar
+    &lt;/button&gt;
+  &lt;/div&gt;
+);</code></pre>
+              <p class="text-[11px] text-emerald-950 mt-2 leading-relaxed">
+                <strong>¿Por qué es superior?</strong> El contador <code class="font-mono text-emerald-800">&#123;asistentes.length&#125;</code> y la lista están enlazados matemáticamente. Es <strong>imposible</strong> que se desincronicen.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200 text-xs text-slate-700 flex items-center gap-2">
+          <i data-lucide="shield-alert" class="w-4 h-4 text-amber-600 shrink-0"></i>
+          <span><strong>Regla de oro:</strong> Nunca uses <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">document.querySelector</code> ni <code class="font-mono bg-slate-200 px-1 py-0.5 rounded">innerHTML</code> dentro de React; rompe el árbol de Fiber y causa fugas de memoria.</span>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(2)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.1 Mentalidad</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 2 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(4)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.3 El Virtual DOM</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 4: LECCIÓN 01 · PASO 3/7 - VIRTUAL DOM & RECONCILIACIÓN -->
+    <section id="slide-4" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 3 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Arquitectura Interna de React</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              El Virtual DOM y el Motor de Reconciliación (Fiber)
+            </h2>
+          </div>
+          <span class="bg-purple-50 text-purple-800 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Algoritmo de Diffing en RAM
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch mb-6">
+          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-900 block text-xs sm:text-sm mb-1.5">🐢 ¿Por qué el DOM del Navegador es Lento?</span>
+              <p class="text-xs text-slate-700 leading-relaxed">
+                El DOM del navegador está escrito en <strong>C++</strong> dentro del motor Chromium/Gecko. Cada vez que modificas el HTML con Vanilla JS, el navegador ejecuta dos tareas muy pesadas:
+              </p>
+              <div class="grid grid-cols-2 gap-2 mt-2 font-mono text-[11px]">
+                <div class="p-2 bg-white rounded border border-slate-200 text-slate-800">
+                  <strong class="text-rose-600 block">Reflow:</strong> Recalcular tamaño y posición de cada caja.
+                </div>
+                <div class="p-2 bg-white rounded border border-slate-200 text-slate-800">
+                  <strong class="text-rose-600 block">Repaint:</strong> Volver a pintar los píxeles en la pantalla.
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
+              <span class="font-bold text-emerald-900 block text-xs sm:text-sm mb-1.5">⚡ La Solución: Virtual DOM en Memoria RAM</span>
+              <p class="text-xs text-emerald-900 leading-relaxed">
+                El <strong>Virtual DOM</strong> es una copia ligera en JavaScript (un árbol de objetos JSON normales). Crear y comparar objetos en la memoria RAM de JavaScript toma menos de <strong>0.3 milisegundos</strong>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Ciclo de Reconciliación 4 Fases -->
+          <div class="p-4 bg-slate-900 text-slate-200 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+            <span class="font-bold text-emerald-400 text-xs border-b border-slate-800 pb-2 mb-3">
+              CICLO DE RECONCILIACIÓN (FIBER) EN 4 PASOS:
+            </span>
+            <div class="space-y-2.5">
+              <div class="flex items-start gap-2.5 p-2 bg-slate-800/70 rounded-lg border border-slate-700">
+                <span class="w-5 h-5 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-[10px] shrink-0">1</span>
+                <div>
+                  <strong class="text-emerald-300 block text-[11px]">Disparo de Estado:</strong>
+                  <span class="text-slate-300 text-[10px]">El usuario hace clic y se ejecuta setState(nuevoValor).</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 bg-slate-800/70 rounded-lg border border-slate-700">
+                <span class="w-5 h-5 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-[10px] shrink-0">2</span>
+                <div>
+                  <strong class="text-blue-300 block text-[11px]">Nuevo Virtual DOM:</strong>
+                  <span class="text-slate-300 text-[10px]">React construye un nuevo árbol virtual en memoria RAM en 0.2ms.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 bg-slate-800/70 rounded-lg border border-slate-700">
+                <span class="w-5 h-5 rounded-full bg-purple-500 text-white flex items-center justify-center font-bold text-[10px] shrink-0">3</span>
+                <div>
+                  <strong class="text-purple-300 block text-[11px]">Diffing (Comparación):</strong>
+                  <span class="text-slate-300 text-[10px]">Compara el árbol viejo vs el nuevo y halla la diferencia mínima exacta.</span>
+                </div>
+              </div>
+              <div class="flex items-start gap-2.5 p-2 bg-slate-800/70 rounded-lg border border-slate-700">
+                <span class="w-5 h-5 rounded-full bg-amber-500 text-slate-950 flex items-center justify-center font-bold text-[10px] shrink-0">4</span>
+                <div>
+                  <strong class="text-amber-300 block text-[11px]">Commit Atómico:</strong>
+                  <span class="text-slate-300 text-[10px]">Solo muta el nodo exacto (node.nodeValue) en el DOM real sin redibujar todo.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso Real: Formulario de 10 Campos -->
+        <div class="p-4 bg-blue-50/70 rounded-xl border border-blue-200 text-blue-950">
+          <span class="font-extrabold text-blue-900 block text-xs sm:text-sm mb-1">
+            📌 Caso Real: ¿Por qué en Vanilla JS se borra lo que escribe el aprendiz?
+          </span>
+          <p class="text-xs text-blue-900 leading-relaxed">
+            Si tienes un formulario de 10 campos y agregas una alerta con <code class="font-mono bg-blue-100 px-1 py-0.5 rounded">contenedor.innerHTML += '&lt;div class="alerta"&gt;Guardado&lt;/div&gt;'</code>, el navegador destruye todo el árbol de inputs y lo crea de nuevo: <strong>el aprendiz pierde todo lo que había escrito</strong> y el cursor se sale del campo. En React con Virtual DOM, el algoritmo de Diffing deja los 10 inputs intactos y solo inserta la alerta.
+          </p>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(3)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.2 Declarativo</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 3 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(5)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.4 Inmutabilidad</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: LECCIÓN 01 · PASO 4/7 - INMUTABILIDAD EN MEMORIA -->
+    <section id="slide-5" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 4 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Memoria Stack vs Heap</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Inmutabilidad en Memoria: .push() vs [...spread]
+            </h2>
+          </div>
+          <span class="bg-amber-50 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Object.is(prev, next)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch mb-6">
+          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-900 block text-xs sm:text-sm mb-1.5">🧠 ¿Cómo decide React si re-renderiza o no?</span>
+              <p class="text-xs text-slate-700 leading-relaxed">
+                React no recorre los 500 elementos de una lista para ver si cambió algo (eso quemaría la CPU). En su lugar, hace una comprobación ultrarrápida de referencia:
+              </p>
+              <div class="font-mono text-xs bg-white p-2.5 rounded border border-slate-200 text-center font-bold text-slate-900 my-2">
+                Object.is(estadoAnterior, nuevoEstado)
+              </div>
+              <p class="text-xs text-slate-600">
+                Si las dos variables apuntan a la misma dirección de memoria en el <strong>Heap</strong>, React asume que nada cambió y <strong>cancela el renderizado</strong>.
+              </p>
+            </div>
+
+            <div class="p-4 bg-rose-50/80 rounded-xl border border-rose-200 text-rose-950">
+              <span class="font-bold text-rose-800 block text-xs sm:text-sm mb-1">❌ El Bug #1 del Aprendiz de ADSO:</span>
+              <pre class="bg-slate-900 text-slate-200 p-2.5 rounded text-[11px] font-mono mt-1 mb-2"><code>const [items, setItems] = useState(['A', 'B']); // Memoria: 0x004F
+items.push('C'); // Mutó en la misma celda 0x004F!
+setItems(items); // Object.is(0x004F, 0x004F) === true -> ¡NO RENDERIZA!</code></pre>
+              <p class="text-xs text-rose-900">
+                <em>"Instructor, mi console.log muestra 3 elementos, pero la pantalla sigue mostrando 2. ¿Por qué?"</em> Porque mutaste con <code class="font-mono bg-rose-100 px-1 rounded">.push()</code> sin cambiar la referencia de memoria.
+              </p>
+            </div>
+          </div>
+
+          <!-- Columna Derecha: La Solución Inmutable -->
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+            <div>
+              <span class="font-bold text-emerald-400 text-xs border-b border-slate-800 pb-2 mb-3 block">
+                ✅ LA SOLUCIÓN: SPREAD OPERATOR ([...spread])
+              </span>
+              <pre class="bg-slate-800/80 text-emerald-300 p-3 rounded-lg border border-slate-700 text-xs leading-relaxed"><code>// Genera un NUEVO arreglo en otra celda de memoria
+setItems(prev =&gt; [...prev, 'C']); // Nueva celda: 0x009A
+
+// Comprobación interna de React:
+Object.is(0x004F, 0x009A) === false; // ¡CAMBIO DETECTADO!
+// -&gt; Dispara Fiber Diffing y actualiza la pantalla</code></pre>
+              <div class="mt-4 p-3 bg-slate-800/50 rounded-lg border border-slate-700 text-[11px] text-slate-300 space-y-1.5">
+                <span class="text-emerald-400 font-bold block">Comparativa de Operadores:</span>
+                <div>• <code class="text-rose-400">.push() / .splice()</code>: Mutan el arreglo original (Prohibidos en React).</div>
+                <div>• <code class="text-emerald-400">[...arr, item] / .filter() / .map()</code>: Crean copias inmutables (Obligatorios en React).</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-slate-800 text-[10px] text-slate-400">
+              💡 La inmutabilidad permite que React viaje en el tiempo y mantenga historial de estados.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(4)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.3 Virtual DOM</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 4 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(6)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.5 Vite vs CRA</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6: LECCIÓN 01 · PASO 5/7 - VITE VS CRA -->
+    <section id="slide-6" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 5 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Herramientas Modernas de Desarrollo</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              ¿Por qué Vite en lugar de Create React App (CRA)?
+            </h2>
+          </div>
+          <span class="bg-amber-50 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full border border-amber-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Native ESM + esbuild (Go)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch mb-6">
+          <div class="space-y-4 text-xs sm:text-sm text-slate-600">
+            <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+              <span class="font-bold text-slate-900 block text-xs sm:text-sm mb-1.5">📦 ¿Qué es un Bundler (Empaquetador)?</span>
+              <p class="text-xs text-slate-700 leading-relaxed">
+                El navegador no sabe qué es un archivo <code class="font-mono bg-slate-200 px-1 rounded">.jsx</code> ni cómo importar módulos de <code class="font-mono bg-slate-200 px-1 rounded">node_modules</code>. El empaquetador procesa, optimiza y sirve los archivos al navegador.
+              </p>
+            </div>
+
+            <div class="p-4 bg-rose-50/80 rounded-xl border border-rose-200 text-rose-950">
+              <span class="font-bold text-rose-800 block text-xs sm:text-sm mb-1">💀 La Muerte de Create React App (CRA / Webpack):</span>
+              <p class="text-xs text-rose-900 leading-relaxed">
+                CRA utilizaba Webpack. Antes de poder ver un solo botón en pantalla, Webpack tenía que empaquetar <strong>todos los archivos del proyecto en memoria</strong>. En las salas de sistemas del SENA, tardaba entre 40 y 90 segundos solo en levantar el servidor. Hoy en día, <strong>CRA está oficialmente descontinuado</strong> por el equipo de React.
+              </p>
+            </div>
+
+            <div class="p-4 bg-emerald-50/80 rounded-xl border border-emerald-200 text-emerald-950">
+              <span class="font-bold text-emerald-900 block text-xs sm:text-sm mb-1">⚡ La Revolución de Vite (Francés para "Rápido"):</span>
+              <ul class="space-y-1.5 text-xs text-emerald-900 mt-2">
+                <li>• <strong>Native ES Modules (ESM):</strong> El navegador descarga solo el archivo que necesita en el momento.</li>
+                <li>• <strong>Compilador en Go (esbuild):</strong> Entre 10 y 100 veces más rápido que compiladores JS.</li>
+                <li>• <strong>HMR en menos de 20ms:</strong> Guardas en VS Code y el cambio se ve instantáneamente.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Comandos para la Sesión en Aula -->
+          <div class="p-5 bg-slate-900 text-slate-200 rounded-2xl border border-slate-800 flex flex-col justify-between font-mono text-xs">
+            <div>
+              <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                <span class="font-bold text-emerald-400">TERMINAL: CREAR PROYECTO REACT + VITE</span>
+                <span class="text-[10px] text-slate-400">Bash / PowerShell</span>
+              </div>
+              <pre class="bg-slate-800 text-slate-100 p-3 rounded-lg border border-slate-700 text-xs leading-relaxed overflow-x-auto"><code><span class="text-slate-500"># 1. Crear proyecto React oficial con Vite</span>
+<span class="text-emerald-400">npm create vite@latest</span> frontend-adso -- --template react
+
+<span class="text-slate-500"># 2. Entrar a la carpeta</span>
+<span class="text-blue-400">cd</span> frontend-adso
+
+<span class="text-slate-500"># 3. Instalar librerías</span>
+<span class="text-purple-400">npm install</span>
+
+<span class="text-slate-500"># 4. Iniciar servidor ultrarrápido (&lt;300ms)</span>
+<span class="text-amber-400">npm run dev</span></code></pre>
+              <div class="mt-4 p-3 bg-slate-800/60 rounded-lg border border-slate-700 text-[11px] text-slate-300">
+                <span class="font-bold text-slate-100 block mb-1">Estructura clave generada:</span>
+                <div>• <code class="text-emerald-300">index.html</code>: En la raíz con &lt;script type="module" src="/src/main.jsx"&gt;</div>
+                <div>• <code class="text-blue-300">src/main.jsx</code>: createRoot de React 18+</div>
+                <div>• <code class="text-purple-300">src/App.jsx</code>: Tu primer componente funcional</div>
+              </div>
+            </div>
+            <div class="pt-3 border-t border-slate-800 text-[10px] text-slate-400">
+              💡 En la sala de cómputo del SENA, Vite arranca en menos de 1 segundo.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(5)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.4 Inmutabilidad</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 5 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(7)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.6 Simulador en Vivo</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 7: LECCIÓN 01 · PASO 6/7 - SIMULADOR INTERACTIVO -->
+    <section id="slide-7" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 6 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Laboratorio Práctico en Puesto</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Laboratorio Interactivo: Simulador de Re-renderizado y Virtual DOM
+            </h2>
+          </div>
+          <span class="bg-purple-50 text-purple-800 text-xs font-bold px-3 py-1.5 rounded-full border border-purple-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Prueba de Vida en Memoria
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl border border-slate-200 p-5 sm:p-6 mb-6">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            
+            <!-- Controles y Métricas -->
+            <div class="space-y-4">
+              <span class="text-xs font-bold text-slate-500 uppercase tracking-wider block">
+                Controles de Estado (Simulación de useState)
+              </span>
+              <div class="flex items-center gap-2.5">
+                <button onclick="simularClicReact(1)" class="flex-1 px-4 py-2.5 bg-[#39A900] hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-xs transition active:scale-95 cursor-pointer">
+                  + Sumar Clic (+1)
+                </button>
+                <button onclick="simularClicReact(-1)" class="px-3.5 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold text-xs sm:text-sm rounded-xl transition cursor-pointer">
+                  -1
+                </button>
+                <button onclick="simularClicReact(0)" class="px-3 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-600 font-medium text-xs rounded-xl border border-slate-200 transition cursor-pointer">
+                  Resetear
+                </button>
+              </div>
+
+              <div class="p-3 bg-white rounded-xl border border-slate-200 shadow-2xs font-mono text-xs space-y-2">
+                <div class="flex items-center justify-between border-b border-slate-100 pb-1.5">
+                  <span class="text-slate-500">Estado en Memoria:</span>
+                  <span id="simulador-estado-valor" class="font-bold text-slate-900 text-sm">0</span>
+                </div>
+                <div class="flex items-center justify-between border-b border-slate-100 pb-1.5">
+                  <span class="text-slate-500">Nodos Mutados en DOM Real:</span>
+                  <span class="font-bold text-emerald-600">1 solo nodo (texto)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-500">Tiempo de Reconciliación:</span>
+                  <span id="simulador-tiempo-valor" class="font-bold text-blue-600">0.4 ms (Instantáneo)</span>
+                </div>
+              </div>
+
+              <div id="simulador-badge-vdom" class="text-xs p-2.5 rounded-lg bg-emerald-100/70 border border-emerald-300 text-emerald-900 font-medium flex items-center gap-2">
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#39A900] shrink-0"></i>
+                <span>¡Reconciliado! Solo se actualizó el nodo <code class="font-mono bg-white px-1 rounded">&lt;span id="contador-valor"&gt;</code></span>
+              </div>
+            </div>
+
+            <!-- Vista Previa del Componente -->
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 text-slate-100 flex flex-col items-center justify-center min-h-[220px]">
+              <div class="w-full flex items-center justify-between text-[11px] text-slate-400 mb-4 border-b border-slate-800 pb-2">
+                <span class="font-mono text-emerald-400">VISTA PREVIA DEL COMPONENTE REACT</span>
+                <span class="bg-emerald-950 text-emerald-400 border border-emerald-800 px-2 py-0.5 rounded text-[10px]">Sincronizado</span>
+              </div>
+
+              <!-- Componente Card -->
+              <div id="componente-react-card" class="bg-slate-800 border border-slate-700 rounded-xl p-4 w-full max-w-xs text-center transition-all duration-300">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-[#39A900] border border-emerald-500/40 mx-auto flex items-center justify-center font-bold mb-2">
+                  ADSO
+                </div>
+                <div class="text-xs text-slate-400 font-medium">Tarjeta de Aprendiz ADSO</div>
+                <div class="text-sm font-bold text-white mt-0.5">Paula Andrea Gómez</div>
+                <div class="mt-3 py-1.5 px-3 bg-slate-900 rounded-lg border border-slate-700 font-mono text-xs">
+                  Puntaje Acumulado: <strong id="simulador-display-count" class="text-emerald-400 text-sm">0</strong>
+                </div>
+              </div>
+
+              <p class="text-[11px] text-slate-400 text-center mt-3">
+                ✔ Al presionar el botón, solo el número resalta sin recargar ni parpadear la tarjeta.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(6)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.5 Vite vs CRA</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 6 de 7 · Lección 01</span>
+          <button onclick="irDiapositiva(8)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-[#39A900] hover:bg-emerald-700 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente: 1.7 Reto en Aula</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 8: LECCIÓN 01 · PASO 7/7 - RETO EN AULA -->
+    <section id="slide-8" class="slide-content hidden flex-col my-auto py-4 w-full">
+      <div class="bg-white rounded-2xl p-5 sm:p-8 border border-slate-200/90 shadow-sm max-w-5xl mx-auto w-full">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-slate-200/80 pb-5">
+          <div>
+            <div class="flex items-center gap-2 mb-1.5 flex-wrap">
+              <span class="text-xs font-black text-[#39A900] uppercase tracking-wider bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">
+                Módulo 1 · Lección 01 (Paso 7 de 7)
+              </span>
+              <span class="text-xs text-slate-500 font-medium">Evaluación Formativa Inmediata</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+              Reto en Aula 01: Identificar Mutación vs Estado Declarativo
+            </h2>
+          </div>
+          <span class="bg-emerald-50 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full border border-emerald-200 self-start sm:self-auto shrink-0 shadow-2xs">
+            Práctica en Puesto (5 min)
+          </span>
+        </div>
+
+        <div class="flex items-center gap-1.5 p-1 bg-slate-100/90 rounded-xl border border-slate-200 mb-6 overflow-x-auto text-[11px] font-semibold">
+          <button onclick="irDiapositiva(2)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">1. Mentalidad</button>
+          <button onclick="irDiapositiva(3)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">2. Imperativo vs Declarativo</button>
+          <button onclick="irDiapositiva(4)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">3. Virtual DOM</button>
+          <button onclick="irDiapositiva(5)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">4. Inmutabilidad</button>
+          <button onclick="irDiapositiva(6)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">5. Vite vs CRA</button>
+          <button onclick="irDiapositiva(7)" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 shrink-0 cursor-pointer">6. Simulador</button>
+          <button onclick="irDiapositiva(8)" class="px-3 py-1.5 rounded-lg bg-[#39A900] text-white font-bold shrink-0 shadow-xs cursor-pointer">7. Reto en Aula</button>
+        </div>
+
+        <p class="text-xs sm:text-sm text-slate-700 mb-4 font-medium">
+          <strong>Pregunta para los aprendices:</strong> En React, ¿cuál de las siguientes dos funciones provocará que la interfaz gráfica <span class="text-rose-600 font-bold underline">NO</span> se actualice y cuál funcionará correctamente?
+        </p>
+
+        <!-- Dos Implementaciones Lado a Lado con Botones de Selección -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          <div class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="text-slate-400 block mb-2 font-bold">// Implementación A:</span>
+              <pre class="text-slate-200 leading-relaxed"><code>function agregarA(lista, item) &#123;
+  lista.push(item);
+  return lista;
+&#125;</code></pre>
+            </div>
+            <button onclick="responderRetoL1('A')" class="mt-4 w-full py-2 bg-slate-800 hover:bg-rose-900/40 text-rose-300 hover:text-white border border-rose-800/60 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+              <span>Probar Opción A (push)</span>
+            </button>
+          </div>
+
+          <div class="bg-slate-900 text-slate-200 p-4 rounded-xl font-mono text-xs border border-slate-800 flex flex-col justify-between">
+            <div>
+              <span class="text-slate-400 block mb-2 font-bold">// Implementación B:</span>
+              <pre class="text-emerald-400 leading-relaxed"><code>function agregarB(lista, item) &#123;
+  return [...lista, item];
+&#125;</code></pre>
+            </div>
+            <button onclick="responderRetoL1('B')" class="mt-4 w-full py-2 bg-emerald-950/80 hover:bg-[#39A900] text-emerald-300 hover:text-white border border-emerald-700/80 rounded-lg font-bold text-xs transition cursor-pointer flex items-center justify-center gap-1.5">
+              <span>Probar Opción B (spread)</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Feedback Dinámico de la Respuesta -->
+        <div id="feedback-reto-l1" class="hidden p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border transition-all"></div>
+
+        <!-- Guía Oculta para el Instructor -->
+        <details class="bg-slate-50 border border-slate-200 rounded-xl p-3 text-xs text-slate-600">
+          <summary class="font-bold text-slate-800 cursor-pointer hover:text-emerald-700 transition flex items-center gap-1.5">
+            <i data-lucide="help-circle" class="w-4 h-4 text-[#39A900]"></i>
+            <span>Ver Guía Pedagógica y Solución Técnica para el Instructor</span>
+          </summary>
+          <div class="mt-3 pt-3 border-t border-slate-200 space-y-2 text-slate-700 leading-relaxed">
+            <p><strong>Explicación para el aula:</strong></p>
+            <p>
+              • <strong>La Opción A falla:</strong> <code class="font-mono bg-slate-200 px-1 rounded">lista.push()</code> muta el arreglo existente en el Heap. La dirección en memoria sigue siendo la misma. React compara <code class="font-mono bg-slate-200 px-1 rounded">Object.is(prev, next)</code>, que devuelve <code class="font-mono text-rose-600">true</code>, por lo que React decide que no hubo cambios y <strong>cancela el re-renderizado</strong>.
+            </p>
+            <p>
+              • <strong>La Opción B triunfa:</strong> El operador spread <code class="font-mono bg-slate-200 px-1 rounded">[...lista, item]</code> crea un <strong>nuevo arreglo en una dirección de memoria distinta</strong>. Para React, <code class="font-mono bg-slate-200 px-1 rounded">Object.is(prev, next)</code> es <code class="font-mono text-emerald-600">false</code>, lo que dispara inmediatamente el ciclo de actualización de la UI.
+            </p>
+          </div>
+        </details>
+
+        <!-- Footer Navegación de Slide -->
+        <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-200">
+          <button onclick="irDiapositiva(7)" class="flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-xl transition cursor-pointer">
+            <i data-lucide="arrow-left" class="w-4 h-4 text-slate-500"></i>
+            <span>Anterior: 1.6 Simulador en Vivo</span>
+          </button>
+          <span class="text-xs text-slate-400 font-medium hidden sm:inline">Paso 7 de 7 · Fin Lección 01</span>
+          <button onclick="irDiapositiva(9)" class="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-xs transition cursor-pointer">
+            <span>Siguiente Lección: 02. Variables Modernas</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+<section id="slide-9" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1507,7 +1877,7 @@ console.log(aprendiz === aprendizActualizado); // false (Nueva referencia!)</cod
     </section>
 
     <!-- SLIDE 4: DESESTRUCTURACIÓN (PROPS DE REACT) -->
-    <section id="slide-4" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-10" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1596,7 +1966,7 @@ function TarjetaProducto({
     </section>
 
     <!-- SLIDE 5: SPREAD OPERATOR (...) E INMUTABILIDAD -->
-    <section id="slide-5" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-11" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1685,7 +2055,7 @@ const eliminar = (carrito, id) => carrito.filter(item => item.id !== id);</code>
     </section>
 
     <!-- SLIDE 6: ARROW FUNCTIONS & RETORNOS IMPLÍCITOS -->
-    <section id="slide-6" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-12" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1768,7 +2138,7 @@ const crearAprendiz = (id, nombre) => ({
     </section>
 
     <!-- SLIDE 7: MÉTODOS PUROS .MAP Y .FILTER -->
-    <section id="slide-7" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-13" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1854,7 +2224,7 @@ const productosDisponibles = catalogo
     </section>
 
     <!-- SLIDE 8: EL PODER DE .REDUCE() Y BALANCES -->
-    <section id="slide-8" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-14" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1936,7 +2306,7 @@ balance.totalPagar = balance.baseGravable + balance.iva19;</code></pre>
     </section>
 
     <!-- SLIDE 9: MÓDULOS ES6 (IMPORT / EXPORT) & VITE -->
-    <section id="slide-9" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-15" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -1999,7 +2369,7 @@ import PerfilAprendiz from './PerfilAprendiz.jsx';</code></pre>
     </section>
 
     <!-- SLIDE 10: EL EVENT LOOP Y LA ASINCRONÍA -->
-    <section id="slide-10" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-16" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2059,7 +2429,7 @@ console.log('4. Fin');
     </section>
 
     <!-- SLIDE 11: PROMESAS & ASYNC / AWAIT -->
-    <section id="slide-11" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-17" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2131,7 +2501,7 @@ console.log('4. Fin');
     </section>
 
     <!-- SLIDE 12: PROMISE.ALL Y SINCRONIZACIÓN -->
-    <section id="slide-12" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-18" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2186,7 +2556,7 @@ const [usuarios, productos, ventas] = await Promise.all([
     </section>
 
     <!-- SLIDE 13: RESUMEN DE LOS 5 RETOS DE AULA -->
-    <section id="slide-13" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-19" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2266,7 +2636,7 @@ const [usuarios, productos, ventas] = await Promise.all([
     </section>
 
     <!-- SLIDE 14: CÓMO EJECUTAR EL VALIDADOR EN VS CODE -->
-    <section id="slide-14" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-20" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2351,7 +2721,7 @@ const [usuarios, productos, ventas] = await Promise.all([
     </section>
 
     <!-- SLIDE 15: GIT, EVIDENCIAS Y SUSTENTACIÓN -->
-    <section id="slide-15" class="slide-content hidden flex-col my-auto py-4">
+    <section id="slide-21" class="slide-content hidden flex-col my-auto py-4">
       <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm max-w-5xl mx-auto w-full">
         <div class="flex items-center justify-between mb-4 border-b pb-4">
           <div>
@@ -2537,34 +2907,49 @@ git push -u origin main</code></pre>
 
   <!-- ================= LOGIC & INTERACTION SCRIPT ================= -->
   <script>
-    // Diapositivas metadata
+    // Diapositivas metadata (21 Slides totales)
     const slidesData = [
-      { id: 1, title: "Sesión 03 · Día 3: JavaScript Moderno (ES6+) y Asincronía en Node.js", tag: "Inicio" },
-      { id: 2, title: "¿Por qué este JS es el 90% del éxito en React?", tag: "Mentalidad" },
-      { id: 3, title: "Variables Modernas: Inmutabilidad vs Reasignación", tag: "const/let" },
-      { id: 4, title: "Desestructuración: La Anatomía de las Props en React", tag: "Reto 1" },
-      { id: 5, title: "Spread Operator (...): El Motor de useState", tag: "Reto 2" },
-      { id: 6, title: "Arrow Functions y Retorno Implícito", tag: "Sintaxis" },
-      { id: 7, title: "Métodos Puros: .map() y .filter() para UI", tag: "Reto 3" },
-      { id: 8, title: "Dominio de .reduce(): Balances y useReducer", tag: "Reto 4" },
-      { id: 9, title: "Módulos ES6: import / export en la Era de Vite", tag: "ES Modules" },
-      { id: 10, title: "El Event Loop, Call Stack y Microtasks", tag: "Node.js" },
-      { id: 11, title: "Async / Await con Control Robusto de Fallos", tag: "Reto 5" },
-      { id: 12, title: "Concurrencia: Promise.all() y Promise.allSettled()", tag: "Dashboards" },
-      { id: 13, title: "Los 5 Retos Prácticos de Aula", tag: "Taller" },
-      { id: 14, title: "Validación Automatizada en VS Code", tag: "Node Test" },
-      { id: 15, title: "Flujo de Git, Commits Semánticos y Sustentación", tag: "Entrega" }
+      { id: 1, title: "Temario Principal · 14 Lecciones hacia React + Vite", tag: "Inicio", lesson: 0, step: "Home" },
+      { id: 2, title: "1.1 Mentalidad React: ¿Por qué este JS es el 90%?", tag: "Mentalidad", lesson: 1, step: "Paso 1/7" },
+      { id: 3, title: "1.2 Paradigma Imperativo vs Declarativo (UI = f(Estado))", tag: "Declarativo", lesson: 1, step: "Paso 2/7" },
+      { id: 4, title: "1.3 El Virtual DOM y Algoritmo de Reconciliación (Fiber)", tag: "Virtual DOM", lesson: 1, step: "Paso 3/7" },
+      { id: 5, title: "1.4 Inmutabilidad en Memoria: .push() vs [...spread]", tag: "Inmutabilidad", lesson: 1, step: "Paso 4/7" },
+      { id: 6, title: "1.5 Herramientas Modernas: ¿Por qué Vite y no CRA?", tag: "Vite + ESM", lesson: 1, step: "Paso 5/7" },
+      { id: 7, title: "1.6 Laboratorio Interactivo: Simulador de Virtual DOM", tag: "Simulador", lesson: 1, step: "Paso 6/7" },
+      { id: 8, title: "1.7 Reto en Aula 01: Mutación vs Inmutabilidad", tag: "Reto 1", lesson: 1, step: "Paso 7/7" },
+      { id: 9, title: "Lección 02: Variables Modernas (const / let & Heap)", tag: "const/let", lesson: 2, step: "Lección 02" },
+      { id: 10, title: "Lección 03: Desestructuración y Props en React", tag: "Props", lesson: 3, step: "Lección 03" },
+      { id: 11, title: "Lección 04: Spread Operator (...): El Motor de useState", tag: "useState", lesson: 4, step: "Lección 04" },
+      { id: 12, title: "Lección 05: Arrow Functions y Retorno Implícito en JSX", tag: "Funciones", lesson: 5, step: "Lección 05" },
+      { id: 13, title: "Lección 06: Métodos Puros (.map, .filter) para UI", tag: "Arreglos", lesson: 6, step: "Lección 06" },
+      { id: 14, title: "Lección 07: Dominio de .reduce(): Balances y useReducer", tag: "reduce", lesson: 7, step: "Lección 07" },
+      { id: 15, title: "Lección 08: Módulos ES6 en la Era de Vite", tag: "Módulos", lesson: 8, step: "Lección 08" },
+      { id: 16, title: "Lección 09: El Event Loop, Call Stack y Microtasks", tag: "Asincronía", lesson: 9, step: "Lección 09" },
+      { id: 17, title: "Lección 10: Async / Await con Control Robusto de Fallos", tag: "Fetch API", lesson: 10, step: "Lección 10" },
+      { id: 18, title: "Lección 11: Concurrencia con Promise.all y Dashboards", tag: "Concurrencia", lesson: 11, step: "Lección 11" },
+      { id: 19, title: "Lección 12: Los 5 Retos Prácticos de Aula", tag: "Retos", lesson: 12, step: "Lección 12" },
+      { id: 20, title: "Lección 13: Validación Automatizada en VS Code con Node", tag: "Tests Node", lesson: 13, step: "Lección 13" },
+      { id: 21, title: "Lección 14: Flujo de Git, Commits y Sustentación", tag: "Git/GitHub", lesson: 14, step: "Lección 14" }
     ];
 
     let currentSlide = 1;
-    const totalSlides = 15;
+    const totalSlides = 21;
+
+    // Helper para navegar por lección desde el Temario
+    function irLeccion(numLeccion) {
+      if (numLeccion === 1) return irDiapositiva(2);
+      if (numLeccion >= 2 && numLeccion <= 14) return irDiapositiva(numLeccion + 7);
+      return irDiapositiva(1);
+    }
 
     // Actualizar fecha dinámica
     const fechaEl = document.getElementById('fecha-actual');
-    const hoy = new Date();
-    const opcionesFecha = { weekday: 'short', day: 'numeric', month: 'short' };
-    const fechaFormateada = hoy.toLocaleDateString('es-ES', opcionesFecha);
-    fechaEl.textContent = `Hoy: ${fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1)}`;
+    if (fechaEl) {
+      const hoy = new Date();
+      const opcionesFecha = { weekday: 'short', day: 'numeric', month: 'short' };
+      const fechaFormateada = hoy.toLocaleDateString('es-ES', opcionesFecha);
+      fechaEl.textContent = `Hoy: ${fechaFormateada.charAt(0).toUpperCase() + fechaFormateada.slice(1)}`;
+    }
 
     // Alternar entre Vista Temario y Vista Bloques en Slide 1
     function cambiarVistaInicio(vista) {
@@ -2588,7 +2973,7 @@ git push -u origin main</code></pre>
         if (tabBloques) tabBloques.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition shadow-xs bg-slate-900 text-white cursor-pointer';
         if (tabTemario) tabTemario.className = 'flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900 transition cursor-pointer';
       }
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     }
 
     // Navegación de Diapositivas
@@ -2614,9 +2999,10 @@ git push -u origin main</code></pre>
         siguiente.classList.add('flex', 'slide-fade-enter-active');
       }
 
-      // Actualizar indicadores y visibilidad de controles de lección en el navbar
+      // Actualizar indicadores y visibilidad de controles en el navbar
       const lessonControls = document.getElementById('nav-lesson-controls');
       const slideIndicator = document.getElementById('slide-indicator');
+      const slideBadge = document.getElementById('slide-lesson-badge');
       const navSlideTitle = document.getElementById('nav-slide-title');
       const btnPrev = document.getElementById('btn-prev-slide');
       const btnNext = document.getElementById('btn-next-slide');
@@ -2632,7 +3018,14 @@ git push -u origin main</code></pre>
           lessonControls.classList.add('flex');
         }
         if (slideIndicator) {
-          slideIndicator.textContent = `Lección ${currentSlide - 1} / ${totalSlides - 1}`;
+          slideIndicator.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+        }
+        if (slideBadge) {
+          if (currentSlide >= 2 && currentSlide <= 8) {
+            slideBadge.textContent = `Lección 01 · Paso ${currentSlide - 1}/7`;
+          } else {
+            slideBadge.textContent = `Lección ${currentSlide - 7} / 14`;
+          }
         }
         const slideMeta = slidesData.find(s => s.id === currentSlide);
         if (slideMeta && navSlideTitle) {
@@ -2640,55 +3033,77 @@ git push -u origin main</code></pre>
         }
       }
 
-      // Estados de botones ant/sig si existen
+      // Estados de botones ant/sig
       if (btnPrev) btnPrev.disabled = (currentSlide <= 1);
       if (btnNext) btnNext.disabled = (currentSlide >= totalSlides);
 
-      // Actualizar resaltado en drawer
+      // Actualizar resaltado en drawer si existe
       actualizarItemsDrawer();
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (window.lucide) lucide.createIcons();
     }
 
-    document.getElementById('btn-prev-slide').addEventListener('click', () => irDiapositiva(currentSlide - 1));
-    document.getElementById('btn-next-slide').addEventListener('click', () => irDiapositiva(currentSlide + 1));
-    const btnStartLesson = document.getElementById('btn-start-lesson'); if (btnStartLesson) btnStartLesson.addEventListener('click', () => irDiapositiva(2));
+    // Event listeners de controles de slide en navbar
+    const btnPrevSlide = document.getElementById('btn-prev-slide');
+    if (btnPrevSlide) btnPrevSlide.addEventListener('click', () => irDiapositiva(currentSlide - 1));
 
-    // Generar lista en el Drawer
-    const drawerList = document.getElementById('drawer-list');
-    slidesData.forEach(slide => {
-      const btn = document.createElement('button');
-      btn.className = `w-full text-left p-3 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} hover:bg-slate-50 border-slate-200`;
-      btn.innerHTML = `
-        <div class="flex items-center gap-2.5">
-          <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-mono font-bold text-[11px]">${slide.id}</span>
-          <span class="text-slate-800 line-clamp-1">${slide.title}</span>
-        </div>
-        <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-500">${slide.tag}</span>
-      `;
-      btn.onclick = () => {
-        irDiapositiva(slide.id);
-        toggleDrawer(false);
-      };
-      drawerList.appendChild(btn);
+    const btnNextSlide = document.getElementById('btn-next-slide');
+    if (btnNextSlide) btnNextSlide.addEventListener('click', () => irDiapositiva(currentSlide + 1));
+
+    const btnStartLesson = document.getElementById('btn-start-lesson');
+    if (btnStartLesson) btnStartLesson.addEventListener('click', () => irDiapositiva(2));
+
+    // Atajos de teclado en aula (Flechas y Espacio)
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        irDiapositiva(currentSlide + 1);
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        irDiapositiva(currentSlide - 1);
+      } else if (e.key === 'Escape') {
+        irDiapositiva(1);
+      }
     });
+
+    // Generar lista en el Drawer lateral
+    const drawerList = document.getElementById('drawer-list');
+    if (drawerList) {
+      drawerList.innerHTML = '';
+      slidesData.forEach(slide => {
+        const btn = document.createElement('button');
+        btn.className = `w-full text-left p-2.5 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} hover:bg-slate-50 border-slate-200 cursor-pointer`;
+        btn.innerHTML = `
+          <div class="flex items-center gap-2.5 min-w-0">
+            <span class="w-6 h-6 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center font-mono font-bold text-[10px] shrink-0">${slide.id}</span>
+            <span class="text-slate-800 truncate">${slide.title}</span>
+          </div>
+          <span class="text-[9px] font-bold px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 shrink-0">${slide.tag}</span>
+        `;
+        btn.onclick = () => {
+          irDiapositiva(slide.id);
+          toggleDrawer(false);
+        };
+        drawerList.appendChild(btn);
+      });
+    }
 
     function actualizarItemsDrawer() {
       slidesData.forEach(slide => {
         const item = document.querySelector(`.drawer-item-${slide.id}`);
         if (item) {
           if (slide.id === currentSlide) {
-            item.className = `w-full text-left p-3 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} bg-emerald-50 border-emerald-300 text-emerald-900 shadow-xs`;
+            item.className = `w-full text-left p-2.5 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} bg-emerald-50 border-emerald-300 text-emerald-900 shadow-xs cursor-pointer`;
           } else {
-            item.className = `w-full text-left p-3 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} hover:bg-slate-50 border-slate-200 text-slate-700`;
+            item.className = `w-full text-left p-2.5 rounded-xl border text-xs font-medium transition flex items-center justify-between drawer-item-${slide.id} hover:bg-slate-50 border-slate-200 text-slate-700 cursor-pointer`;
           }
         }
       });
     }
 
-    // Drawer Toggle
+    // Toggle Drawer Lateral
     const slideDrawer = document.getElementById('slide-drawer');
     function toggleDrawer(open) {
+      if (!slideDrawer) return;
       if (open) {
         slideDrawer.classList.remove('hidden');
         actualizarItemsDrawer();
@@ -2696,13 +3111,15 @@ git push -u origin main</code></pre>
         slideDrawer.classList.add('hidden');
       }
     }
-    // btn-open-drawer removed from navbar
-    document.getElementById('btn-close-drawer').addEventListener('click', () => toggleDrawer(false));
-    slideDrawer.addEventListener('click', (e) => {
-      if (e.target === slideDrawer) toggleDrawer(false);
-    });
+    const btnCloseDrawer = document.getElementById('btn-close-drawer');
+    if (btnCloseDrawer) btnCloseDrawer.addEventListener('click', () => toggleDrawer(false));
+    if (slideDrawer) {
+      slideDrawer.addEventListener('click', (e) => {
+        if (e.target === slideDrawer) toggleDrawer(false);
+      });
+    }
 
-    // Cronómetro de Clase Funcional
+    // Cronómetro de Aula
     let timerSeconds = 0;
     let timerInterval = null;
     let timerRunning = false;
@@ -2718,93 +3135,113 @@ git push -u origin main</code></pre>
       return `${minutos}:${segundos}`;
     }
 
-    function toggleTimer() {
-      if (!timerDisplay) return;
-      if (timerRunning) {
+    if (btnTimerToggle) {
+      btnTimerToggle.addEventListener('click', () => {
+        if (timerRunning) {
+          clearInterval(timerInterval);
+          timerRunning = false;
+          if (timerActionText) timerActionText.textContent = 'Reanudar';
+          if (timerIcon) timerIcon.setAttribute('data-lucide', 'play');
+        } else {
+          timerInterval = setInterval(() => {
+            timerSeconds++;
+            if (timerDisplay) timerDisplay.textContent = formatearTiempo(timerSeconds);
+          }, 1000);
+          timerRunning = true;
+          if (timerActionText) timerActionText.textContent = 'Pausar';
+          if (timerIcon) timerIcon.setAttribute('data-lucide', 'pause');
+        }
+        if (window.lucide) lucide.createIcons();
+      });
+    }
+
+    if (btnTimerReset) {
+      btnTimerReset.addEventListener('click', () => {
         clearInterval(timerInterval);
         timerRunning = false;
-        if (timerActionText) timerActionText.textContent = "Reanudar";
+        timerSeconds = 0;
+        if (timerDisplay) timerDisplay.textContent = '00:00';
+        if (timerActionText) timerActionText.textContent = 'Iniciar';
         if (timerIcon) timerIcon.setAttribute('data-lucide', 'play');
-      } else {
-        timerInterval = setInterval(() => {
-          timerSeconds++;
-          if (timerDisplay) timerDisplay.textContent = formatearTiempo(timerSeconds);
-        }, 1000);
-        timerRunning = true;
-        if (timerActionText) timerActionText.textContent = "Pausar";
-        if (timerIcon) timerIcon.setAttribute('data-lucide', 'pause');
-      }
-      lucide.createIcons();
+        if (window.lucide) lucide.createIcons();
+      });
     }
 
-    function resetTimer() {
-      clearInterval(timerInterval);
-      timerRunning = false;
-      timerSeconds = 0;
-      timerDisplay.textContent = "00:00";
-      timerActionText.textContent = "Iniciar";
-      timerIcon.setAttribute('data-lucide', 'play');
-      lucide.createIcons();
+    // -------------------------------------------------------------
+    // INTERACTIVIDAD LECCIÓN 01: SIMULADOR Y RETO EN AULA
+    // -------------------------------------------------------------
+    let estadoSimulador = 0;
+    function simularClicReact(delta) {
+      if (delta === 0) {
+        estadoSimulador = 0;
+      } else {
+        estadoSimulador += delta;
+      }
+      
+      const estadoValor = document.getElementById('simulador-estado-valor');
+      const displayCount = document.getElementById('simulador-display-count');
+      const tiempoValor = document.getElementById('simulador-tiempo-valor');
+      const badgeVdom = document.getElementById('simulador-badge-vdom');
+      const card = document.getElementById('componente-react-card');
+      
+      if (estadoValor) estadoValor.textContent = estadoSimulador;
+      if (displayCount) displayCount.textContent = estadoSimulador;
+      
+      // Tiempo aleatorio microsegundos
+      const ms = (Math.random() * 0.4 + 0.2).toFixed(1);
+      if (tiempoValor) tiempoValor.textContent = `${ms} ms (Instantáneo)`;
+      
+      // Destello del componente
+      if (card) {
+        card.classList.add('ring-4', 'ring-[#39A900]', 'scale-[1.02]');
+        setTimeout(() => {
+          card.classList.remove('ring-4', 'ring-[#39A900]', 'scale-[1.02]');
+        }, 350);
+      }
+      
+      if (badgeVdom) {
+        badgeVdom.classList.add('bg-emerald-200');
+        setTimeout(() => badgeVdom.classList.remove('bg-emerald-200'), 300);
+      }
+      if (window.lucide) lucide.createIcons();
     }
 
-    // btnTimerToggle listener (removed from navbar)
-    // btnTimerReset listener (removed from navbar)
-
-    // Pantalla Completa
-    const btnFullscreen = document.getElementById('btn-fullscreen');
-    btnFullscreen.addEventListener('click', () => {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen().catch(() => {});
+    function responderRetoL1(opcion) {
+      const fb = document.getElementById('feedback-reto-l1');
+      if (!fb) return;
+      fb.classList.remove('hidden');
+      
+      if (opcion === 'A') {
+        fb.className = 'p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border bg-rose-50 border-rose-300 text-rose-950 transition-all';
+        fb.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <span class="text-rose-600 font-extrabold text-base">❌</span>
+            <div>
+              <strong class="text-rose-800 block text-sm mb-1">¡Incorrecto! La Implementación A provocará que la pantalla NO se actualice:</strong>
+              <p>
+                Al ejecutar <code>lista.push(item)</code> estás <strong>mutando el mismo arreglo en el Heap</strong>. La dirección de memoria sigue siendo la misma. React compara <code>Object.is(prev, next)</code>, el cual evalúa como <code>true</code>. React asume que nada ha cambiado y <strong>aborta el re-renderizado</strong>.
+              </p>
+            </div>
+          </div>
+        `;
       } else {
-        document.exitFullscreen().catch(() => {});
+        fb.className = 'p-4 rounded-xl text-xs sm:text-sm leading-relaxed mb-4 border bg-emerald-50 border-emerald-300 text-emerald-950 transition-all';
+        fb.innerHTML = `
+          <div class="flex items-start gap-2.5">
+            <span class="text-emerald-600 font-extrabold text-base">✔</span>
+            <div>
+              <strong class="text-[#39A900] block text-sm mb-1">¡Correcto! La Implementación B actualizará la pantalla de inmediato:</strong>
+              <p>
+                El operador spread <code>[...lista, item]</code> genera una <strong>nueva referencia en el Heap de memoria</strong>. React evalúa <code>Object.is(prev, next) === false</code>, detecta el cambio instantáneamente y dispara el algoritmo de Diffing del Virtual DOM para pintar el nuevo elemento.
+              </p>
+            </div>
+          </div>
+        `;
       }
-    });
-
-    // Modal Ayuda
-    const helpModal = document.getElementById('help-modal');
-    function toggleHelp(open) {
-      if (open) {
-        helpModal.classList.remove('hidden');
-        helpModal.classList.add('flex');
-      } else {
-        helpModal.classList.add('hidden');
-        helpModal.classList.remove('flex');
-      }
+      if (window.lucide) lucide.createIcons();
     }
-    document.getElementById('btn-help').addEventListener('click', () => toggleHelp(true));
-    document.getElementById('btn-close-help').addEventListener('click', () => toggleHelp(false));
-    document.getElementById('btn-close-help-confirm').addEventListener('click', () => toggleHelp(false));
-    helpModal.addEventListener('click', (e) => {
-      if (e.target === helpModal) toggleHelp(false);
-    });
 
-    // Atajos de Teclado
-    window.addEventListener('keydown', (e) => {
-      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        irDiapositiva(currentSlide + 1);
-      } else if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        irDiapositiva(currentSlide - 1);
-      } else if (e.key === 'f' || e.key === 'F') {
-        if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen().catch(() => {});
-        } else {
-          document.exitFullscreen().catch(() => {});
-        }
-      } else if (e.key === 'm' || e.key === 'M') {
-        toggleDrawer(slideDrawer.classList.contains('hidden'));
-      } else if (e.key === 't' || e.key === 'T') {
-        toggleTimer();
-      } else if (e.key === 'Escape') {
-        toggleDrawer(false);
-        toggleHelp(false);
-      }
-    });
-
-    // Copiar al portapapeles
     function copiarCodigo(elemId) {
       const code = document.getElementById(elemId)?.innerText || '';
       navigator.clipboard.writeText(code).then(() => {
